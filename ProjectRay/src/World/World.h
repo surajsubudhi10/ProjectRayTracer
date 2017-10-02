@@ -21,7 +21,7 @@
 #include "../Objects/Sphere.h"
 #include "../Utils/Ray.h"
 
-//#include "Camera.h"
+#include "../Camera/Camera.h"
 //#include "Light.h"
 //#include "Ambient.h"
 
@@ -40,7 +40,7 @@ public:
 	Sphere 						sphere;		// for Chapter 3 only
 	vector<GeometricObject*>	objects;
 	//RenderThread* 				paintArea; 	//connection to skeleton - wxRaytracer.h
-	//Camera*						camera_ptr;	// the camera to use
+	Camera*						camera_ptr;	// the camera to use
 	//vector<Light*>				lights;
 
 	RGBColor* primaryBuffer;
@@ -64,8 +64,8 @@ public:
 	void
 		render_scene(void);// const;
 
-	/*void
-		set_camera(Camera* camera);*/
+	void
+		set_camera(Camera* camera);
 
 	/*void
 		set_ambient_light(Ambient* amb);*/
@@ -115,9 +115,9 @@ World::add_object(GeometricObject* object_ptr) {
 //	lights.push_back(light_ptr);
 //}
 
-//inline void
-//World::set_camera(Camera* camera) {
-//	camera_ptr = camera;
-//}
+inline void
+World::set_camera(Camera* camera) {
+	camera_ptr = camera;
+}
 
 

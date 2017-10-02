@@ -111,7 +111,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Camera\Camera.cpp" />
     <ClCompile Include="src\builds\bareBoneBuild.cpp" />
+    <ClCompile Include="src\Camera\PinHole.cpp" />
     <ClCompile Include="src\Objects\Plane.cpp" />
     <ClCompile Include="src\Objects\Sphere.cpp" />
     <ClCompile Include="src\Utils\ShadeRec.cpp" />
@@ -129,6 +131,8 @@
     <ClCompile Include="src\World\ViewPlane.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Camera\Camera.h" />
+    <ClInclude Include="src\Camera\PinHole.h" />
     <ClInclude Include="src\Objects\Plane.h" />
     <ClInclude Include="src\Objects\Sphere.h" />
     <ClInclude Include="src\Utils\ShadeRec.h" />

@@ -7,7 +7,8 @@ int main() {
 
 	World w;
 	w.build();
-	w.render_scene();
+	//w.render_scene();
+	w.camera_ptr->render_scene(w);
 
 	std::cout << "RayTracing.." << std::endl;
 	w.Savebmp("testBareBoneRaytracer.bmp");

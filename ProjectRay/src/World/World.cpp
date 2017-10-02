@@ -38,9 +38,9 @@
 // -------------------------------------------------------------------- default constructor
 
 World::World(void)
-	: background_color(black)
+	: background_color(black),
 	//tracer_ptr(NULL),
-	//camera_ptr(NULL),
+	camera_ptr(NULL)//,
 	//ambient_ptr(new Ambient)
 {
 	primaryBuffer = new RGBColor[vp.vres * vp.hres];
@@ -55,13 +55,13 @@ World::~World(void) {
 	/*if (tracer_ptr) {
 		delete tracer_ptr;
 		tracer_ptr = NULL;
-	}
+	}*/
 
 	if (camera_ptr) {
 		delete camera_ptr;
 		camera_ptr = NULL;
 	}
-
+	/*
 	if (ambient_ptr) {
 		delete ambient_ptr;
 		ambient_ptr = NULL;
