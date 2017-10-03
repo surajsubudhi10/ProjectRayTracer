@@ -65,7 +65,7 @@ bool Plane::hit(const Ray& ray, double& tmin, ShadeRec& sr) const
 {
 	float t = (a - ray.o) * n / (ray.d * n);
 
-	if (t > kEpsilon) {
+	if (t > (kEpsilon - 0.0001)) {
 		tmin = t;
 		sr.normal = n;
 		sr.local_hit_point = ray.o + t * ray.d;

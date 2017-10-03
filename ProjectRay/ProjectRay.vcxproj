@@ -119,6 +119,8 @@
     <ClCompile Include="src\Lights\Ambient.cpp" />
     <ClCompile Include="src\Lights\Light.cpp" />
     <ClCompile Include="src\Lights\PointLight.cpp" />
+    <ClCompile Include="src\Materials\Material.cpp" />
+    <ClCompile Include="src\Materials\Matte.cpp" />
     <ClCompile Include="src\Objects\Plane.cpp" />
     <ClCompile Include="src\Objects\Sphere.cpp" />
     <ClCompile Include="src\Samplers\MultiJittered.cpp" />
@@ -146,6 +148,8 @@
     <ClInclude Include="src\Lights\Ambient.h" />
     <ClInclude Include="src\Lights\Light.h" />
     <ClInclude Include="src\Lights\PointLight.h" />
+    <ClInclude Include="src\Materials\Material.h" />
+    <ClInclude Include="src\Materials\Matte.h" />
     <ClInclude Include="src\Objects\Plane.h" />
     <ClInclude Include="src\Objects\Sphere.h" />
     <ClInclude Include="src\Samplers\MultiJittered.h" />

@@ -18,7 +18,7 @@
 #include "../Utils/Maths.h"
 #include "../Lights/Ambient.h"
 
-
+#include "../Materials/Material.h"
 
 // build functions
 
@@ -95,7 +95,7 @@ World::render_scene(void){ //const {
 					pp.x = vp.s * (c - 0.5 * vp.hres + sp.x);
 					pp.y = vp.s * (r - 0.5 * vp.vres + sp.y);
 					ray.o = Point3D(pp.x, pp.y, zw);
-					pixel_color += Trace(ray);
+					pixel_color += Trace(ray, 100);
 
 				}
 			}
@@ -203,14 +203,14 @@ World::hit_objects(const Ray& ray) {
 		if (objects[j]->hit(ray, t, sr) && (t < tmin)) {
 			sr.hit_an_object = true;
 			tmin = t;
-			//sr.material_ptr = objects[j]->get_material();
+			sr.material_ptr = objects[j]->get_material();
 			sr.hit_point = ray.o + t * ray.d;
 			normal = sr.normal;
 			local_hit_point = sr.local_hit_point;
 		}
 
 	if (sr.hit_an_object) {
-		//sr.t = tmin;
+		sr.t = tmin;
 		sr.normal = normal;
 		sr.local_hit_point = local_hit_point;
 	}
@@ -234,7 +234,7 @@ World::hit_bare_bones_objects(const Ray& ray) {
 		if (objects[j]->hit(ray, t, sr) && (t < tmin)) {
 			sr.hit_an_object = true;
 			tmin = t;
-			sr.color = objects[j]->get_color();
+			//sr.color = objects[j]->get_color();
 		}
 
 	return (sr);
@@ -293,17 +293,35 @@ RGBColor World::Trace(Ray &primaryRay)
 				closestDistance = dist;
 				closestObj = i;
 				sr.hit_an_object = true;
-				sr.color = objects[closestObj]->get_color();
+				//sr.color = objects[closestObj]->get_color();
 			}
 		}
 	}
 
 	if (closestObj != -1)
 	{
-		return objects[closestObj]->get_color();
+		return black; //objects[closestObj]->get_color();
 	}
 
 	return background_color;
+}
+
+
+RGBColor World::Trace(const Ray ray, const int depth)  
+{
+	ShadeRec sr(hit_objects(ray)); // sr is copy constructed
+
+	if (sr.hit_an_object) {
+		sr.ray = ray;
+		return (sr.material_ptr->shade(sr));
+	}
+	else
+		return (background_color);
+}
+
+RGBColor World::Trace(const Ray ray, double& tmin, const int depth)
+{
+	return black;
 }
 
 

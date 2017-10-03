@@ -37,7 +37,7 @@ void Pinhole::render_scene(World& w) {
 				ray.d = ray_direction(pp);
 
 				//L += w.tracer_ptr->trace_ray(ray, depth);
-				L += w.Trace(ray);
+				L += w.Trace(ray, depth);
 
 			}
 

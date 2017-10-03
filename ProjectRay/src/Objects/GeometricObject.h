@@ -7,7 +7,7 @@
 #include "../Utils/ShadeRec.h"
 //#include "BBox.h"
 #include "../Utils/Constants.h"
-//#include "Material.h"
+#include "../Materials/Material.h"
 
 
 
@@ -25,12 +25,12 @@ public:
 
 
 	//TODO Remove Temp Functions
-	void set_color(const RGBColor& c);
-	void set_color(const float r, const float g, const float b);
-	RGBColor get_color(void);
+	//void set_color(const RGBColor& c);
+	//void set_color(const float r, const float g, const float b);
+	//RGBColor get_color(void);
 
-	/*void set_material(Material* material);*/
-	/*Material* get_material(void) const;*/
+	void set_material(Material* material);
+	Material* get_material(void) const;
 
 	virtual bool shadow_hit(const Ray& ray, float& tmin) const = 0;
 	
@@ -47,29 +47,28 @@ public:
 
 protected:
 
-	RGBColor   color; // TODO temp var
 
 	GeometricObject& operator= (const GeometricObject& rhs);
-
-	//mutable Material* material_ptr;
-
+	//RGBColor   color; // TODO temp var
+	
+	mutable Material* material_ptr;
 	bool shadows;
 };
 
 
 // --------------------------------------------------------------------  set_colour
 
-inline void GeometricObject::set_color(const RGBColor& c) {
-	color = c;
-}
-
-// --------------------------------------------------------------------  set_colour
-
-inline void GeometricObject::set_color(const float r, const float g, const float b) {
-	color.r = r;
-	color.b = b;
-	color.g = g;
-}
+//inline void GeometricObject::set_color(const RGBColor& c) {
+//	color = c;
+//}
+//
+//// --------------------------------------------------------------------  set_colour
+//
+//inline void GeometricObject::set_color(const float r, const float g, const float b) {
+//	color.r = r;
+//	color.b = b;
+//	color.g = g;
+//}
 
 // --------------------------------------------------------------------  get_colour
 
@@ -83,19 +82,19 @@ inline void GeometricObject::set_color(const float r, const float g, const float
 //	return shadows;
 //}
 
-inline RGBColor GeometricObject::get_color(void) {
-	return (color);
+//inline RGBColor GeometricObject::get_color(void) {
+//	return (color);
+//}
+
+inline void GeometricObject::set_material(Material* material) 
+{
+	material_ptr = material;
 }
 
-//inline void
-//GeometricObject::set_material(Material* material) {
-//	material_ptr = material;
-//}
-
-//inline Material*
-//GeometricObject::get_material(void) const {
-//	return material_ptr;
-//}
+inline Material* GeometricObject::get_material(void) const 
+ {
+	return material_ptr;
+}
 
 inline Point3D GeometricObject::sample(void) {
 	return Point3D(1.0);

@@ -63,9 +63,12 @@ public:
 	ShadeRec hit_bare_bones_objects(const Ray& ray);
 	ShadeRec hit_objects(const Ray& ray);
 
-	RGBColor Trace(Ray &primaryRay);
 	void Savebmp(const char *filename);
 	
+	RGBColor Trace(Ray &primaryRay);
+	RGBColor Trace(const Ray ray, const int depth);
+	RGBColor Trace(const Ray ray, double& tmin, const int depth);
+
 	inline RGBColor* GetColorBuffer() { return primaryBuffer; }
 	inline void SetColorAt(const int index, RGBColor _col) { primaryBuffer[index] = _col; }
 
