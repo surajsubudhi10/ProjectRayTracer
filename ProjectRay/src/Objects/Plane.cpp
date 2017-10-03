@@ -6,8 +6,7 @@ const double Plane::kEpsilon = 0.000001;
 
 Plane::Plane(void)
 	: GeometricObject(),
-	a(0.0),
-	n(0, 1, 0)
+	a(0.0),	n(0, 1, 0)
 {}
 
 
@@ -15,8 +14,7 @@ Plane::Plane(void)
 
 Plane::Plane(const Point3D& point, const Normal& normal)
 	: GeometricObject(),
-	a(point),
-	n(normal)
+	a(point),n(normal)
 {
 	n.normalize();
 }
@@ -26,23 +24,20 @@ Plane::Plane(const Point3D& point, const Normal& normal)
 
 Plane::Plane(const Plane& plane)
 	: GeometricObject(plane),
-	a(plane.a),
-	n(plane.n)
+	a(plane.a),	n(plane.n)
 {}
 
 
 // ---------------------------------------------------------------- clone
 
-Plane*
-Plane::clone(void) const {
+Plane* Plane::clone(void) const {
 	return (new Plane(*this));
 }
 
 
 // ---------------------------------------------------------------- assignment operator
 
-Plane&
-Plane::operator= (const Plane& rhs) {
+Plane& Plane::operator= (const Plane& rhs) {
 
 	if (this == &rhs)
 		return (*this);

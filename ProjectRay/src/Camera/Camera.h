@@ -17,35 +17,25 @@ public:
 	~Camera(void);
 
 	// access functions
-	void
-		set_eye(const Point3D e);
+	void set_eye(const Point3D e);
 
-	void
-		set_eye(const float x, const float y, const float z);
+	void set_eye(const float x, const float y, const float z);
 
-	void
-		set_lookat(const Point3D l);
+	void set_lookat(const Point3D l);
 
-	void
-		set_lookat(const float x, const float y, const float z);
+	void set_lookat(const float x, const float y, const float z);
 
-	void
-		set_up(const Vector3D u);
+	void set_up(const Vector3D u);
 
-	Point3D
-		get_eye(void);
+	Point3D get_eye(void);
 
-	Point3D
-		get_lookat(void);
+	Point3D	get_lookat(void);
 
-	Vector3D
-		get_up(void);
+	Vector3D get_up(void);
 
-	void
-		compute_uvw(void);
+	void compute_uvw(void);
 
-	virtual void
-		render_scene(World& w) = 0;		
+	virtual void render_scene(World& w) = 0;		
 
 	/*virtual void
 		render_stereo(World& w, float x, int offset) = 0;*/

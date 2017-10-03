@@ -1,8 +1,5 @@
 #pragma once
 
-
-// this file contains the declaration of the class GeometricObject
-
 #include "../Utils/RGBColor.h"
 #include "../Utils/Point3D.h"
 #include "../Utils/Normal.h"
@@ -22,26 +19,15 @@ public:
 
 	GeometricObject(const GeometricObject& object);			// copy constructor
 
-	virtual GeometricObject*								// virtual copy constructor
-		clone(void) const = 0;
-
-	virtual 												// destructor
-		~GeometricObject(void);
-
-	virtual bool
-		hit(const Ray& ray, double& t, ShadeRec& s) const = 0;
+	virtual GeometricObject* clone(void) const = 0;
+	virtual	~GeometricObject(void);
+	virtual bool hit(const Ray& ray, double& t, ShadeRec& s) const = 0;
 
 
-	// the following three functions are only required for Chapter 3
-
-	void
-		set_color(const RGBColor& c);
-
-	void
-		set_color(const float r, const float g, const float b);
-
-	RGBColor
-		get_color(void);
+	//TODO Remove Temp Functions
+	void set_color(const RGBColor& c);
+	void set_color(const float r, const float g, const float b);
+	RGBColor get_color(void);
 
 	/*void
 		set_material(Material* material);*/
@@ -58,14 +44,11 @@ public:
 	bool
 		get_shadows(void);*/
 
-	virtual Point3D
-		sample(void);
+	virtual Point3D	sample(void);
 
-	virtual Normal
-		get_normal(const Point3D& p) const;
+	virtual Normal get_normal(const Point3D& p) const;
 
-	virtual float
-		pdf(const ShadeRec& sr) const;
+	virtual float pdf(const ShadeRec& sr) const;
 
 	/*virtual BBox
 		get_bounding_box(void) const;*/
@@ -73,28 +56,25 @@ public:
 
 protected:
 
-	RGBColor   color;						// only used for Bare Bones ray tracing
+	RGBColor   color; // TODO temp var
 
-	GeometricObject&						// assignment operator
-		operator= (const GeometricObject& rhs);
+	GeometricObject& operator= (const GeometricObject& rhs);
 
 	//mutable Material* material_ptr;
 
-	bool shadows;							// whether or not the object casts shadows
+	bool shadows;
 };
 
 
 // --------------------------------------------------------------------  set_colour
 
-inline void
-GeometricObject::set_color(const RGBColor& c) {
+inline void GeometricObject::set_color(const RGBColor& c) {
 	color = c;
 }
 
 // --------------------------------------------------------------------  set_colour
 
-inline void
-GeometricObject::set_color(const float r, const float g, const float b) {
+inline void GeometricObject::set_color(const float r, const float g, const float b) {
 	color.r = r;
 	color.b = b;
 	color.g = g;
@@ -112,8 +92,7 @@ GeometricObject::set_color(const float r, const float g, const float b) {
 //	return shadows;
 //}
 
-inline RGBColor
-GeometricObject::get_color(void) {
+inline RGBColor GeometricObject::get_color(void) {
 	return (color);
 }
 
@@ -127,18 +106,15 @@ GeometricObject::get_color(void) {
 //	return material_ptr;
 //}
 
-inline Point3D
-GeometricObject::sample(void) {
+inline Point3D GeometricObject::sample(void) {
 	return Point3D(1.0);
 }
 
-inline Normal
-GeometricObject::get_normal(const Point3D& p) const {
+inline Normal GeometricObject::get_normal(const Point3D& p) const {
 	return Normal(1.0);
 }
 
-inline float
-GeometricObject::pdf(const ShadeRec& sr) const {
+inline float GeometricObject::pdf(const ShadeRec& sr) const {
 	return (1.0);
 }
 

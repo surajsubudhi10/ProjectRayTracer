@@ -1,4 +1,3 @@
-// this file contains the definition of the class GeometricObject 
 
 #include "../Utils/Constants.h"
 #include "GeometricObject.h"

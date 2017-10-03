@@ -2,7 +2,7 @@
 
 //-------------------------------------------------------------------------------------- class ViewPlane
 
-//#include "Sampler.h"
+#include "../Samplers/Sampler.h"
 
 class ViewPlane {
 public:
@@ -16,8 +16,8 @@ public:
 	float			gamma;						// gamma correction factor
 	float			inv_gamma;					// the inverse of the gamma correction factor
 	bool			show_out_of_gamut;			// display red if RGBColor out of gamut
-	//int				num_samples;				// number of samples per pixel
-	//Sampler*		sampler_ptr;				// pointer to the sampler we're using
+	int				num_samples;				// number of samples per pixel
+	Sampler*		sampler_ptr;				// pointer to the sampler we're using
 	//int				max_depth;					// How many recursive levels for reflection
 
 
@@ -32,34 +32,25 @@ public:
 
 	~ViewPlane();   							// destructor
 
-	void
-		set_hres(const int h_res);
+	void set_hres(const int h_res);
 
-	void
-		set_vres(const int v_res);
+	void set_vres(const int v_res);
 
-	void
-		set_image_hres(const int h_res);
+	void set_image_hres(const int h_res);
 
-	void
-		set_image_vres(const int v_res);
+	void set_image_vres(const int v_res);
 
-	void
-		set_pixel_size(const float size);
+	void set_pixel_size(const float size);
 
-	void
-		set_gamma(const float g);
+	void set_gamma(const float g);
 
-	void
-		set_gamut_display(const bool show);
+	void set_gamut_display(const bool show);
 	
+	void set_samples(const int n);
+
+	void set_sampler(Sampler* sp);
+
 	/*
-	void
-		set_samples(const int n);
-
-	void
-		set_sampler(Sampler* sp);
-
 	void
 		set_max_depth(int depth);*/
 };

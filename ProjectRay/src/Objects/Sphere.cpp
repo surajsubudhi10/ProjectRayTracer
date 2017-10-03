@@ -9,10 +9,8 @@ const double Sphere::kEpsilon = 0.000001;
 
 Sphere::Sphere(void)
 	: GeometricObject(),
-	center(0.0),
-	radius(1.0),
-	inv_area(1 / (4 * PI * exp2(radius)))
-	//sampler_ptr(NULL)
+	center(0.0), radius(1.0),
+	inv_area(1 / (4 * PI * exp2(radius))), sampler_ptr(NULL)
 {}
 
 
@@ -20,17 +18,15 @@ Sphere::Sphere(void)
 
 Sphere::Sphere(Point3D c, double r)
 	: GeometricObject(),
-	center(c),
-	radius(r),
-	inv_area(1 / (4 * PI * exp2(radius)))
-	//sampler_ptr(NULL)
+	center(c), radius(r),
+	inv_area(1 / (4 * PI * exp2(radius))), sampler_ptr(NULL)
 {}
 
 
 // ---------------------------------------------------------------- clone
 
-Sphere*
-Sphere::clone(void) const {
+Sphere* Sphere::clone(void) const 
+{
 	return (new Sphere(*this));
 }
 
@@ -39,22 +35,20 @@ Sphere::clone(void) const {
 
 Sphere::Sphere(const Sphere& sphere)
 	: GeometricObject(sphere),
-	center(sphere.center),
-	radius(sphere.radius),
-	inv_area(sphere.inv_area) {
+	center(sphere.center), radius(sphere.radius), inv_area(sphere.inv_area) 
+{
 
-	/*if (sphere.sampler_ptr)
+	if (sphere.sampler_ptr)
 		sampler_ptr = sphere.sampler_ptr->clone();
 	else
-		sampler_ptr = NULL;*/
+		sampler_ptr = NULL;
 }
 
 
 
 // ---------------------------------------------------------------- assignment operator
 
-Sphere&
-Sphere::operator= (const Sphere& rhs)
+Sphere& Sphere::operator= (const Sphere& rhs)
 {
 	if (this == &rhs)
 		return (*this);
@@ -65,13 +59,13 @@ Sphere::operator= (const Sphere& rhs)
 	radius = rhs.radius;
 	inv_area = rhs.inv_area;
 
-	/*if (sampler_ptr) {
+	if (sampler_ptr) {
 		delete sampler_ptr;
 		sampler_ptr = NULL;
 	}
 
 	if (rhs.sampler_ptr)
-		sampler_ptr = rhs.sampler_ptr->clone();*/
+		sampler_ptr = rhs.sampler_ptr->clone();
 
 	return (*this);
 }
@@ -80,10 +74,10 @@ Sphere::operator= (const Sphere& rhs)
 // ---------------------------------------------------------------- destructor
 
 Sphere::~Sphere(void) {
-	/*if (sampler_ptr) {
+	if (sampler_ptr) {
 		delete sampler_ptr;
 		sampler_ptr = NULL;
-	}*/
+	}
 }
 
 
@@ -164,43 +158,42 @@ Sphere::hit(const Ray& ray, double& tmin, ShadeRec& sr) const {
 
 // ---------------------------------------------------------------- setSampler
 
-//void
-//Sphere::set_sampler(Sampler* sampler) {
-//	if (sampler_ptr) {
-//		delete sampler_ptr;
-//		sampler_ptr = NULL;
-//	}
-//
-//	sampler_ptr = sampler;
-//	sampler_ptr->map_samples_to_sphere();
-//}
+void
+Sphere::set_sampler(Sampler* sampler) 
+{
+	if (sampler_ptr) {
+		delete sampler_ptr;
+		sampler_ptr = NULL;
+	}
+
+	sampler_ptr = sampler;
+	sampler_ptr->map_samples_to_sphere();
+}
 
 
 // ---------------------------------------------------------------- sample
-// returns a sample point on the rectangle
-// Does not work well for skinny rectangles
-// works best for squares
 
-//Point3D
-//Sphere::sample(void) {
-//	Point3D sample_point = sampler_ptr->sample_sphere();
-//	return (center + sample_point.x * radius + sample_point.y * radius + sample_point.z * radius);
-//}
+
+Point3D Sphere::sample(void) 
+{
+	Point3D sample_point = sampler_ptr->sample_sphere();
+	return (center + sample_point.x * radius + sample_point.y * radius + sample_point.z * radius);
+}
 
 
 // ---------------------------------------------------------------- pdf
 
-float
-Sphere::pdf(ShadeRec& sr) const {
+float Sphere::pdf(ShadeRec& sr) const 
+{
 	return (inv_area);
 }
 
-Normal
-Sphere::get_normal(const Point3D& p) const {
+Normal Sphere::get_normal(const Point3D& p) const 
+{
 	Vector3D v = (center - p);
 	v.normalize();
 
-	return v;						// Use gradient operator instead? p.347-348
+	return v;						
 }
 
 //BBox

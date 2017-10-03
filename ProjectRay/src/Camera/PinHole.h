@@ -17,20 +17,15 @@ public:
 
 	~Pinhole();
 
-	void
-		set_d(float distance);
+	void set_d(float distance);
 
-	void
-		set_view_distance(float distance);
+	void set_view_distance(float distance);
 
-	void
-		set_zoom(float z);
+	void set_zoom(float z);
 
-	Vector3D
-		ray_direction(const Point2D& p) const;
+	Vector3D ray_direction(const Point2D& p) const;
 
-	virtual void
-		render_scene(World& w) override;
+	virtual void render_scene(World& w) override;
 
 	/*virtual void
 		render_stereo(World& w, float x, int offset);*/
