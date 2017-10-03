@@ -22,8 +22,8 @@
 #include "../Utils/Ray.h"
 
 #include "../Camera/Camera.h"
-//#include "Light.h"
-//#include "Ambient.h"
+#include "../Lights/Light.h"
+#include "../Lights/Ambient.h"
 
 using namespace std;
 
@@ -35,13 +35,10 @@ public:
 
 	ViewPlane					vp;
 	RGBColor					background_color;
-	//Light*						ambient_ptr;
-	//Tracer*						tracer_ptr;
-	Sphere 						sphere;		// for Chapter 3 only
+	Light*						ambient_ptr;
 	vector<GeometricObject*>	objects;
-	//RenderThread* 				paintArea; 	//connection to skeleton - wxRaytracer.h
 	Camera*						camera_ptr;	// the camera to use
-	//vector<Light*>				lights;
+	vector<Light*>				lights;
 
 	RGBColor* primaryBuffer;
 
@@ -49,41 +46,22 @@ public:
 public:
 
 	World(void);
-
 	~World();
 
-	void
-		add_object(GeometricObject* object_ptr);
+	void add_object(GeometricObject* object_ptr);
+	void add_light(Light* light_ptr);
 
-	/*void
-		add_light(Light* light_ptr);*/
+	void build(void);
+	void render_scene(void);// const;
 
-	void
-		build(void);
+	void set_camera(Camera* camera);
+	void set_ambient_light(Ambient* amb);
+	
+	RGBColor max_to_one(const RGBColor& c) const;
+	RGBColor clamp_to_color(const RGBColor& c) const;
 
-	void
-		render_scene(void);// const;
-
-	void
-		set_camera(Camera* camera);
-
-	/*void
-		set_ambient_light(Ambient* amb);*/
-
-	RGBColor
-		max_to_one(const RGBColor& c) const;
-
-	RGBColor
-		clamp_to_color(const RGBColor& c) const;
-
-	/*void
-		display_pixel(const int row, const int column, const RGBColor& pixel_color) const;*/
-
-	ShadeRec
-		hit_bare_bones_objects(const Ray& ray);
-
-	ShadeRec
-		hit_objects(const Ray& ray);
+	ShadeRec hit_bare_bones_objects(const Ray& ray);
+	ShadeRec hit_objects(const Ray& ray);
 
 	RGBColor Trace(Ray &primaryRay);
 	void Savebmp(const char *filename);
@@ -94,29 +72,26 @@ public:
 
 private:
 
-	void
-		delete_objects(void);
-
-	void
-		delete_lights(void);
+	void delete_objects(void);
+	void delete_lights(void);
 
 };
 
 
 // ------------------------------------------------------------------ add_object
 
-inline void
-World::add_object(GeometricObject* object_ptr) {
+inline void World::add_object(GeometricObject* object_ptr) 
+{
 	objects.push_back(object_ptr);
 }
 
-//inline void
-//World::add_light(Light* light_ptr) {
-//	lights.push_back(light_ptr);
-//}
+inline void World::add_light(Light* light_ptr) 
+{
+	lights.push_back(light_ptr);
+}
 
-inline void
-World::set_camera(Camera* camera) {
+inline void World::set_camera(Camera* camera) 
+{
 	camera_ptr = camera;
 }
 

@@ -30,14 +30,16 @@ Plane::Plane(const Plane& plane)
 
 // ---------------------------------------------------------------- clone
 
-Plane* Plane::clone(void) const {
+Plane* Plane::clone(void) const 
+{
 	return (new Plane(*this));
 }
 
 
 // ---------------------------------------------------------------- assignment operator
 
-Plane& Plane::operator= (const Plane& rhs) {
+Plane& Plane::operator= (const Plane& rhs) 
+{
 
 	if (this == &rhs)
 		return (*this);
@@ -59,8 +61,8 @@ Plane::~Plane(void)
 
 // ----------------------------------------------------------------- hit
 
-bool
-Plane::hit(const Ray& ray, double& tmin, ShadeRec& sr) const {
+bool Plane::hit(const Ray& ray, double& tmin, ShadeRec& sr) const 
+{
 	float t = (a - ray.o) * n / (ray.d * n);
 
 	if (t > kEpsilon) {
@@ -74,18 +76,18 @@ Plane::hit(const Ray& ray, double& tmin, ShadeRec& sr) const {
 	return(false);
 }
 
-//bool
-//Plane::shadow_hit(const Ray& ray, float& tmin) const {
-//
-//	if (!shadows)
-//		return false;
-//
-//	float t = (a - ray.o) * n / (ray.d * n);
-//
-//	if (t > kEpsilon) {
-//		tmin = t;
-//		return (true);
-//	}
-//
-//	return(false);
-//}
+bool Plane::shadow_hit(const Ray& ray, float& tmin) const 
+{
+
+	if (!shadows)
+		return false;
+
+	float t = (a - ray.o) * n / (ray.d * n);
+
+	if (t > kEpsilon) {
+		tmin = t;
+		return (true);
+	}
+
+	return(false);
+}

@@ -9,26 +9,15 @@ class Plane : public GeometricObject {
 public:
 
 	Plane(void);   												// default constructor
-
 	Plane(const Point3D& point, const Normal& normal);			// constructor	
-
 	Plane(const Plane& plane); 									// copy constructor
+	virtual	~Plane(void);
 
-	virtual Plane* 												// virtual copy constructor
-		clone(void) const;
+	virtual Plane* clone(void) const;
+	Plane& operator= (const Plane& rhs);
 
-	Plane& 														// assignment operator
-		operator= (const Plane& rhs);
-
-	virtual														// destructor
-		~Plane(void);
-
-	virtual bool
-		hit(const Ray& ray, double& tmin, ShadeRec& sr) const;
-
-	/*virtual bool
-		shadow_hit(const Ray& ray, float& tmin) const;*/
-
+	virtual bool hit(const Ray& ray, double& tmin, ShadeRec& sr) const override;
+	virtual bool shadow_hit(const Ray& ray, float& tmin) const override;
 
 private:
 

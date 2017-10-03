@@ -14,7 +14,7 @@ public:
 
 	bool				hit_an_object;		// did the ray hit an object?
 	//Material*			material_ptr;		// nearest object's material
-	//Point3D				hit_point;			// world coordinates of hit point
+	Point3D				hit_point;			// world coordinates of hit point
 	Point3D				local_hit_point;	// world coordinates of hit point 
 	Normal				normal;				// normal at hit point
 	RGBColor			color;				// used in Chapter 3 only
@@ -26,7 +26,6 @@ public:
 	//float					u, v;				// texture coordinates
 
 	ShadeRec(World& wr);				// constructor
-
 	ShadeRec(const ShadeRec& sr);		// copy constructor
 };
 

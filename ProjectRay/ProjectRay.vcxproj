@@ -111,9 +111,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\BRDF\BRDF.cpp" />
+    <ClCompile Include="src\BRDF\Lambertian.cpp" />
     <ClCompile Include="src\Camera\Camera.cpp" />
     <ClCompile Include="src\builds\bareBoneBuild.cpp" />
     <ClCompile Include="src\Camera\PinHole.cpp" />
+    <ClCompile Include="src\Lights\Ambient.cpp" />
+    <ClCompile Include="src\Lights\Light.cpp" />
+    <ClCompile Include="src\Lights\PointLight.cpp" />
     <ClCompile Include="src\Objects\Plane.cpp" />
     <ClCompile Include="src\Objects\Sphere.cpp" />
     <ClCompile Include="src\Samplers\MultiJittered.cpp" />
@@ -134,8 +139,13 @@
     <ClCompile Include="src\World\ViewPlane.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\BRDF\BRDF.h" />
+    <ClInclude Include="src\BRDF\Lambertian.h" />
     <ClInclude Include="src\Camera\Camera.h" />
     <ClInclude Include="src\Camera\PinHole.h" />
+    <ClInclude Include="src\Lights\Ambient.h" />
+    <ClInclude Include="src\Lights\Light.h" />
+    <ClInclude Include="src\Lights\PointLight.h" />
     <ClInclude Include="src\Objects\Plane.h" />
     <ClInclude Include="src\Objects\Sphere.h" />
     <ClInclude Include="src\Samplers\MultiJittered.h" />

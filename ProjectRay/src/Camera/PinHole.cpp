@@ -14,8 +14,7 @@ Pinhole::Pinhole(const Point3D e, const Point3D l, const Vector3D u, float dista
 	d(distance),
 	zoom(z) {}
 
-void
-Pinhole::render_scene(World& w) {
+void Pinhole::render_scene(World& w) {
 	RGBColor L;
 	ViewPlane vp(w.vp);
 	Ray ray;
@@ -81,8 +80,8 @@ Pinhole::render_scene(World& w) {
 //		}
 //}
 
-Vector3D
-Pinhole::ray_direction(const Point2D& p) const {
+Vector3D Pinhole::ray_direction(const Point2D& p) const 
+{
 	Vector3D dir = p.x * u + p.y * v - d * w;
 	dir.normalize();
 	return(dir);

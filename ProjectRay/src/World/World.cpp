@@ -1,30 +1,22 @@
 // this file contains the definition of the World class
 
-//#include "wxraytracer.h"
-
 #include "World.h"
 #include "../Utils/Constants.h"
 
 // geometric objects
-
 #include "../Objects/Plane.h"
 #include "../Objects/Sphere.h"
 
-// tracers
 
-//#include "SingleSphere.h"
-//#include "MultipleObjects.h"
 
 // utilities
-
 #include "../Utils/Vector3D.h"
 #include "../Utils/Point2D.h"
 #include "../Utils/Point3D.h"
 #include "../Utils/Normal.h"
 #include "../Utils/ShadeRec.h"
 #include "../Utils/Maths.h"
-//#include "Ambient.h"
-
+#include "../Lights/Ambient.h"
 
 
 
@@ -39,9 +31,8 @@
 
 World::World(void)
 	: background_color(black),
-	//tracer_ptr(NULL),
-	camera_ptr(NULL)//,
-	//ambient_ptr(new Ambient)
+	camera_ptr(NULL),
+	ambient_ptr(new Ambient)
 {
 	primaryBuffer = new RGBColor[vp.vres * vp.hres];
 }
@@ -52,20 +43,15 @@ World::World(void)
 
 World::~World(void) {
 
-	/*if (tracer_ptr) {
-		delete tracer_ptr;
-		tracer_ptr = NULL;
-	}*/
-
 	if (camera_ptr) {
 		delete camera_ptr;
 		camera_ptr = NULL;
 	}
-	/*
+	
 	if (ambient_ptr) {
 		delete ambient_ptr;
 		ambient_ptr = NULL;
-	}*/
+	}
 
 	if (primaryBuffer != NULL)
 	{
@@ -73,8 +59,8 @@ World::~World(void) {
 		primaryBuffer = NULL;
 	}
 
-
-	//delete_objects();
+	delete_objects();
+	delete_lights();
 }
 
 
@@ -91,7 +77,7 @@ World::render_scene(void){ //const {
 	int 		vres = vp.vres;
 	float		s = vp.s;
 	float		zw = 100.0;			// hardwired in
-	int			n = 1;// (int)sqrt((float)vp.num_samples);	// Samples
+	int			n = (int)sqrt((float)vp.num_samples);	// Samples
 	Point2D		sp;		// sample point in [0,1] x [0,1]
 	Point2D		pp;		// sample point on a pixel
 	int pixelIndex = 0;
@@ -102,15 +88,13 @@ World::render_scene(void){ //const {
 		for (int c = 0; c < hres; c++) {	// across 					
 			pixel_color = black;
 
-			for (int p = 0; p < n; p++)			// going up the pixel
-			{
+			for (int p = 0; p < n; p++){			// going up the pixel
 				for (int q = 0; q < n; q++)		// going across the pixel
 				{
-					sp = Point2D(0, 0);//vp.sampler_ptr->sample_unit_square();
+					sp = vp.sampler_ptr->sample_unit_square();
 					pp.x = vp.s * (c - 0.5 * vp.hres + sp.x);
 					pp.y = vp.s * (r - 0.5 * vp.vres + sp.y);
 					ray.o = Point3D(pp.x, pp.y, zw);
-					//pixel_color += tracer_ptr->trace_ray(ray);
 					pixel_color += Trace(ray);
 
 				}
@@ -136,8 +120,8 @@ World::render_scene(void){ //const {
 
 // ------------------------------------------------------------------ clamp
 
-RGBColor
-World::max_to_one(const RGBColor& c) const {
+RGBColor World::max_to_one(const RGBColor& c) const 
+{
 	float max_value = max(c.r, max(c.g, c.b));
 
 	if (max_value > 1.0)
@@ -150,26 +134,27 @@ World::max_to_one(const RGBColor& c) const {
 // ------------------------------------------------------------------ clamp_to_color
 // Set color to red if any component is greater than one
 
-RGBColor
-World::clamp_to_color(const RGBColor& raw_color) const {
+RGBColor World::clamp_to_color(const RGBColor& raw_color) const 
+{
 	RGBColor c(raw_color);
-
-	if (raw_color.r > 1.0 || raw_color.g > 1.0 || raw_color.b > 1.0) {
-		c.r = 1.0; c.g = 0.0; c.b = 0.0;
+	if (raw_color.r > 1.0 || raw_color.g > 1.0 || raw_color.b > 1.0) 
+	{
+		c.r = 1.0;
+		c.g = 0.0;
+		c.b = 0.0;
 	}
-
 	return (c);
 }
 
-//void
-//World::set_ambient_light(Ambient* amb) {
-//	if (ambient_ptr) {
-//		delete ambient_ptr;
-//		ambient_ptr = NULL;
-//	}
-//
-//	ambient_ptr = amb;
-//}
+void World::set_ambient_light(Ambient* amb) 
+{
+	if (ambient_ptr) 
+	{
+		delete ambient_ptr;
+		ambient_ptr = NULL;
+	}
+	ambient_ptr = amb;
+}
 
 
 // ---------------------------------------------------------------------------display_pixel
@@ -219,7 +204,7 @@ World::hit_objects(const Ray& ray) {
 			sr.hit_an_object = true;
 			tmin = t;
 			//sr.material_ptr = objects[j]->get_material();
-			//sr.hit_point = ray.o + t * ray.d;
+			sr.hit_point = ray.o + t * ray.d;
 			normal = sr.normal;
 			local_hit_point = sr.local_hit_point;
 		}
@@ -266,24 +251,24 @@ World::delete_objects(void) {
 	int num_objects = objects.size();
 
 	for (int j = 0; j < num_objects; j++) {
-		delete objects[j];
+		//delete objects[j];
 		objects[j] = NULL;
 	}
 
 	objects.erase(objects.begin(), objects.end());
 }
 
-//void
-//World::delete_lights(void) {
-//	int num_objects = lights.size();
-//
-//	for (int j = 0; j < num_objects; j++) {
-//		delete lights[j];
-//		lights[j] = NULL;
-//	}
-//
-//	lights.erase(lights.begin(), lights.end());
-//}
+void
+World::delete_lights(void) {
+	int num_objects = lights.size();
+
+	for (int j = 0; j < num_objects; j++) {
+		//delete lights[j];
+		lights[j] = NULL;
+	}
+
+	lights.erase(lights.begin(), lights.end());
+}
 
 
 

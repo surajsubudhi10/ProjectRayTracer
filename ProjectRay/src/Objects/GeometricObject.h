@@ -29,29 +29,20 @@ public:
 	void set_color(const float r, const float g, const float b);
 	RGBColor get_color(void);
 
-	/*void
-		set_material(Material* material);*/
+	/*void set_material(Material* material);*/
+	/*Material* get_material(void) const;*/
 
-	/*Material*
-		get_material(void) const;*/
-
-	/*virtual bool
-		shadow_hit(const Ray& ray, float& tmin) const = 0;
-
-	void
-		set_shadows(const bool shadow);
-
-	bool
-		get_shadows(void);*/
+	virtual bool shadow_hit(const Ray& ray, float& tmin) const = 0;
+	
+	/*
+	void set_shadows(const bool shadow);
+	bool get_shadows(void);*/
 
 	virtual Point3D	sample(void);
-
 	virtual Normal get_normal(const Point3D& p) const;
-
 	virtual float pdf(const ShadeRec& sr) const;
 
-	/*virtual BBox
-		get_bounding_box(void) const;*/
+	/*virtual BBox get_bounding_box(void) const;*/
 
 
 protected:
