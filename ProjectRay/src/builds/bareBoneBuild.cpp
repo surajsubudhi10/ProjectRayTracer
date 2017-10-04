@@ -11,6 +11,7 @@
 
 #include "../Objects/Box.h"
 #include "../Objects/Triangle.h"
+#include "../Objects/Disk.h"
 
 void World::build() 
 {
@@ -77,9 +78,9 @@ void World::build()
 	matte_ptr3->set_kd(0.65);
 	matte_ptr3->set_cd(0, 0, 1);
 
-	Triangle* tri_ptr = new Triangle(Point3D(0, 50, 0), Point3D(-50, 0, 500), Point3D(500, 0, 0));
-	tri_ptr->set_material(matte_ptr3);
-	add_object(tri_ptr);
+	Disk* newObj_ptr = new Disk(Point3D(0, 50, 100), 100.0, Normal(0, 0, 1));
+	newObj_ptr->set_material(matte_ptr3);
+	add_object(newObj_ptr);
 
 
 }

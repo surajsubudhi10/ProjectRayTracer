@@ -18,11 +18,6 @@ Triangle::Triangle(const Triangle& tri)
 {
 }
 
-//Triangle::~Triangle() 
-//{
-//
-//}
-
 
 Triangle& Triangle::operator=(const Triangle& tri) 
 {
@@ -130,8 +125,5 @@ bool Triangle::shadow_hit(const Ray& ray, float& tmin) const
 		return (false);
 
 	tmin = t;
-	//	sr.normal = normal;
-	//	sr.local_hit_point = ray.o + t * ray.d;
-
 	return (true);
 }

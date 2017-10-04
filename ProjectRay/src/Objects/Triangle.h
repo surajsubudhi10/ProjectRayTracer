@@ -8,7 +8,6 @@ public:
 	Triangle();
 	Triangle(const Point3D& _v0, const Point3D& _v1, const Point3D& _v2);
 	Triangle(const Triangle& tri);
-	//~Triangle();
 
 	Triangle& operator=(const Triangle& bbox);
 	virtual Triangle* clone(void) const;

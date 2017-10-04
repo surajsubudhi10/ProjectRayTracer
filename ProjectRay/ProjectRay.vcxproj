@@ -124,6 +124,7 @@
     <ClCompile Include="src\Materials\Matte.cpp" />
     <ClCompile Include="src\Materials\Phong.cpp" />
     <ClCompile Include="src\Objects\Box.cpp" />
+    <ClCompile Include="src\Objects\Disk.cpp" />
     <ClCompile Include="src\Objects\Plane.cpp" />
     <ClCompile Include="src\Objects\Sphere.cpp" />
     <ClCompile Include="src\Objects\Triangle.cpp" />
@@ -158,6 +159,7 @@
     <ClInclude Include="src\Materials\Matte.h" />
     <ClInclude Include="src\Materials\Phong.h" />
     <ClInclude Include="src\Objects\Box.h" />
+    <ClInclude Include="src\Objects\Disk.h" />
     <ClInclude Include="src\Objects\Plane.h" />
     <ClInclude Include="src\Objects\Sphere.h" />
     <ClInclude Include="src\Objects\Triangle.h" />
