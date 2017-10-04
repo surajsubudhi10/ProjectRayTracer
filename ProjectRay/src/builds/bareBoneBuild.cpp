@@ -10,6 +10,7 @@
 #include "../Materials/Phong.h"
 
 #include "../Objects/Box.h"
+#include "../Objects/Triangle.h"
 
 void World::build() 
 {
@@ -69,5 +70,16 @@ void World::build()
 	Plane* plane_ptr = new Plane(Point3D(0, 0, -85), Normal(0, 0, 1));
 	plane_ptr->set_material(matte_ptr2);
 	add_object(plane_ptr);
+
+
+	Matte* matte_ptr3 = new Matte;
+	matte_ptr3->set_ka(0.25);
+	matte_ptr3->set_kd(0.65);
+	matte_ptr3->set_cd(0, 0, 1);
+
+	Triangle* tri_ptr = new Triangle(Point3D(0, 50, 0), Point3D(-50, 0, 500), Point3D(500, 0, 0));
+	tri_ptr->set_material(matte_ptr3);
+	add_object(tri_ptr);
+
 
 }
