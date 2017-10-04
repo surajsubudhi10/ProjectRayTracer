@@ -9,6 +9,8 @@
 #include "../Materials/Matte.h"
 #include "../Materials/Phong.h"
 
+#include "../Objects/Box.h"
+
 void World::build() 
 {
 	vp.set_hres(400);
@@ -25,7 +27,7 @@ void World::build()
 	set_ambient_light(ambient_ptr);
 
 	Pinhole* pinhole_ptr = new Pinhole;
-	pinhole_ptr->set_eye(0, 0, 1000);
+	pinhole_ptr->set_eye(300, 400, 1000);
 	pinhole_ptr->set_lookat(0, 0, -50);
 	pinhole_ptr->set_view_distance(600);
 	pinhole_ptr->compute_uvw();
@@ -46,7 +48,6 @@ void World::build()
 	
 	Sphere* sphere_ptr1 = new Sphere();
 	sphere_ptr1->set_center(Point3D(0.0, 0.0, 0.0));
-	//sphere_ptr1->set_color(0.5, 0.7, 0.1);
 	sphere_ptr1->set_material(phong_ptr);
 	sphere_ptr1->set_radius(85.0);
 	add_object(sphere_ptr1);
@@ -56,12 +57,9 @@ void World::build()
 	matte_ptr1->set_kd(0.65);
 	matte_ptr1->set_cd(1, 1, 0);
 
-	Sphere* sphere_ptr2 = new Sphere();
-	sphere_ptr2->set_center(Point3D(0.0, 90.0, 0.0));
-	//sphere_ptr2->set_color(1.0, 0.0, 1.0);
-	sphere_ptr2->set_material(matte_ptr1);
-	sphere_ptr2->set_radius(50.0);
-	add_object(sphere_ptr2);
+	Box* box_ptr = new Box(Point3D(50, 50, 50), Point3D(100, 100, 100));
+	box_ptr->set_material(matte_ptr1);
+	add_object(box_ptr);
 
 	Matte* matte_ptr2 = new Matte;
 	matte_ptr2->set_ka(0.25);

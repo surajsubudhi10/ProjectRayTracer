@@ -16,7 +16,6 @@
 
 #include "ViewPlane.h"
 #include "../Utils/RGBColor.h"
-//#include "Tracer.h"
 #include "../Objects/GeometricObject.h"
 #include "../Objects/Sphere.h"
 #include "../Utils/Ray.h"
@@ -27,7 +26,6 @@
 
 using namespace std;
 
-//class RenderThread; 	//part of skeleton - wxRaytracer.h
 
 
 class World {

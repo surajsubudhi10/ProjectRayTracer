@@ -123,6 +123,7 @@
     <ClCompile Include="src\Materials\Material.cpp" />
     <ClCompile Include="src\Materials\Matte.cpp" />
     <ClCompile Include="src\Materials\Phong.cpp" />
+    <ClCompile Include="src\Objects\Box.cpp" />
     <ClCompile Include="src\Objects\Plane.cpp" />
     <ClCompile Include="src\Objects\Sphere.cpp" />
     <ClCompile Include="src\Samplers\MultiJittered.cpp" />
@@ -155,6 +156,7 @@
     <ClInclude Include="src\Materials\Material.h" />
     <ClInclude Include="src\Materials\Matte.h" />
     <ClInclude Include="src\Materials\Phong.h" />
+    <ClInclude Include="src\Objects\Box.h" />
     <ClInclude Include="src\Objects\Plane.h" />
     <ClInclude Include="src\Objects\Sphere.h" />
     <ClInclude Include="src\Samplers\MultiJittered.h" />

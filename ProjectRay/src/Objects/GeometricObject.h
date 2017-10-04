@@ -31,9 +31,8 @@ public:
 	bool get_shadows(void);
 
 	virtual Point3D	sample(void);
-	virtual Normal get_normal(const Point3D& p) const;
 	virtual float pdf(const ShadeRec& sr) const;
-
+	virtual Normal get_normal(const Point3D& p) const;
 	virtual BBox get_bounding_box(void) const;
 
 
