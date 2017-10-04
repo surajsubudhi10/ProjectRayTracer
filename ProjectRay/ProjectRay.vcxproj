@@ -128,6 +128,7 @@
     <ClCompile Include="src\Samplers\MultiJittered.cpp" />
     <ClCompile Include="src\Samplers\Regular.cpp" />
     <ClCompile Include="src\Samplers\Sampler.cpp" />
+    <ClCompile Include="src\Utils\BBox.cpp" />
     <ClCompile Include="src\Utils\ShadeRec.cpp" />
     <ClCompile Include="src\Objects\GeometricObject.cpp" />
     <ClCompile Include="main.cpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="src\Samplers\MultiJittered.h" />
     <ClInclude Include="src\Samplers\Regular.h" />
     <ClInclude Include="src\Samplers\Sampler.h" />
+    <ClInclude Include="src\Utils\BBox.h" />
     <ClInclude Include="src\Utils\ShadeRec.h" />
     <ClInclude Include="src\Objects\GeometricObject.h" />
     <ClInclude Include="src\Utils\Maths.h" />

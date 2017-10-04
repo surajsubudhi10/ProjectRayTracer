@@ -31,8 +31,7 @@ public:
 	float pdf(ShadeRec& sr) const;
 	virtual Normal get_normal(const Point3D& p) const;
 
-	/*virtual BBox
-		get_bounding_box(void) const;*/
+	virtual BBox get_bounding_box(void) const;
 
 protected:
 

@@ -5,7 +5,7 @@
 #include "../Utils/Normal.h"
 #include "../Utils/Ray.h"
 #include "../Utils/ShadeRec.h"
-//#include "BBox.h"
+#include "../Utils/BBox.h"
 #include "../Utils/Constants.h"
 #include "../Materials/Material.h"
 
@@ -16,75 +16,45 @@ class GeometricObject {
 public:
 
 	GeometricObject(void);									// default constructor
-
 	GeometricObject(const GeometricObject& object);			// copy constructor
 
 	virtual GeometricObject* clone(void) const = 0;
 	virtual	~GeometricObject(void);
+	
 	virtual bool hit(const Ray& ray, double& t, ShadeRec& s) const = 0;
-
-
-	//TODO Remove Temp Functions
-	//void set_color(const RGBColor& c);
-	//void set_color(const float r, const float g, const float b);
-	//RGBColor get_color(void);
+	virtual bool shadow_hit(const Ray& ray, float& tmin) const = 0;
 
 	void set_material(Material* material);
 	Material* get_material(void) const;
 
-	virtual bool shadow_hit(const Ray& ray, float& tmin) const = 0;
-	
-	/*
 	void set_shadows(const bool shadow);
-	bool get_shadows(void);*/
+	bool get_shadows(void);
 
 	virtual Point3D	sample(void);
 	virtual Normal get_normal(const Point3D& p) const;
 	virtual float pdf(const ShadeRec& sr) const;
 
-	/*virtual BBox get_bounding_box(void) const;*/
+	virtual BBox get_bounding_box(void) const;
 
 
 protected:
-
-
 	GeometricObject& operator= (const GeometricObject& rhs);
-	//RGBColor   color; // TODO temp var
 	
 	mutable Material* material_ptr;
 	bool shadows;
 };
 
 
-// --------------------------------------------------------------------  set_colour
 
-//inline void GeometricObject::set_color(const RGBColor& c) {
-//	color = c;
-//}
-//
-//// --------------------------------------------------------------------  set_colour
-//
-//inline void GeometricObject::set_color(const float r, const float g, const float b) {
-//	color.r = r;
-//	color.b = b;
-//	color.g = g;
-//}
+inline void GeometricObject::set_shadows(const bool do_shadow) 
+{
+	shadows = do_shadow;
+}
 
-// --------------------------------------------------------------------  get_colour
-
-//inline void
-//GeometricObject::set_shadows(const bool do_shadow) {
-//	shadows = do_shadow;
-//}
-
-//inline bool
-//GeometricObject::get_shadows(void) {
-//	return shadows;
-//}
-
-//inline RGBColor GeometricObject::get_color(void) {
-//	return (color);
-//}
+inline bool GeometricObject::get_shadows(void) 
+{
+	return shadows;
+}
 
 inline void GeometricObject::set_material(Material* material) 
 {
@@ -108,12 +78,10 @@ inline float GeometricObject::pdf(const ShadeRec& sr) const {
 	return (1.0);
 }
 
-//inline BBox
-//GeometricObject::get_bounding_box(void) const {
-//	//double delta = 0.0001; 
-//
-//	return(BBox(-1, 1, -1, 1, -1, 1));
-//}
+inline BBox GeometricObject::get_bounding_box(void) const 
+{
+	return(BBox(-1, 1, -1, 1, -1, 1));
+}
 
 
 
