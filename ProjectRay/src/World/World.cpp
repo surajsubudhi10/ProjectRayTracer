@@ -95,7 +95,10 @@ World::render_scene(void){ //const {
 					pp.x = vp.s * (c - 0.5 * vp.hres + sp.x);
 					pp.y = vp.s * (r - 0.5 * vp.vres + sp.y);
 					ray.o = Point3D(pp.x, pp.y, zw);
-					pixel_color += Trace(ray, 100);
+					RGBColor mapped_color;
+					mapped_color = Trace(ray, 100);
+					mapped_color = clamp_to_color(mapped_color);
+					pixel_color += mapped_color;
 
 				}
 			}
@@ -110,10 +113,10 @@ World::render_scene(void){ //const {
 				mapped_color = max_to_one(pixel_color);
 			
 			if (vp.gamma != 1.0)
-				mapped_color = mapped_color.powc(vp.inv_gamma);*/
-			//primaryBuffer[pixelIndex++] = mapped_color;
-			primaryBuffer[pixelIndex] = pixel_color;
-			pixelIndex++;
+				mapped_color = mapped_color.powc(vp.inv_gamma);
+			primaryBuffer[pixelIndex++] = mapped_color;*/
+			primaryBuffer[pixelIndex++] = pixel_color;
+			//pixelIndex++;
 		}
 }
 

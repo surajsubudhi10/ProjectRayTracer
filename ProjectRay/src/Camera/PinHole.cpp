@@ -3,6 +3,7 @@
 #include "../Utils/RGBColor.h"
 #include "../World/ViewPlane.h"
 #include "../World/World.h"
+#include "../Utils/Maths.h"
 
 Pinhole::Pinhole(void)
 	: Camera(),
@@ -36,8 +37,10 @@ void Pinhole::render_scene(World& w) {
 				pp.y = vp.s * (r - 0.5 * vp.vres + sp.y);
 				ray.d = ray_direction(pp);
 
-				//L += w.tracer_ptr->trace_ray(ray, depth);
-				L += w.Trace(ray, depth);
+				RGBColor mapped_color;
+				mapped_color = w.Trace(ray, depth);
+				mapped_color = RGBColor::max_to_one(mapped_color);
+				L += mapped_color;
 
 			}
 

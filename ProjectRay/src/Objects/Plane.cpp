@@ -1,6 +1,6 @@
 #include "Plane.h"
 
-const double Plane::kEpsilon = 0.0001;
+const double Plane::kEpsilon = 0.001;
 
 // ----------------------------------------------------------------------  default constructor
 
