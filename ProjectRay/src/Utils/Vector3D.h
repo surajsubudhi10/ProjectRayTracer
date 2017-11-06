@@ -29,7 +29,7 @@ public:
 	Vector3D& operator= (const Point3D& rhs);
 
 	double length(void);
-	double len_squared(void);
+	double len_squared(void) const;
 	void normalize(void);
 	Vector3D& hat(void);
 
@@ -44,6 +44,9 @@ public:
 	double operator* (const Vector3D& b) const;
 	// cross product				
 	Vector3D operator^ (const Vector3D& v) const;
+	
+	double dot(const Vector3D& b) const;
+	Vector3D cross(const Vector3D& v) const;
 };
 
 
@@ -60,7 +63,7 @@ inline Vector3D Vector3D::operator- (void) const
 // ---------------------------------------------------------------------  len_squared
 // the square of the length
 
-inline double Vector3D::len_squared(void) 
+inline double Vector3D::len_squared(void) const 
 {
 	return (x * x + y * y + z * z);
 }
@@ -104,18 +107,29 @@ inline Vector3D Vector3D::operator- (const Vector3D& v) const
 // ----------------------------------------------------------------------- operator*
 // dot product
 
-inline double Vector3D::operator* (const Vector3D& v) const 
+inline double Vector3D::dot (const Vector3D& v) const
 {
 	return (x * v.x + y * v.y + z * v.z);
 }
+
+inline double Vector3D::operator* (const Vector3D& v) const 
+{
+	return dot(v);
+}
+
 
 
 // ----------------------------------------------------------------------- operator^
 // cross product
 
-inline Vector3D Vector3D::operator^ (const Vector3D& v) const 
+inline Vector3D Vector3D::cross (const Vector3D& v) const
 {
 	return (Vector3D(y * v.z - z * v.y, z * v.x - x * v.z, x * v.y - y * v.x));
+}
+
+inline Vector3D Vector3D::operator^ (const Vector3D& v) const 
+{
+	return cross(v);
 }
 
 

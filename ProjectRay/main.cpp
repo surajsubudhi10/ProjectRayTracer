@@ -14,6 +14,7 @@ int main() {
 	w.Savebmp("testBareBoneRaytracer.bmp");
 	std::cout << "RayTracing Completed." << std::endl;
 
+	system("testBareBoneRaytracer.bmp");
 	system("pause");
 	return 0;
 }

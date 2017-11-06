@@ -126,6 +126,7 @@
     <ClCompile Include="src\Objects\Box.cpp" />
     <ClCompile Include="src\Objects\Disk.cpp" />
     <ClCompile Include="src\Objects\Plane.cpp" />
+    <ClCompile Include="src\Objects\Rectangle.cpp" />
     <ClCompile Include="src\Objects\Sphere.cpp" />
     <ClCompile Include="src\Objects\Triangle.cpp" />
     <ClCompile Include="src\Samplers\MultiJittered.cpp" />
@@ -161,6 +162,7 @@
     <ClInclude Include="src\Objects\Box.h" />
     <ClInclude Include="src\Objects\Disk.h" />
     <ClInclude Include="src\Objects\Plane.h" />
+    <ClInclude Include="src\Objects\Rectangle.h" />
     <ClInclude Include="src\Objects\Sphere.h" />
     <ClInclude Include="src\Objects\Triangle.h" />
     <ClInclude Include="src\Samplers\MultiJittered.h" />
