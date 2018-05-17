@@ -7,7 +7,7 @@
 #include <World/ViewPlane.h>
 #include <World/World.h>
 
-Orthographic::Orthographic() : Camera()
+Orthographic::Orthographic() : Camera(), zoom(1.0)
 {}
 
 void Orthographic::render_scene(World &world)
@@ -19,6 +19,9 @@ void Orthographic::render_scene(World &world)
     Point2D sp;				// sample point in [0, 1] x [0, 1]
     Point2D pp;				// sample point on a pixel
     ray.d = -w;
+
+    vp.s /= zoom;
+    world.primaryBuffer.clear();
 
     for (int r = 0; r < vp.vres; r++){	// up
         for (int c = 0; c < vp.hres; c++)

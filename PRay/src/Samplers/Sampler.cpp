@@ -61,7 +61,8 @@ Point2D Sampler::sample_unit_disk()
 		jump = (rand_int() % num_sets) * num_samples;
 	}
 
-	return (disk_samples[jump + shuffled_indices[jump + count++ % num_samples]]);
+	auto index = jump + count++ % num_samples;
+	return (disk_samples[jump + shuffled_indices[index]]);
 }
 
 Point3D Sampler::sample_hemisphere()

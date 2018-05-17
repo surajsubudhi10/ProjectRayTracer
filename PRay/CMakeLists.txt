@@ -8,6 +8,7 @@ set(PRAY_SOURCE
         "src/Camera/Camera.cpp"
         "src/Camera/PinHole.cpp"
         "src/Camera/Orthographic.cpp"
+        "src/Camera/ThinLens.cpp"
 
         ## World
         "src/World/ViewPlane.cpp"

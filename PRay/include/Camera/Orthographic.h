@@ -15,6 +15,9 @@ public:
 //    Orthographic(const Orthographic& ortho);
 
     void render_scene(World& world) override;
+
+private:
+    float zoom;
 };
 
 #endif //PRAY_ORTHOGRAPHIC_H

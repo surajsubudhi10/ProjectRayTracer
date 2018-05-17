@@ -2,6 +2,8 @@
 #include <Materials/Reflective.h>
 #include <Objects/Rectangle.h>
 #include <Camera/Orthographic.h>
+#include <Camera/ThinLens.h>
+#include <Samplers/MultiJittered.h>
 #include "World/World.h"
 #include "Objects/Plane.h"
 //#include "Camera/PinHole.h"
@@ -166,7 +168,7 @@ void World::build()
 
     //// ================ Camera ===================== ////
 
-    auto * pinhole_ptr = new Orthographic();
+    auto * pinhole_ptr = new Orthographic;//ThinLens(40.0, 40.0, 1400.0, 20.0, new MultiJittered(5));
     pinhole_ptr->set_eye(1400, 300, 00);
     pinhole_ptr->set_lookat(0, 0, 0);
 //    pinhole_ptr->set_view_distance(1200);
@@ -187,7 +189,7 @@ void World::build()
 
     auto* phong_ptr = new Phong();
     phong_ptr->set_ka(0.15);
-    phong_ptr->set_ca(0.5, 0.5, 0.5);
+    phong_ptr->set_ca(1.0, 0.0, 0.0);
     phong_ptr->set_kd(0.85);
     phong_ptr->set_cd(0.5, 0.5, 0.5);
     phong_ptr->set_ks(0.3);
@@ -196,7 +198,7 @@ void World::build()
     auto* reflective_ptr = new Reflective();
     reflective_ptr->set_ka(0.15);
     reflective_ptr->set_kd(0.85);
-    reflective_ptr->set_ca(0.5, 0.5, 0.5);
+    reflective_ptr->set_ca(0.5, 1.0, 1.0);
     reflective_ptr->set_cd(0.5, 0.5, 0.5);
     reflective_ptr->set_ks(0.3);
     reflective_ptr->set_exp_s(10);
@@ -216,10 +218,17 @@ void World::build()
     matte_ptr1->set_cd(1, 0, 1);
 
     auto* sphere_ptr2 = new Sphere();
-    sphere_ptr2->set_center(Point3D(230.0, 35.0, 0.0));
-    sphere_ptr2->set_material(matte_ptr1);
-    sphere_ptr2->set_radius(50.0);
+    sphere_ptr2->set_center(Point3D(230.0, 110.0, 230.0));
+    sphere_ptr2->set_material(phong_ptr);
+    sphere_ptr2->set_radius(120.0);
     add_object(sphere_ptr2);
+
+
+    auto* sphere_ptr3 = new Sphere();
+    sphere_ptr3->set_center(Point3D(-230.0, 110.0, -230.0));
+    sphere_ptr3->set_material(matte_ptr1);
+    sphere_ptr3->set_radius(120.0);
+    add_object(sphere_ptr3);
 
     //// ================ Ground Plane ===================== ////
 

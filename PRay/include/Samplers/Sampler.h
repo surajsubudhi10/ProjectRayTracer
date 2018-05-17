@@ -36,13 +36,13 @@ protected:
 
 	int num_samples;									// the number of sample points in a pattern
 	int num_sets;										// the number of sample sets (patterns) stored
-	std::vector <Point2D> samples;						//sample points on a unit square
-	std::vector <Point2D> disk_samples;					//sample points on a unit disk
-	std::vector <Point3D> hemisphere_samples;			//sample points on a hemisphere disk
-	std::vector<Point3D>  sphere_samples;				// sample points on a unit sphere
-	std::vector <int> shuffled_indices;					// shuffled samples array indices
-	unsigned long count;								//current number of sample points used
-	int jump;											//random index jump
+	std::vector <Point2D> samples;						// sample points on a unit square
+	std::vector <Point2D> disk_samples;					// sample points on a unit disk
+	std::vector <Point3D> hemisphere_samples;			// sample points on a hemisphere disk
+	std::vector <Point3D> sphere_samples;				// sample points on a unit sphere
+	std::vector <int>     shuffled_indices;				// shuffled samples array indices
+	unsigned long count;								// current number of sample points used
+	int jump;											// random index jump
 };
 
 inline int Sampler::get_num_samples() {

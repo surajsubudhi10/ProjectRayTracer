@@ -6,39 +6,28 @@
 
 class World;
 
-class Camera {
+class Camera
+{
 public:
 
 	// constructors
 	Camera();
-
 	Camera(Point3D e, Point3D l, Vector3D u);
-
 	virtual ~Camera();
 
 	// access functions
 	void set_eye(const Point3D &e);
-
 	void set_eye(float x, float y, float z);
-
 	void set_lookat(const Point3D &l);
-
 	void set_lookat(float x, float y, float z);
-
 	void set_up(const Vector3D &u);
 
 	Point3D get_eye();
-
 	Point3D	get_lookat();
-
 	Vector3D get_up();
 
 	void compute_uvw();
-
 	virtual void render_scene(World& w) = 0;
-
-	/*virtual void
-		render_stereo(World& w, float x, int offset) = 0;*/
 
 protected:
 
