@@ -242,14 +242,19 @@ RGBColor World::Trace(const Ray &primaryRay)
 
 RGBColor World::Trace(const Ray& ray, const int depth)
 {
-	ShadeRec sr(hit_objects(ray)); // sr is copy constructed
-
-	if (sr.hit_an_object) {
-		sr.ray = ray;
-		return (sr.material_ptr->shade(sr));
-	}
-	else
-		return (background_color);
+    if(depth > vp.max_depth)
+    {
+        return black;
+    }
+    else
+    {
+        ShadeRec sr(hit_objects(ray)); // sr is copy constructed
+        if (sr.hit_an_object) {
+            sr.ray = ray;
+            return (sr.material_ptr->shade(sr));
+        } else
+            return (background_color);
+    }
 }
 
 RGBColor World::Trace(const Ray& ray, double& tmin, const int depth)

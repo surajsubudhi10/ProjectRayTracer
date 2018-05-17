@@ -2,7 +2,7 @@
 #include "Objects/Sphere.h"
 #include <cmath>
 
-const double Sphere::kEpsilon = 0.0001;
+const double Sphere::kEpsilon = 0.001;
 
 // ---------------------------------------------------------------- default constructor
 

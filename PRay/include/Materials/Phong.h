@@ -9,7 +9,8 @@ public:
 
 	Phong();
 	Phong(const Phong&);
-	~Phong();
+
+	virtual ~Phong();
 
 	Phong& operator= (const Phong&);
 	Material* clone() const override;
@@ -35,7 +36,7 @@ public:
 private:
 	Lambertian* ambient_brdf;
 	Lambertian* diffuse_brdf;
-	Glossy* specular_brdf;
+	Glossy* 	specular_brdf;
 };
 
 inline void Phong::set_exp(float exp_s)

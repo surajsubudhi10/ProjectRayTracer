@@ -6,11 +6,11 @@
 #include "Utils/Maths.h"
 
 Pinhole::Pinhole()
-	: Camera(), d(10.0), zoom(1.0)
+	: /*Camera(),*/ d(10.0), zoom(1.0)
 {}
 
 Pinhole::Pinhole(const Point3D& e, const Point3D& l, const Vector3D& u, float distance, float z)
-	: Camera(e, l, u), d(distance), zoom(z)
+	: /*Camera(e, l, u),*/ d(distance), zoom(z)
 {}
 
 void Pinhole::render_scene(World& w)
@@ -23,7 +23,7 @@ void Pinhole::render_scene(World& w)
 	Point2D pp;				// sample point on a pixel
 
 	vp.s /= zoom;
-	ray.o = eye;
+	//ray.o = eye;
 
 	for (int r = 0; r < vp.vres; r++){	// up
 		for (int c = 0; c < vp.hres; c++)
@@ -45,7 +45,7 @@ void Pinhole::render_scene(World& w)
 			}
 
 			L /= vp.num_samples;
-			L *= exposure_time;
+			//L *= exposure_time;
 			w.primaryBuffer.push_back(L);
 		}
     }
@@ -53,7 +53,7 @@ void Pinhole::render_scene(World& w)
 
 Vector3D Pinhole::ray_direction(const Point2D& p) const 
 {
-	Vector3D dir = p.x * u + p.y * v - d * w;
+	Vector3D dir;// = p.x * u + p.y * v - d * w;
 	dir.normalize();
 	return(dir);
 }

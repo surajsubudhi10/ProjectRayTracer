@@ -10,12 +10,12 @@ Glossy::Glossy()
 	  sampler_ptr(nullptr)
 {}
 
-Glossy::Glossy(const Glossy& lamb)
-	: BRDF(lamb), ks(lamb.ks),
-	  cs(lamb.cs), exp(lamb.exp)
+Glossy::Glossy(const Glossy& gloss)
+	: BRDF(gloss), ks(gloss.ks),
+	  cs(gloss.cs), exp(gloss.exp)
 {
-	if (lamb.sampler_ptr)
-		sampler_ptr = lamb.sampler_ptr->clone();
+	if (gloss.sampler_ptr)
+		sampler_ptr = gloss.sampler_ptr->clone();
 	else
 		sampler_ptr = nullptr;
 }

@@ -8,7 +8,8 @@ public:
 	
 	Material();
 	Material(const Material& m);
-	~Material();
+
+    virtual ~Material();
 	
 	Material& operator= (const Material& m);
 	virtual Material* clone() const = 0;

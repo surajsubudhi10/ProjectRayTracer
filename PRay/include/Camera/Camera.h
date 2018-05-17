@@ -1,7 +1,7 @@
 #pragma once
 
 
-#include "../Utils/Point3D.h"
+#include <Utils/Point3D.h>
 #include "../Utils/Vector3D.h"
 
 class World;
@@ -14,7 +14,7 @@ public:
 
 	Camera(Point3D e, Point3D l, Vector3D u);
 
-	~Camera();
+	virtual ~Camera();
 
 	// access functions
 	void set_eye(const Point3D &e);
@@ -35,7 +35,7 @@ public:
 
 	void compute_uvw();
 
-	virtual void render_scene(World& w) = 0;		
+	virtual void render_scene(World& w) = 0;
 
 	/*virtual void
 		render_stereo(World& w, float x, int offset) = 0;*/

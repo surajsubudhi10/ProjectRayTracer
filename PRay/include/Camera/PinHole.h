@@ -6,7 +6,8 @@
 #include "../Utils/Vector3D.h"
 
 
-class Pinhole : public Camera {
+class Pinhole //: public Camera {
+{
 public:
 	// constructors
 	Pinhole();
@@ -19,7 +20,7 @@ public:
 	void set_view_distance(float distance);
 	void set_zoom(float z);
 	Vector3D ray_direction(const Point2D& p) const;
-	void render_scene(World& w) override;
+	void render_scene(World& w);// override;
 
 private:
 

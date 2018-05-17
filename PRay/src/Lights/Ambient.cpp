@@ -1,11 +1,12 @@
 
+#include <Utils/Constants.h>
 #include "Lights/Ambient.h"
 #include "Utils/ShadeRec.h"
 
-Ambient::Ambient()
+Ambient:: Ambient()
 	: Light(),
 	ls(1.0),
-	color(1.0)	
+	color(white)
 {}
 
 Ambient::Ambient(const Ambient& amb)

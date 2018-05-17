@@ -8,13 +8,13 @@ class Lambertian : public BRDF
 public:
 	Lambertian();
 	Lambertian(const Lambertian& lamb);
-	~Lambertian();
+	~Lambertian() override;
 
 	Lambertian& operator= (const Lambertian& rhs);
 	BRDF* clone() const override;
 
 	void set_kd(float the_kd);
-	void set_cd(const RGBColor &cd);
+	void set_cd(const RGBColor &the_cd);
 	void set_cd(float r, float g, float b);
 
 	RGBColor f(const ShadeRec& sr, const Vector3D& wi, const Vector3D& wo) const override;
@@ -28,14 +28,11 @@ private:
 	RGBColor cd;	// diffuse color
 };
 
-inline void
-Lambertian::set_kd(const float the_kd) 
-{
+inline void Lambertian::set_kd(const float the_kd) {
 	kd = the_kd;
 }
 
-inline void Lambertian::set_cd(const RGBColor &the_cd)
-{
+inline void Lambertian::set_cd(const RGBColor &the_cd) {
 	cd = the_cd;
 }
 

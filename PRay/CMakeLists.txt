@@ -7,6 +7,7 @@ set(PRAY_SOURCE
         ## Camera
         "src/Camera/Camera.cpp"
         "src/Camera/PinHole.cpp"
+        "src/Camera/Orthographic.cpp"
 
         ## World
         "src/World/ViewPlane.cpp"
@@ -30,6 +31,7 @@ set(PRAY_SOURCE
         "src/Materials/Material.cpp"
         "src/Materials/Matte.cpp"
         "src/Materials/Phong.cpp"
+        "src/Materials/Reflective.cpp"
 
         ## Lights
         "src/Lights/Ambient.cpp"
@@ -40,6 +42,7 @@ set(PRAY_SOURCE
         "src/BRDF/BRDF.cpp"
         "src/BRDF/Glossy.cpp"
         "src/BRDF/Lambertian.cpp"
+        "src/BRDF/PerfectSpecular.cpp"
 
         ## Utils
         "src/Utils/BBox.cpp"

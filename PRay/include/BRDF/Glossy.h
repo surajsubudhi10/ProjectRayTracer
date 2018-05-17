@@ -5,7 +5,7 @@
 class Glossy : public BRDF {
 public:
 	Glossy();
-	Glossy(const Glossy& lamb);
+	Glossy(const Glossy& gloss);
 	~Glossy();
 
 	Glossy& operator= (const Glossy& rhs);
