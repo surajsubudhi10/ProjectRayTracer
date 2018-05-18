@@ -4,6 +4,7 @@
 #include <Camera/Orthographic.h>
 #include <Camera/ThinLens.h>
 #include <Samplers/MultiJittered.h>
+#include <Lights/AmbientOcculuder.h>
 #include "World/World.h"
 #include "Objects/Plane.h"
 //#include "Camera/PinHole.h"
@@ -152,19 +153,24 @@ void World::build()
 
 void World::build()
 {
+    auto num_of_samples = 64;
     vp.set_hres(1000);
     vp.set_vres(800);
     vp.set_pixel_size(1.0);
-    vp.set_samples(5);
+    vp.set_samples(num_of_samples);
     vp.set_gamma(1.0);
     vp.set_gamut_display(true);
     vp.set_max_depth(2);
 
     background_color = black;
 
-    auto * ambient_ptr = new Ambient();
-    ambient_ptr->scale_radiance(2.0);
-    set_ambient_light(ambient_ptr);
+//    auto * ambient_ptr = new Ambient();
+//    ambient_ptr->scale_radiance(2.0);
+//    set_ambient_light(ambient_ptr);
+
+    auto* occluder_ptr = new AmbientOcculuder(black, new MultiJittered(num_of_samples));
+    occluder_ptr->scale_radiance(3.0);
+    set_ambient_light(occluder_ptr);
 
     //// ================ Camera ===================== ////
 

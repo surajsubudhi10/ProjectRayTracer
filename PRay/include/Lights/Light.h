@@ -5,7 +5,8 @@
 #include "../Utils/Ray.h"
 #include "../Utils/ShadeRec.h"
 
-class Light {
+class Light
+{
 public:
 
 	Light();
@@ -23,7 +24,7 @@ public:
 	virtual RGBColor L(ShadeRec& sr);
 
 	bool casts_shadows() const;
-	void set_shadows(const bool shadow);
+	void set_shadows(bool shadow);
 
 protected:
 	bool shadows;

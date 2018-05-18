@@ -10,11 +10,12 @@ int main() {
 	w.build();
 	//w.render_scene();
 	std::cout << "RayTracing.." << std::endl;
+
 	w.camera_ptr->render_scene(w);
-	w.Savebmp("testBareBoneRaytracer.bmp");
+	w.Savebmp("AmbientOcclusionWithPoint.bmp");
 	std::cout << "RayTracing Completed." << std::endl;
 
-	system("testBareBoneRaytracer.bmp");
+	system("AmbientOcclusionWithPoint.bmp");
 	//system("pause");
 	return 0;
 }

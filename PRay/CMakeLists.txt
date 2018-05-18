@@ -38,6 +38,7 @@ set(PRAY_SOURCE
         "src/Lights/Ambient.cpp"
         "src/Lights/Light.cpp"
         "src/Lights/PointLight.cpp"
+        "src/Lights/AmbientOcculuder.cpp"
 
         ## BRDF
         "src/BRDF/BRDF.cpp"
