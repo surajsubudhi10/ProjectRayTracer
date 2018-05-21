@@ -74,7 +74,7 @@ if(WIN32)
 
     if(MSVC)
 
-        set(MSVC_CXX_FLAGS "-std=gnu++11")
+#        set(MSVC_CXX_FLAGS "-std=gnu++11")
         set(CMAKE_BUILD_TYPE Debug)
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${MSVC_CXX_FLAGS}")
 

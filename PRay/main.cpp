@@ -12,10 +12,10 @@ int main() {
 	std::cout << "RayTracing.." << std::endl;
 
 	w.camera_ptr->render_scene(w);
-	w.Savebmp("AmbientOcclusionWithPoint.bmp");
+	w.Savebmp("AmbientOcclusion.bmp");
 	std::cout << "RayTracing Completed." << std::endl;
 
-	system("AmbientOcclusionWithPoint.bmp");
+	system("AmbientOcclusion.bmp");
 	//system("pause");
 	return 0;
 }
