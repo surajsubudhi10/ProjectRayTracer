@@ -5,7 +5,7 @@
 class Box : public GeometricObject {
 public:
 	Box();
-	Box(const Point3D p0, const Point3D p1);
+	Box(const Point3D& p0, const Point3D& p1);
 	Box(const Box& bbox);
 	Box(double x0, double x1,
 		double y0, double y1,

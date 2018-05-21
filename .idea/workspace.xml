@@ -1,0 +1,835 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
+    <generated>
+      <config projectName="PRAY" targetName="PRAY" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fa45626b-4ccb-4ced-891c-6ae67bfa07ac" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/PRay/include/Objects/Box.h" beforeDir="false" afterPath="$PROJECT_DIR$/PRay/include/Objects/Box.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PRay/src/Objects/Box.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PRay/src/Objects/Box.cpp" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="bareBoneBuild.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PRay/src/builds/bareBoneBuild.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="379">
+              <caret line="194" selection-start-line="194" selection-end-line="194" />
+              <folding>
+                <element signature="e#1#34#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PRay/main.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="17" column="38" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AmbientOcculuder.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PRay/include/Lights/AmbientOcculuder.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="21" column="45" lean-forward="true" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Box.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PRay/src/Objects/Box.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Box.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PRay/include/Objects/Box.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Glossy.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PRay/src/BRDF/Glossy.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Reflective.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PRay/src/Materials/Reflective.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Reflective.h" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/PRay/include/Materials/Reflective.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Sphere.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PRay/src/Objects/Sphere.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="9" column="24" lean-forward="true" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+              <folding>
+                <element signature="e#1#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AmbientOcculuder.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PRay/src/Lights/AmbientOcculuder.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="90" />
+              <folding>
+                <element signature="e#42#78#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>sample_f</find>
+      <find>path_shade</find>
+      <find>area_light_shade</find>
+      <find>global_shade</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/PRay/include/Utils/Constants.h" />
+        <option value="$PROJECT_DIR$/PRay/include/Utils/Matrix.h" />
+        <option value="$PROJECT_DIR$/PRay/include/Utils/Normal.h" />
+        <option value="$PROJECT_DIR$/PRay/include/Utils/Point2D.h" />
+        <option value="$PROJECT_DIR$/PRay/include/Utils/Point3D.h" />
+        <option value="$PROJECT_DIR$/PRay/include/Utils/Ray.h" />
+        <option value="$PROJECT_DIR$/PRay/include/Utils/RGBColor.h" />
+        <option value="$PROJECT_DIR$/PRay/include/Utils/Vector3D.h" />
+        <option value="$PROJECT_DIR$/PRay/src/Utils/Vector3D.cpp" />
+        <option value="$PROJECT_DIR$/PRay/src/Lights/PointLight.cpp" />
+        <option value="$PROJECT_DIR$/PRay/src/BRDF/Glossy.cpp" />
+        <option value="$PROJECT_DIR$/PRay/src/BRDF/Lambertian.cpp" />
+        <option value="$PROJECT_DIR$/PRay/include/World/World.h" />
+        <option value="$PROJECT_DIR$/PRay/src/Objects/Disk.cpp" />
+        <option value="$PROJECT_DIR$/PRay/src/Objects/Rectangle.cpp" />
+        <option value="$PROJECT_DIR$/PRay/src/Objects/Triangle.cpp" />
+        <option value="$PROJECT_DIR$/PRay/src/Utils/ShadeRec.cpp" />
+        <option value="$PROJECT_DIR$/PRay/include/Utils/ShadeRec.h" />
+        <option value="$PROJECT_DIR$/PRay/include/Materials/Phong.h" />
+        <option value="$PROJECT_DIR$/PRay/src/World/ViewPlane.cpp" />
+        <option value="$PROJECT_DIR$/PRay/src/World/World.cpp" />
+        <option value="$PROJECT_DIR$/PRay/include/BRDF/Glossy.h" />
+        <option value="$PROJECT_DIR$/PRay/include/BRDF/Lambertian.h" />
+        <option value="$PROJECT_DIR$/PRay/include/BRDF/PerfectSpecular.h" />
+        <option value="$PROJECT_DIR$/PRay/src/BRDF/PerfectSpecular.cpp" />
+        <option value="$PROJECT_DIR$/PRay/include/World/ViewPlane.h" />
+        <option value="$PROJECT_DIR$/PRay/include/Materials/Reflective.h" />
+        <option value="$PROJECT_DIR$/PRay/src/Materials/Reflective.cpp" />
+        <option value="$PROJECT_DIR$/PRay/src/Camera/Camera.cpp" />
+        <option value="$PROJECT_DIR$/PRay/include/Utils/Maths.h" />
+        <option value="$PROJECT_DIR$/PRay/include/Camera/PinHole.h" />
+        <option value="$PROJECT_DIR$/PRay/src/Camera/PinHole.cpp" />
+        <option value="$PROJECT_DIR$/PRay/src/Lights/Ambient.cpp" />
+        <option value="$PROJECT_DIR$/PRay/include/Camera/Camera.h" />
+        <option value="$PROJECT_DIR$/PRay/include/Camera/ThinLens.h" />
+        <option value="$PROJECT_DIR$/PRay/include/Samplers/Sampler.h" />
+        <option value="$PROJECT_DIR$/PRay/src/Camera/ThinLens.cpp" />
+        <option value="$PROJECT_DIR$/PRay/include/Camera/Orthographic.h" />
+        <option value="$PROJECT_DIR$/PRay/src/Camera/Orthographic.cpp" />
+        <option value="$PROJECT_DIR$/PRay/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/PRay/include/Lights/Light.h" />
+        <option value="$PROJECT_DIR$/PRay/include/Lights/Ambient.h" />
+        <option value="$PROJECT_DIR$/PRay/include/Lights/AmbientOcculuder.h" />
+        <option value="$PROJECT_DIR$/PRay/src/Lights/AmbientOcculuder.cpp" />
+        <option value="$PROJECT_DIR$/PRay/src/Samplers/Sampler.cpp" />
+        <option value="$PROJECT_DIR$/PRay/src/Objects/Plane.cpp" />
+        <option value="$PROJECT_DIR$/PRay/src/Objects/Sphere.cpp" />
+        <option value="$PROJECT_DIR$/PRay/src/builds/bareBoneBuild.cpp" />
+        <option value="$PROJECT_DIR$/PRay/main.cpp" />
+        <option value="$PROJECT_DIR$/PRay/src/Objects/Box.cpp" />
+        <option value="$PROJECT_DIR$/PRay/include/Objects/Box.h" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
+    <option name="width" value="1940" />
+    <option name="height" value="1050" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="PRAY" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjectRayTracer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PRAY" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjectRayTracer" type="462c0819:PsiDirectoryNode" />
+              <item name="PRay" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PRAY" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjectRayTracer" type="462c0819:PsiDirectoryNode" />
+              <item name="PRay" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PRAY" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjectRayTracer" type="462c0819:PsiDirectoryNode" />
+              <item name="PRay" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+              <item name="BRDF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PRAY" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjectRayTracer" type="462c0819:PsiDirectoryNode" />
+              <item name="PRay" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+              <item name="Camera" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PRAY" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjectRayTracer" type="462c0819:PsiDirectoryNode" />
+              <item name="PRay" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+              <item name="Lights" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PRAY" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjectRayTracer" type="462c0819:PsiDirectoryNode" />
+              <item name="PRay" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+              <item name="Materials" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PRAY" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjectRayTracer" type="462c0819:PsiDirectoryNode" />
+              <item name="PRay" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+              <item name="Objects" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PRAY" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjectRayTracer" type="462c0819:PsiDirectoryNode" />
+              <item name="PRay" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+              <item name="World" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PRAY" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjectRayTracer" type="462c0819:PsiDirectoryNode" />
+              <item name="PRay" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PRAY" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjectRayTracer" type="462c0819:PsiDirectoryNode" />
+              <item name="PRay" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="BRDF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PRAY" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjectRayTracer" type="462c0819:PsiDirectoryNode" />
+              <item name="PRay" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="builds" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PRAY" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjectRayTracer" type="462c0819:PsiDirectoryNode" />
+              <item name="PRay" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Camera" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PRAY" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjectRayTracer" type="462c0819:PsiDirectoryNode" />
+              <item name="PRay" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Lights" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PRAY" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjectRayTracer" type="462c0819:PsiDirectoryNode" />
+              <item name="PRay" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Materials" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PRAY" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjectRayTracer" type="462c0819:PsiDirectoryNode" />
+              <item name="PRay" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Objects" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.PRAY">
+    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all" />
+    <configuration name="PRAY" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="PRAY" TARGET_NAME="PRAY" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="PRAY" RUN_TARGET_NAME="PRAY" />
+    <list>
+      <item itemvalue="Application.Build All" />
+      <item itemvalue="Application.PRAY" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fa45626b-4ccb-4ced-891c-6ae67bfa07ac" name="Default" comment="" />
+      <created>1526303195229</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1526303195229</updated>
+      <workItem from="1526303196703" duration="17972000" />
+      <workItem from="1526352910830" duration="1527000" />
+      <workItem from="1526464630363" duration="19314000" />
+      <workItem from="1526538319889" duration="28251000" />
+      <workItem from="1526627181510" duration="8246000" />
+      <workItem from="1526651177222" duration="6753000" />
+    </task>
+    <task id="LOCAL-00001" summary="Project restructure for cross platform support.">
+      <created>1526322273705</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1526322273705</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Mirror reflection added.">
+      <created>1526562966140</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1526562966140</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Adding depth of field using ThinLens Camera.">
+      <created>1526577821840</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1526577821840</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Ambient Occlusion support added (AmbientOcculuder Light).">
+      <created>1526655431623</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1526655431623</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="82063000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1956378" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32905984" />
+      <window_info anchor="bottom" id="CMake" order="11" weight="0.32905984" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32905984" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32905984" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3988604" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32905984" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Project restructure for cross platform support." />
+    <MESSAGE value="Mirror reflection added." />
+    <MESSAGE value="Adding depth of field using ThinLens Camera." />
+    <MESSAGE value="Ambient Occlusion support added." />
+    <MESSAGE value="Ambient Occlusion support added (AmbientOcculuder Light)." />
+    <option name="LAST_COMMIT_MESSAGE" value="Ambient Occlusion support added (AmbientOcculuder Light)." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/PRay/src/Samplers/Sampler.cpp</url>
+          <line>59</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="16" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/PRay/include/Materials/Matte.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="22" column="15" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Materials/Matte.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="94" column="16" selection-start-line="94" selection-start-column="16" selection-end-line="94" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/Utils/Normal.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="62" column="30" selection-start-line="62" selection-start-column="30" selection-end-line="62" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/BRDF/Glossy.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/BRDF/BRDF.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/BRDF/BRDF.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/BRDF/Lambertian.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="15" column="30" lean-forward="true" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/BRDF/PerfectSpecular.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="71" selection-start-line="71" selection-end-line="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/World/ViewPlane.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2002">
+          <caret line="91" selection-start-line="91" selection-end-line="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/BRDF/PerfectSpecular.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/Objects/Rectangle.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Objects/Rectangle.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/Utils/Maths.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+          <folding>
+            <element signature="e#14#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/World/World.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Lights/Light.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/World/World.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="253" column="40" selection-start-line="253" selection-start-column="40" selection-end-line="253" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Materials/Material.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/BRDF/Lambertian.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="48" column="21" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/Materials/Phong.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/Camera/PinHole.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Camera/PinHole.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="51" column="1" selection-start-line="51" selection-start-column="1" selection-end-line="51" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Camera/Camera.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/Camera/Camera.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1034">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/Camera/ThinLens.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Utils/Point2D.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/Camera/Orthographic.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Camera/ThinLens.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1804">
+          <caret line="82" column="28" selection-start-line="82" selection-start-column="28" selection-end-line="82" selection-end-column="28" />
+          <folding>
+            <element signature="e#42#70#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Camera/Orthographic.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="968">
+          <caret line="44" column="32" selection-start-line="44" selection-start-column="32" selection-end-line="44" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="633">
+          <caret line="40" column="41" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/Utils/Constants.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/Samplers/Sampler.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Lights/Ambient.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/Lights/Light.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="19" column="11" lean-forward="true" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/Lights/Ambient.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Materials/Phong.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2002">
+          <caret line="91" selection-start-line="91" selection-end-line="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/Objects/GeometricObject.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Utils/Vector3D.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="104" selection-start-line="104" selection-end-line="104" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/Objects/Sphere.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="37" column="27" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Samplers/Sampler.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="144" column="21" selection-start-line="144" selection-start-column="21" selection-end-line="144" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/Objects/Plane.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Objects/Plane.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Objects/Sphere.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="24" lean-forward="true" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+          <folding>
+            <element signature="e#1#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Lights/AmbientOcculuder.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="90" />
+          <folding>
+            <element signature="e#42#78#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/builds/bareBoneBuild.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="194" selection-start-line="194" selection-end-line="194" />
+          <folding>
+            <element signature="e#1#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="17" column="38" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/Lights/AmbientOcculuder.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="21" column="45" lean-forward="true" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Objects/Box.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/Objects/Box.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/BRDF/Glossy.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Materials/Reflective.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/Materials/Reflective.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

@@ -10,7 +10,7 @@ Box::Box(const double _x0, const double _x1,
 	: x0(_x0), x1(_x1), y0(_y0), y1(_y1), z0(_z0), z1(_z1)
 {}
 
-Box::Box(const Point3D p0, const Point3D p1)
+Box::Box(const Point3D& p0, const Point3D& p1)
 	: x0(p0.x), x1(p1.x), y0(p0.y), y1(p1.y), z0(p0.z), z1(p1.z)
 {}
 
