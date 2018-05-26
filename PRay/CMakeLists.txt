@@ -33,6 +33,7 @@ set(PRAY_SOURCE
         "src/Materials/Matte.cpp"
         "src/Materials/Phong.cpp"
         "src/Materials/Reflective.cpp"
+        "src/Materials/GlossyReflector.cpp"
 
         ## Lights
         "src/Lights/Ambient.cpp"

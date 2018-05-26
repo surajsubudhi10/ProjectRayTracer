@@ -2,6 +2,7 @@
 #include "Samplers/Sampler.h"
 #include "Utils/Point3D.h"
 #include <algorithm>
+#include <cmath>
 
 Sampler::Sampler()
 	: num_samples(1), num_sets(83), count(0), jump(0) 

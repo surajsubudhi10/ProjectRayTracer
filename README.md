@@ -13,7 +13,7 @@ If you have Visual Studio then Jump to Step 2 in the Linux build instruction. Yo
 
 To sum it up:
 ```
-git clone  https://github.com/surajsubudhi10/CG184.git
+git clone  https://github.com/surajsubudhi10/ProjectRayTracer.git
 mkdir build
 cd build
 cmake ../.

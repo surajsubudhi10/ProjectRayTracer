@@ -5,6 +5,7 @@
 #include <Camera/ThinLens.h>
 #include <Samplers/MultiJittered.h>
 #include <Lights/AmbientOcculuder.h>
+#include <Materials/GlossyReflector.h>
 #include "World/World.h"
 #include "Objects/Plane.h"
 //#include "Camera/PinHole.h"
@@ -211,10 +212,24 @@ void World::build()
     reflective_ptr->set_kr(0.20f);
     reflective_ptr->set_cr(white);
 
+    auto* glossy_reflective_ptr = new GlossyReflector();
+    auto exp = 100;
+    glossy_reflective_ptr->set_samples(100, exp);
+    glossy_reflective_ptr->set_ka(0.0);
+    glossy_reflective_ptr->set_kd(0.0);
+    glossy_reflective_ptr->set_ks(0.0);
+    glossy_reflective_ptr->set_ca(1.0, 0.0, 0.0);
+    glossy_reflective_ptr->set_cd(0.0, 1.0, 0.0);
+    glossy_reflective_ptr->set_exp_s(10);
+    glossy_reflective_ptr->set_kr(1.0f);
+    glossy_reflective_ptr->set_exponent(exp);
+    glossy_reflective_ptr->set_cr(1.0, 1.0, 1.0);
+
     auto* sphere_ptr1 = new Sphere();
     sphere_ptr1->set_center(Point3D(0, 130.0, 0.0));
 //	sphere_ptr1->set_material(phong_ptr);
-    sphere_ptr1->set_material(reflective_ptr);
+//    sphere_ptr1->set_material(reflective_ptr);
+    sphere_ptr1->set_material(glossy_reflective_ptr);
     sphere_ptr1->set_radius(140.0);
     add_object(sphere_ptr1);
 

@@ -6,7 +6,7 @@
 #include <World/World.h>
 #include <BRDF/PerfectSpecular.h>
 
-Reflective::Reflective() : Phong()//, reflective_brdf(new PerfectSpecular)
+Reflective::Reflective() : Phong()
 {
     reflective_brdf = new PerfectSpecular();
 }

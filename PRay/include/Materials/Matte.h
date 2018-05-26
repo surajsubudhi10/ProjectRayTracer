@@ -4,7 +4,8 @@
 #include "Material.h"
 #include "../BRDF/Lambertian.h"
 
-class Matte : public Material {
+class Matte : public Material
+{
 public:
 
 	Matte();

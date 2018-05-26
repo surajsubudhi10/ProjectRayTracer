@@ -21,19 +21,7 @@ if(UNIX)
         set(GCC_CXX_FLAGS "-std=gnu++11 -m64")
 
         message(STATUS "0")
-        # X11 Dependencies
-        set(GCC_CXX_FLAGS "${GCC_CXX_FLAGS} -lXi")
-        set(GCC_CXX_FLAGS "${GCC_CXX_FLAGS} -lXxf86vm")
-        set(GCC_CXX_FLAGS "${GCC_CXX_FLAGS} -lXinerama")
-        set(GCC_CXX_FLAGS "${GCC_CXX_FLAGS} -lXcursor")
-        set(GCC_CXX_FLAGS "${GCC_CXX_FLAGS} -lXfixes")
-        set(GCC_CXX_FLAGS "${GCC_CXX_FLAGS} -lXrandr")
-        set(GCC_CXX_FLAGS "${GCC_CXX_FLAGS} -lXext")
-        set(GCC_CXX_FLAGS "${GCC_CXX_FLAGS} -lXrender")
-        set(GCC_CXX_FLAGS "${GCC_CXX_FLAGS} -lX11")
         set(GCC_CXX_FLAGS "${GCC_CXX_FLAGS} -lpthread")
-        set(GCC_CXX_FLAGS "${GCC_CXX_FLAGS} -lxcb")
-        set(GCC_CXX_FLAGS "${GCC_CXX_FLAGS} -lXau")
 
         # Debug configuration
         if(BUILD_DEBUG)

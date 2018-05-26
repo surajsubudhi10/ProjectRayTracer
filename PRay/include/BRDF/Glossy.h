@@ -2,7 +2,8 @@
 
 #include "BRDF.h"
 
-class Glossy : public BRDF {
+class Glossy : public BRDF
+{
 public:
 	Glossy();
 	Glossy(const Glossy& gloss);

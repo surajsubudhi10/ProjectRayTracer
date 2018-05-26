@@ -8,14 +8,15 @@ int main() {
 
 	World w;
 	w.build();
+	const char* fileName = "AmbientOcclusion1000e.bmp";
 	//w.render_scene();
 	std::cout << "RayTracing.." << std::endl;
 
 	w.camera_ptr->render_scene(w);
-	w.Savebmp("AmbientOcclusion.bmp");
+	w.Savebmp(fileName);
 	std::cout << "RayTracing Completed." << std::endl;
 
-	system("AmbientOcclusion.bmp");
+	system(fileName);
 	//system("pause");
 	return 0;
 }
