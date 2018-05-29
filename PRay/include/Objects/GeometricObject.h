@@ -13,7 +13,7 @@ class GeometricObject {
 
 public:
 
-	GeometricObject();									// default constructor
+	GeometricObject();									    // default constructor
 	GeometricObject(const GeometricObject& object);			// copy constructor
 
 	virtual GeometricObject* clone() const = 0;
@@ -38,6 +38,7 @@ protected:
 	
 	mutable Material* material_ptr;
 	bool shadows;
+	BBox bBox;
 };
 
 inline void GeometricObject::set_shadows(const bool do_shadow) 

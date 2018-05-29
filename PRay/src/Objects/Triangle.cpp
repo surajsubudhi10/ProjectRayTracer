@@ -3,8 +3,7 @@
 
 Triangle::Triangle()
 	: GeometricObject(), v0(0, 0, 0), v1(0, 0, 1), v2(1, 0, 0), normal(0, 1, 0)
-{
-}
+{}
 
 Triangle::Triangle(const Point3D& a, const Point3D& b, const Point3D& c)
 	: GeometricObject(), v0(a), v1(b), v2(c) 
@@ -15,8 +14,7 @@ Triangle::Triangle(const Point3D& a, const Point3D& b, const Point3D& c)
 
 Triangle::Triangle(const Triangle& tri)
 	: GeometricObject(), v0(tri.v0), v1(tri.v1), v2(tri.v2), normal(tri.normal)
-{
-}
+{}
 
 
 Triangle& Triangle::operator=(const Triangle& tri) 
@@ -82,7 +80,6 @@ bool Triangle::hit(const Ray& ray, double& tmin, ShadeRec& sr) const
 
 	tmin = t;
 	sr.normal = normal;
-//	sr.local_hit_point = ray.o + t * ray.d;
 	sr.hit_point = ray.o + t * ray.d;
 
 	return (true);

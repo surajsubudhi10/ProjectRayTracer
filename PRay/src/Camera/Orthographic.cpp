@@ -49,8 +49,12 @@ void Orthographic::render_scene(World &world)
     }
 }
 
-//Orthographic::Orthographic(const Orthographic &ortho)
-//{}
+void Orthographic::set_zoom(float zm) { zoom = zm; }
+float Orthographic::get_zoom() const { return zoom; }
+
+Orthographic::Orthographic(const Orthographic &ortho) :
+    Camera(ortho), zoom(ortho.zoom)
+{}
 
 Orthographic::~Orthographic()
 = default;

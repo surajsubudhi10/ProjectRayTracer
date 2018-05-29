@@ -27,6 +27,7 @@ set(PRAY_SOURCE
         "src/Objects/Rectangle.cpp"
         "src/Objects/Sphere.cpp"
         "src/Objects/Triangle.cpp"
+        "src/Objects/OpenCylinder.cpp"
 
         ## Materials
         "src/Materials/Material.cpp"
@@ -60,7 +61,8 @@ set(PRAY_SOURCE
         "src/Utils/Vector3D.cpp"
 
         ## builds
-        "src/builds/bareBoneBuild.cpp"
+        #"src/builds/bareBoneBuild.cpp"
+        "src/builds/geometricObjectsbuild.cpp"
    )
 
 #-------------------------------------------------------------------------------
