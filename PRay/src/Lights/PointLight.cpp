@@ -47,7 +47,7 @@ RGBColor PointLight::L(ShadeRec& sr)
 bool PointLight::in_shadow(const Ray& ray, const ShadeRec& sr) const 
 {
 	float t;
-	int num_objects = sr.w.objects.size();
+	auto num_objects = (int)sr.w.objects.size();
 	auto d = static_cast<float>(location.distance(ray.o));
 
 	for (int j = 0; j < num_objects; j++)

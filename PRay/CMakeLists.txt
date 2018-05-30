@@ -27,6 +27,7 @@ set(PRAY_SOURCE
         "src/Objects/Rectangle.cpp"
         "src/Objects/Sphere.cpp"
         "src/Objects/Triangle.cpp"
+        "src/Objects/Torus.cpp"
 
         ## Materials
         "src/Materials/Material.cpp"

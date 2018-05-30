@@ -2,6 +2,7 @@
 #include "Samplers/Sampler.h"
 #include "Utils/Point3D.h"
 #include <algorithm>
+#include <cmath>
 
 Sampler::Sampler()
 	: num_samples(1), num_sets(83), count(0), jump(0) 
@@ -131,8 +132,8 @@ void Sampler::map_samples_to_unit_disk()
 
 		phi *= PI / 4.0;		// common to all sectors
 
-		disk_samples[j].x = static_cast<float>(r * cos(phi));
-		disk_samples[j].y = static_cast<float>(r * sin(phi));
+		disk_samples[j].x = (r * cosf(phi));
+		disk_samples[j].y = (r * sinf(phi));
 	}
 }
 

@@ -62,9 +62,9 @@ inline float rand_float()
 
 // ---------------------------------------------------- set_rand_seed
 
-inline void set_rand_seed(const int seed) 
+inline void set_rand_seed(int seed)
 {
-	srand(seed);
+	srand(static_cast<unsigned int>(seed));
 }
 
 // ---------------------------------------------------- rand_float with arguments

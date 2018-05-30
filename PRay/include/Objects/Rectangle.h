@@ -1,5 +1,6 @@
 #pragma once
 
+#include <Samplers/Sampler.h>
 #include "GeometricObject.h"
 
 class Rectangle : public GeometricObject
@@ -14,11 +15,13 @@ public:
 	Rectangle* clone() const override;
 	Rectangle& operator= (const Rectangle& rhs);
 
+    void set_sampler(int num_of_samples);
+
 	bool hit(const Ray& ray, double& t, ShadeRec& s) const override;
 	bool shadow_hit(const Ray& ray, float& tmin) const override;
 
-	//virtual Point3D	sample(void);
-	//virtual float pdf(const ShadeRec& sr) const;
+	Point3D	sample() override ;
+	float pdf(const ShadeRec& sr) const override ;
 	Normal get_normal(const Point3D& p) const override;
 	BBox get_bounding_box() const override;
 
@@ -27,6 +30,7 @@ private:
 	Vector3D		a;	
 	Vector3D		b;	
 	Normal			normal;
+	Sampler*        sampler_ptr;
 
 	static const double kEpsilon;
 };

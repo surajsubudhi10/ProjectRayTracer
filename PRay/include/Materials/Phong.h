@@ -10,7 +10,7 @@ public:
 	Phong();
 	Phong(const Phong&);
 
-	virtual ~Phong();
+	~Phong() override;
 
 	Phong& operator= (const Phong&);
 	Material* clone() const override;

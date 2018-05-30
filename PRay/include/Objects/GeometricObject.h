@@ -18,7 +18,7 @@ public:
 
 	virtual GeometricObject* clone() const = 0;
 	virtual	~GeometricObject();
-	
+
 	virtual bool hit(const Ray& ray, double& t, ShadeRec& s) const = 0;
 	virtual bool shadow_hit(const Ray& ray, float& tmin) const = 0;
 
@@ -38,6 +38,7 @@ protected:
 	
 	mutable Material* material_ptr;
 	bool shadows;
+	BBox bbox;
 };
 
 inline void GeometricObject::set_shadows(const bool do_shadow) 

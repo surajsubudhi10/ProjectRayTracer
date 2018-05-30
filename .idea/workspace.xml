@@ -11,13 +11,24 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa45626b-4ccb-4ced-891c-6ae67bfa07ac" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/markdown-navigator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/markdown-navigator/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="fa45626b-4ccb-4ced-891c-6ae67bfa07ac" name="Default" comment="Adding READMe file.">
+      <change afterPath="$PROJECT_DIR$/PRay/include/Objects/Torus.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PRay/src/Objects/Torus.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PRay/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PRay/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PRay/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/PRay/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PRay/include/Materials/Phong.h" beforeDir="false" afterPath="$PROJECT_DIR$/PRay/include/Materials/Phong.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PRay/include/Objects/GeometricObject.h" beforeDir="false" afterPath="$PROJECT_DIR$/PRay/include/Objects/GeometricObject.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PRay/include/Objects/Rectangle.h" beforeDir="false" afterPath="$PROJECT_DIR$/PRay/include/Objects/Rectangle.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PRay/include/Utils/Maths.h" beforeDir="false" afterPath="$PROJECT_DIR$/PRay/include/Utils/Maths.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PRay/src/Lights/PointLight.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PRay/src/Lights/PointLight.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PRay/src/Materials/Phong.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PRay/src/Materials/Phong.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PRay/src/Materials/Reflective.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PRay/src/Materials/Reflective.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PRay/src/Objects/GeometricObject.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PRay/src/Objects/GeometricObject.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PRay/src/Objects/Rectangle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PRay/src/Objects/Rectangle.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PRay/src/Objects/Sphere.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PRay/src/Objects/Sphere.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PRay/src/Samplers/Sampler.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PRay/src/Samplers/Sampler.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PRay/src/Utils/Maths.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PRay/src/Utils/Maths.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PRay/src/builds/bareBoneBuild.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PRay/src/builds/bareBoneBuild.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,39 +41,34 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="bareBoneBuild.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PRay/src/builds/bareBoneBuild.cpp">
+      <file leaf-file-name="Torus.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PRay/include/Objects/Torus.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4246">
-              <caret line="193" column="32" selection-start-line="193" selection-start-column="32" selection-end-line="193" selection-end-column="32" />
+            <state relative-caret-position="396">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Torus.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PRay/src/Objects/Torus.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="172">
+              <caret line="57" column="40" selection-start-line="57" selection-start-column="40" selection-end-line="57" selection-end-column="40" />
               <folding>
-                <element signature="e#1#34#0" expanded="true" />
+                <element signature="e#42#68#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="154">
-                <caret line="7" column="83" selection-start-line="7" selection-start-column="83" selection-end-line="7" selection-end-column="83" />
-              </first_editor>
-              <second_editor>
-                <markdownNavigatorState />
-              </second_editor>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Maths.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PRay/include/Utils/Maths.h">
+      <file leaf-file-name="Sampler.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PRay/src/Samplers/Sampler.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1870">
-              <caret line="85" column="68" selection-start-line="85" selection-start-column="68" selection-end-line="85" selection-end-column="68" />
+            <state relative-caret-position="357">
+              <caret line="134" column="44" lean-forward="true" selection-start-line="134" selection-start-column="44" selection-end-line="134" selection-end-column="44" />
               <folding>
-                <element signature="e#14#32#0" expanded="true" />
+                <element signature="e#1#30#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -71,62 +77,65 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PRay/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+            <state relative-caret-position="220">
+              <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Box.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PRay/src/Objects/Box.cpp">
+      <file leaf-file-name="Camera.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PRay/include/Camera/Camera.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+            <state relative-caret-position="168">
+              <caret line="18" column="35" lean-forward="true" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Box.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PRay/include/Objects/Box.h">
+      <file leaf-file-name="Orthographic.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PRay/include/Camera/Orthographic.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+            <state relative-caret-position="330">
+              <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Glossy.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PRay/src/BRDF/Glossy.cpp">
+      <file leaf-file-name="Orthographic.cpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/PRay/src/Camera/Orthographic.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+            <state relative-caret-position="246">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Reflective.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PRay/src/Materials/Reflective.cpp">
+      <file leaf-file-name="Sphere.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PRay/src/Objects/Sphere.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+            <state relative-caret-position="2948">
+              <caret line="134" column="31" selection-start-line="134" selection-start-column="31" selection-end-line="134" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Reflective.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PRay/include/Materials/Reflective.h">
+      <file leaf-file-name="bareBoneBuild.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PRay/src/builds/bareBoneBuild.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+            <state relative-caret-position="4928">
+              <caret line="224" column="39" selection-start-line="224" selection-start-column="39" selection-end-line="224" selection-end-column="39" />
+              <folding>
+                <element signature="e#1#34#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <file leaf-file-name="Phong.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PRay/src/Materials/Phong.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1826">
-              <caret line="83" selection-start-line="83" selection-end-line="83" />
+            <state relative-caret-position="2596">
+              <caret line="118" selection-start-line="118" selection-end-line="118" />
             </state>
           </provider>
         </entry>
@@ -147,23 +156,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/PRay/include/Utils/Normal.h" />
-        <option value="$PROJECT_DIR$/PRay/include/Utils/Point2D.h" />
-        <option value="$PROJECT_DIR$/PRay/include/Utils/Point3D.h" />
-        <option value="$PROJECT_DIR$/PRay/include/Utils/Ray.h" />
-        <option value="$PROJECT_DIR$/PRay/include/Utils/RGBColor.h" />
-        <option value="$PROJECT_DIR$/PRay/include/Utils/Vector3D.h" />
-        <option value="$PROJECT_DIR$/PRay/src/Utils/Vector3D.cpp" />
-        <option value="$PROJECT_DIR$/PRay/src/Lights/PointLight.cpp" />
         <option value="$PROJECT_DIR$/PRay/src/BRDF/Glossy.cpp" />
         <option value="$PROJECT_DIR$/PRay/src/BRDF/Lambertian.cpp" />
         <option value="$PROJECT_DIR$/PRay/include/World/World.h" />
         <option value="$PROJECT_DIR$/PRay/src/Objects/Disk.cpp" />
-        <option value="$PROJECT_DIR$/PRay/src/Objects/Rectangle.cpp" />
         <option value="$PROJECT_DIR$/PRay/src/Objects/Triangle.cpp" />
         <option value="$PROJECT_DIR$/PRay/src/Utils/ShadeRec.cpp" />
         <option value="$PROJECT_DIR$/PRay/include/Utils/ShadeRec.h" />
-        <option value="$PROJECT_DIR$/PRay/include/Materials/Phong.h" />
         <option value="$PROJECT_DIR$/PRay/src/World/ViewPlane.cpp" />
         <option value="$PROJECT_DIR$/PRay/src/World/World.cpp" />
         <option value="$PROJECT_DIR$/PRay/include/BRDF/Glossy.h" />
@@ -172,9 +171,7 @@
         <option value="$PROJECT_DIR$/PRay/src/BRDF/PerfectSpecular.cpp" />
         <option value="$PROJECT_DIR$/PRay/include/World/ViewPlane.h" />
         <option value="$PROJECT_DIR$/PRay/include/Materials/Reflective.h" />
-        <option value="$PROJECT_DIR$/PRay/src/Materials/Reflective.cpp" />
         <option value="$PROJECT_DIR$/PRay/src/Camera/Camera.cpp" />
-        <option value="$PROJECT_DIR$/PRay/include/Utils/Maths.h" />
         <option value="$PROJECT_DIR$/PRay/include/Camera/PinHole.h" />
         <option value="$PROJECT_DIR$/PRay/src/Camera/PinHole.cpp" />
         <option value="$PROJECT_DIR$/PRay/src/Lights/Ambient.cpp" />
@@ -184,20 +181,32 @@
         <option value="$PROJECT_DIR$/PRay/src/Camera/ThinLens.cpp" />
         <option value="$PROJECT_DIR$/PRay/include/Camera/Orthographic.h" />
         <option value="$PROJECT_DIR$/PRay/src/Camera/Orthographic.cpp" />
-        <option value="$PROJECT_DIR$/PRay/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/PRay/include/Lights/Light.h" />
         <option value="$PROJECT_DIR$/PRay/include/Lights/Ambient.h" />
         <option value="$PROJECT_DIR$/PRay/include/Lights/AmbientOcculuder.h" />
         <option value="$PROJECT_DIR$/PRay/src/Lights/AmbientOcculuder.cpp" />
-        <option value="$PROJECT_DIR$/PRay/src/Samplers/Sampler.cpp" />
         <option value="$PROJECT_DIR$/PRay/src/Objects/Plane.cpp" />
-        <option value="$PROJECT_DIR$/PRay/src/Objects/Sphere.cpp" />
         <option value="$PROJECT_DIR$/PRay/src/Objects/Box.cpp" />
         <option value="$PROJECT_DIR$/PRay/include/Objects/Box.h" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/PRay/main.cpp" />
-        <option value="$PROJECT_DIR$/PRay/src/builds/bareBoneBuild.cpp" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/PRay/include/Objects/Rectangle.h" />
+        <option value="$PROJECT_DIR$/PRay/src/Utils/Maths.cpp" />
+        <option value="$PROJECT_DIR$/PRay/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/PRay/include/Objects/GeometricObject.h" />
+        <option value="$PROJECT_DIR$/PRay/src/Objects/GeometricObject.cpp" />
+        <option value="$PROJECT_DIR$/PRay/src/Objects/Rectangle.cpp" />
+        <option value="$PROJECT_DIR$/PRay/src/Materials/Phong.cpp" />
+        <option value="$PROJECT_DIR$/PRay/include/Materials/Phong.h" />
+        <option value="$PROJECT_DIR$/PRay/include/Utils/Maths.h" />
+        <option value="$PROJECT_DIR$/PRay/src/Lights/PointLight.cpp" />
+        <option value="$PROJECT_DIR$/PRay/src/Materials/Reflective.cpp" />
+        <option value="$PROJECT_DIR$/PRay/src/Objects/Sphere.cpp" />
+        <option value="$PROJECT_DIR$/PRay/include/Objects/Torus.h" />
+        <option value="$PROJECT_DIR$/PRay/src/builds/bareBoneBuild.cpp" />
+        <option value="$PROJECT_DIR$/PRay/src/Objects/Torus.cpp" />
+        <option value="$PROJECT_DIR$/PRay/src/Samplers/Sampler.cpp" />
       </list>
     </option>
   </component>
@@ -239,6 +248,26 @@
               <item name="ProjectRayTracer" type="462c0819:PsiDirectoryNode" />
               <item name="PRay" type="462c0819:PsiDirectoryNode" />
               <item name="include" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PRAY" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjectRayTracer" type="462c0819:PsiDirectoryNode" />
+              <item name="PRay" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+              <item name="Objects" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PRAY" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjectRayTracer" type="462c0819:PsiDirectoryNode" />
+              <item name="PRay" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PRAY" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjectRayTracer" type="462c0819:PsiDirectoryNode" />
+              <item name="PRay" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Objects" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -292,7 +321,12 @@
       <workItem from="1526651177222" duration="6753000" />
       <workItem from="1526878527927" duration="4358000" />
       <workItem from="1526907676432" duration="104000" />
-      <workItem from="1526907793480" duration="699000" />
+      <workItem from="1526907793480" duration="780000" />
+      <workItem from="1527056258264" duration="1199000" />
+      <workItem from="1527225287828" duration="1945000" />
+      <workItem from="1527483054590" duration="4979000" />
+      <workItem from="1527586358822" duration="9535000" />
+      <workItem from="1527599035018" duration="304000" />
     </task>
     <task id="LOCAL-00001" summary="Project restructure for cross platform support.">
       <created>1526322273705</created>
@@ -322,31 +356,47 @@
       <option name="project" value="LOCAL" />
       <updated>1526655431623</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Adding READMe file.">
+      <created>1526908569235</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1526908569235</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87224000" />
+    <option name="totallyTimeSpent" value="105267000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14805058" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3297414" />
+      <window_info anchor="bottom" id="Messages" order="10" visible="true" weight="0.3286638" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.3286638" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3286638" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32905984" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3286638" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3988604" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3286638" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32905984" />
@@ -364,14 +414,15 @@
     <MESSAGE value="Adding depth of field using ThinLens Camera." />
     <MESSAGE value="Ambient Occlusion support added." />
     <MESSAGE value="Ambient Occlusion support added (AmbientOcculuder Light)." />
-    <option name="LAST_COMMIT_MESSAGE" value="Ambient Occlusion support added (AmbientOcculuder Light)." />
+    <MESSAGE value="Adding READMe file." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding READMe file." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/PRay/src/Samplers/Sampler.cpp</url>
-          <line>59</line>
+          <line>60</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
@@ -379,115 +430,10 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/PRay/include/Utils/Normal.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="62" column="30" selection-start-line="62" selection-start-column="30" selection-end-line="62" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/include/BRDF/Glossy.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/src/BRDF/BRDF.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/include/BRDF/BRDF.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/include/BRDF/Lambertian.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="15" column="30" lean-forward="true" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/src/BRDF/PerfectSpecular.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="71" selection-start-line="71" selection-end-line="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/include/World/ViewPlane.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2002">
-          <caret line="91" selection-start-line="91" selection-end-line="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/include/BRDF/PerfectSpecular.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/include/Objects/Rectangle.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/src/Objects/Rectangle.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/include/World/World.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/src/Lights/Light.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/src/World/World.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="253" column="40" selection-start-line="253" selection-start-column="40" selection-end-line="253" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/src/Materials/Material.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PRay/src/BRDF/Lambertian.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="124">
           <caret line="48" column="21" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/include/Materials/Phong.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -512,13 +458,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/include/Camera/Camera.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1034">
-          <caret line="47" selection-start-line="47" selection-end-line="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PRay/include/Camera/ThinLens.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
@@ -533,13 +472,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/include/Camera/Orthographic.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PRay/src/Camera/ThinLens.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1804">
@@ -547,31 +479,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/src/Camera/Orthographic.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="968">
-          <caret line="44" column="32" selection-start-line="44" selection-start-column="32" selection-end-line="44" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="633">
-          <caret line="40" column="41" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PRay/include/Utils/Constants.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
           <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/include/Samplers/Sampler.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -596,20 +507,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/src/Materials/Phong.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2002">
-          <caret line="91" selection-start-line="91" selection-end-line="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/include/Objects/GeometricObject.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PRay/src/Utils/Vector3D.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -617,38 +514,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/include/Objects/Sphere.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="37" column="27" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/src/Samplers/Sampler.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="144" column="21" selection-start-line="144" selection-start-column="21" selection-end-line="144" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/include/Objects/Plane.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PRay/src/Objects/Plane.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
           <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/src/Objects/Sphere.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -666,38 +535,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/src/Objects/Box.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/include/Objects/Box.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PRay/src/BRDF/Glossy.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/src/Materials/Reflective.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/include/Materials/Reflective.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -708,47 +549,266 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/include/Utils/Maths.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1870">
-          <caret line="85" column="68" selection-start-line="85" selection-start-column="68" selection-end-line="85" selection-end-column="68" />
-          <folding>
-            <element signature="e#14#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/src/builds/bareBoneBuild.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4246">
-          <caret line="193" column="32" selection-start-line="193" selection-start-column="32" selection-end-line="193" selection-end-column="32" />
-          <folding>
-            <element signature="e#1#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
+        </state>
+      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="154">
-            <caret line="7" column="83" selection-start-line="7" selection-start-column="83" selection-end-line="7" selection-end-column="83" />
+          <first_editor relative-caret-position="308">
+            <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
           </second_editor>
         </state>
       </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/BRDF/BRDF.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/Materials/Reflective.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/Utils/BBox.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="16" column="4" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Utils/BBox.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-779">
+          <caret line="43" column="11" selection-start-line="43" selection-start-column="11" selection-end-line="43" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/Objects/Sphere.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/Objects/Plane.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Objects/Box.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="42" column="12" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Objects/Triangle.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-131">
+          <caret line="49" column="15" selection-start-line="49" selection-start-column="15" selection-end-line="49" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/Objects/Box.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" column="36" lean-forward="true" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Objects/Disk.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="726">
+          <caret line="33" column="11" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/Samplers/Sampler.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/Samplers/MultiJittered.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="15" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Samplers/MultiJittered.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1826">
+          <caret line="83" column="20" selection-start-line="83" selection-start-column="20" selection-end-line="83" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/Objects/Rectangle.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="29" column="24" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Utils/Maths.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="704">
+          <caret line="189" column="22" selection-start-line="189" selection-start-column="22" selection-end-line="189" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Objects/GeometricObject.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="31" column="20" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/Objects/GeometricObject.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Objects/Rectangle.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3916">
+          <caret line="178" column="14" selection-start-line="178" selection-start-column="14" selection-end-line="178" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/Materials/Phong.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/Utils/Maths.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1848">
+          <caret line="84" selection-start-line="84" selection-end-line="84" />
+          <folding>
+            <element signature="e#14#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Lights/PointLight.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1166">
+          <caret line="53" column="31" selection-start-line="53" selection-start-column="31" selection-end-line="53" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Materials/Reflective.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Materials/Phong.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2596">
+          <caret line="118" selection-start-line="118" selection-end-line="118" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Objects/Sphere.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2948">
+          <caret line="134" column="31" selection-start-line="134" selection-start-column="31" selection-end-line="134" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/Objects/Torus.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/builds/bareBoneBuild.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4928">
+          <caret line="224" column="39" selection-start-line="224" selection-start-column="39" selection-end-line="224" selection-end-column="39" />
+          <folding>
+            <element signature="e#1#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Objects/Torus.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="57" column="40" selection-start-line="57" selection-start-column="40" selection-end-line="57" selection-end-column="40" />
+          <folding>
+            <element signature="e#42#68#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Samplers/Sampler.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="134" column="44" lean-forward="true" selection-start-line="134" selection-start-column="44" selection-end-line="134" selection-end-column="44" />
+          <folding>
+            <element signature="e#1#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/Camera/Camera.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="18" column="35" lean-forward="true" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/Camera/Orthographic.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Camera/Orthographic.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>
     </entry>

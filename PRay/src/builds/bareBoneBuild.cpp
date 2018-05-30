@@ -5,6 +5,7 @@
 #include <Camera/ThinLens.h>
 #include <Samplers/MultiJittered.h>
 #include <Lights/AmbientOcculuder.h>
+#include <Objects/Torus.h>
 #include "World/World.h"
 #include "Objects/Plane.h"
 //#include "Camera/PinHole.h"
@@ -216,7 +217,15 @@ void World::build()
 //	sphere_ptr1->set_material(phong_ptr);
     sphere_ptr1->set_material(reflective_ptr);
     sphere_ptr1->set_radius(140.0);
-    add_object(sphere_ptr1);
+    //add_object(sphere_ptr1);
+
+    auto* torus_ptr1 = new Torus();
+    torus_ptr1->set_center(Point3D(0, 130.0, 0.0));
+    torus_ptr1->set_outer_radius(110.0);
+    torus_ptr1->set_inner_radius(30.0);
+    torus_ptr1->set_material(reflective_ptr);
+    add_object(torus_ptr1);
+
 
     auto* matte_ptr1 = new Matte();
     matte_ptr1->set_ka(0.25);

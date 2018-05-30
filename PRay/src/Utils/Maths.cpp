@@ -10,8 +10,8 @@
 
 #define	IsZero(x)	((x) > -EQN_EPS && (x) < EQN_EPS)
 
-int
-SolveQuadric(double c[3], double s[2]) {
+int SolveQuadric(double c[3], double s[2])
+{
 	double p, q, D;
 
 	/* normal form: x^2 + px + q = 0 */
@@ -37,8 +37,8 @@ SolveQuadric(double c[3], double s[2]) {
 }
 
 
-int
-SolveCubic(double c[4], double s[3]) {
+int SolveCubic(double c[4], double s[3])
+{
 	int     i, num;
 	double  sub;
 	double  A, B, C;
@@ -104,8 +104,8 @@ SolveCubic(double c[4], double s[3]) {
 }
 
 
-int
-SolveQuartic(double c[5], double s[4]) {
+int SolveQuartic(double c[5], double s[4])
+{
 	double  coeffs[4];
 	double  z, u, v, sub;
 	double  A, B, C, D;

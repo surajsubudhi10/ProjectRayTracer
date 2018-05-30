@@ -6,14 +6,14 @@
 // ---------------------------------------------------------------------- default constructor
 
 GeometricObject::GeometricObject()
-	: material_ptr(nullptr), shadows(true)
+	: material_ptr(nullptr), shadows(true), bbox(get_bounding_box())
 
 {}
 
 // ---------------------------------------------------------------------- copy constructor
 
 GeometricObject::GeometricObject(const GeometricObject& object)
-	: material_ptr(nullptr), shadows(object.shadows)
+	: material_ptr(nullptr), shadows(object.shadows), bbox(object.bbox)
 {}
 
 // ---------------------------------------------------------------------- assignment operator
@@ -29,6 +29,7 @@ GeometricObject& GeometricObject::operator= (const GeometricObject& rhs)
 	}
 
 	shadows = rhs.shadows;
+	bbox = rhs.bbox;
 	return (*this);
 }
 

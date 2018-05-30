@@ -93,20 +93,20 @@ bool Sphere::hit(const Ray& ray, double& tmin, ShadeRec& sr) const
 		double denom = 2.0 * a;
 		t = (-b - e) / denom;    // smaller root
 
-		if (t > kEpsilon) {
+		if (t > kEpsilon)
+		{
 			tmin = t;
 			sr.normal = (temp + t * ray.d) / radius;
-//			sr.local_hit_point = ray.o + t * ray.d;
 			sr.hit_point = ray.o + t * ray.d;
 			return (true);
 		}
 
 		t = (-b + e) / denom;    // larger root
 
-		if (t > kEpsilon) {
+		if (t > kEpsilon)
+		{
 			tmin = t;
 			sr.normal = (temp + t * ray.d) / radius;
-//			sr.local_hit_point = ray.o + t * ray.d;
 			sr.hit_point = ray.o + t * ray.d;
 			return (true);
 		}
@@ -135,14 +135,16 @@ bool Sphere::shadow_hit(const Ray& ray, float& tmin) const
 		double denom = 2.0 * a;
 		t = static_cast<float>((-b - e) / denom);    // smaller root
 
-		if (t > kEpsilon) {
+		if (t > kEpsilon)
+		{
 			tmin = t;
 			return (true);
 		}
 
 		t = static_cast<float>((-b + e) / denom);    // larger root
 
-		if (t > kEpsilon) {
+		if (t > kEpsilon)
+		{
 			tmin = t;
 			return (true);
 		}

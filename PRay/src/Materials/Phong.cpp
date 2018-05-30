@@ -138,19 +138,19 @@ RGBColor Phong::area_light_shade(ShadeRec& sr)
 	return (L);
 }
 
-void Phong::set_ka(const float ka) 
+void Phong::set_ka(float ka)
 {
 	if (ambient_brdf)
 		ambient_brdf->set_kd(ka);
 }
 
-void Phong::set_kd(const float kd) 
+void Phong::set_kd(float kd)
 {
 	if (diffuse_brdf)
 		diffuse_brdf->set_kd(kd);
 }
 
-void Phong::set_ks(const float ks) 
+void Phong::set_ks(float ks)
 {
 	if (specular_brdf)
 		specular_brdf->set_ks(ks);

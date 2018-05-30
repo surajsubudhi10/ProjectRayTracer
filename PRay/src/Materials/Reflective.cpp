@@ -11,7 +11,7 @@ Reflective::Reflective() : Phong()//, reflective_brdf(new PerfectSpecular)
     reflective_brdf = new PerfectSpecular();
 }
 
-Reflective::Reflective(const Reflective &ref) : Phong(), reflective_brdf(ref.reflective_brdf)
+Reflective::Reflective(const Reflective &ref) : Phong(ref), reflective_brdf(ref.reflective_brdf)
 {}
 
 RGBColor Reflective::shade(ShadeRec &sr) {
