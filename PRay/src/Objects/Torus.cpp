@@ -36,7 +36,7 @@ Torus* Torus::clone() const
 
 bool Torus::hit(const Ray &ray, double &tmin, ShadeRec &sr) const
 {
-    if(!bbox.hit(ray))
+    if(!bBox.hit(ray))
         return false;
 
     auto dx = ray.d.x; auto dy = ray.d.y; auto dz = ray.d.z;

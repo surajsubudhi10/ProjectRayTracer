@@ -6,6 +6,8 @@
 #include <Samplers/MultiJittered.h>
 #include <Lights/AmbientOcculuder.h>
 #include <Objects/Torus.h>
+#include <Materials/GlossyReflector.h>
+#include <Objects/OpenCylinder.h>
 #include "World/World.h"
 #include "Objects/Plane.h"
 //#include "Camera/PinHole.h"
@@ -155,8 +157,8 @@ void World::build()
 void World::build()
 {
     auto num_of_samples = 64;
-    vp.set_hres(1000);
-    vp.set_vres(800);
+    vp.set_hres(500);
+    vp.set_vres(400);
     vp.set_pixel_size(1.0);
     vp.set_samples(num_of_samples);
     vp.set_gamma(1.0);
@@ -175,9 +177,10 @@ void World::build()
 
     //// ================ Camera ===================== ////
 
-    auto * pinhole_ptr = new Orthographic;//ThinLens(40.0, 40.0, 1400.0, 20.0, new MultiJittered(5));
+    auto * pinhole_ptr = new Orthographic();//ThinLens(40.0, 40.0, 1400.0, 20.0, new MultiJittered(5));
     pinhole_ptr->set_eye(1400, 300, 00);
     pinhole_ptr->set_lookat(0, 0, 0);
+    pinhole_ptr->set_zoom(0.5f);
 //    pinhole_ptr->set_view_distance(1200);
     pinhole_ptr->compute_uvw();
     set_camera(pinhole_ptr);
@@ -205,17 +208,31 @@ void World::build()
     auto* reflective_ptr = new Reflective();
     reflective_ptr->set_ka(0.15);
     reflective_ptr->set_kd(0.85);
+    reflective_ptr->set_ks(0.3);
     reflective_ptr->set_ca(0.5, 1.0, 1.0);
     reflective_ptr->set_cd(0.5, 0.5, 0.5);
-    reflective_ptr->set_ks(0.3);
     reflective_ptr->set_exp_s(10);
     reflective_ptr->set_kr(0.20f);
     reflective_ptr->set_cr(white);
 
+    auto* glossy_reflective_ptr = new GlossyReflector();
+    auto exp = 100;
+    glossy_reflective_ptr->set_samples(100, exp);
+    glossy_reflective_ptr->set_ka(0.0);
+    glossy_reflective_ptr->set_kd(0.0);
+    glossy_reflective_ptr->set_ks(0.0);
+    glossy_reflective_ptr->set_ca(1.0, 0.0, 0.0);
+    glossy_reflective_ptr->set_cd(0.0, 1.0, 0.0);
+    glossy_reflective_ptr->set_exp_s(10);
+    glossy_reflective_ptr->set_kr(1.0f);
+    glossy_reflective_ptr->set_exponent(exp);
+    glossy_reflective_ptr->set_cr(1.0, 1.0, 1.0);
+
     auto* sphere_ptr1 = new Sphere();
     sphere_ptr1->set_center(Point3D(0, 130.0, 0.0));
 //	sphere_ptr1->set_material(phong_ptr);
-    sphere_ptr1->set_material(reflective_ptr);
+//  sphere_ptr1->set_material(reflective_ptr);
+    sphere_ptr1->set_material(glossy_reflective_ptr);
     sphere_ptr1->set_radius(140.0);
     //add_object(sphere_ptr1);
 
@@ -225,6 +242,9 @@ void World::build()
     torus_ptr1->set_inner_radius(30.0);
     torus_ptr1->set_material(reflective_ptr);
     add_object(torus_ptr1);
+
+    auto* opencylinder_ptr1 = new OpenCylinder(10, 10, Point3D(0), reflective_ptr);
+    add_object(opencylinder_ptr1);
 
 
     auto* matte_ptr1 = new Matte();

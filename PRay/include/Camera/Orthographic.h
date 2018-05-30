@@ -11,10 +11,13 @@ class Orthographic : public Camera
 {
 public:
     Orthographic();
+    Orthographic(const Orthographic& ortho);
     ~Orthographic() override;
-//    Orthographic(const Orthographic& ortho);
 
     void render_scene(World& world) override;
+
+    void set_zoom(float zm);
+    float get_zoom() const;
 
 private:
     float zoom;

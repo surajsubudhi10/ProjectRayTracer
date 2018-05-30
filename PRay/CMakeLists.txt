@@ -28,12 +28,14 @@ set(PRAY_SOURCE
         "src/Objects/Sphere.cpp"
         "src/Objects/Triangle.cpp"
         "src/Objects/Torus.cpp"
+        "src/Objects/OpenCylinder.cpp"
 
         ## Materials
         "src/Materials/Material.cpp"
         "src/Materials/Matte.cpp"
         "src/Materials/Phong.cpp"
         "src/Materials/Reflective.cpp"
+        "src/Materials/GlossyReflector.cpp"
 
         ## Lights
         "src/Lights/Ambient.cpp"
@@ -60,7 +62,8 @@ set(PRAY_SOURCE
         "src/Utils/Vector3D.cpp"
 
         ## builds
-        "src/builds/bareBoneBuild.cpp"
+        #"src/builds/bareBoneBuild.cpp"
+        "src/builds/geometricObjectsbuild.cpp"
    )
 
 #-------------------------------------------------------------------------------

@@ -4,7 +4,8 @@
 #include "../BRDF/Lambertian.h"
 #include "../BRDF/Glossy.h"
 
-class Phong : public Material {
+class Phong : public Material
+{
 public:
 
 	Phong();

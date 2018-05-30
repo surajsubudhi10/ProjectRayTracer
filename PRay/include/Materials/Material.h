@@ -3,7 +3,8 @@
 #include "../Utils/ShadeRec.h"
 #include "../Utils/RGBColor.h"
 
-class Material {
+class Material
+{
 public:
 	
 	Material();
