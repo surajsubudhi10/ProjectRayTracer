@@ -7,6 +7,7 @@
 #include <Lights/AmbientOcculuder.h>
 #include <Materials/GlossyReflector.h>
 #include <Objects/OpenCylinder.h>
+#include <Objects/Torus.h>
 #include "World/World.h"
 #include "Objects/Plane.h"
 //#include "Camera/PinHole.h"
@@ -41,7 +42,8 @@ void World::build()
     //// ================ Camera ===================== ////
 
     auto * pinhole_ptr = new Orthographic();
-    pinhole_ptr->set_eye(1400, 300, 00);
+    pinhole_ptr->set_eye(-1, 300, 00);
+//    pinhole_ptr->set_eye(1400, 300, 00);
     pinhole_ptr->set_lookat(0, 0, 0);
     pinhole_ptr->set_zoom(0.5f);
     pinhole_ptr->compute_uvw();
@@ -88,17 +90,22 @@ void World::build()
     box_ptr1->set_material(matte_ptr1);
 //    add_object(box_ptr1);
 
+
+    auto* torus_ptr1 = new Torus(Point3D(440, 130.0, -350.0), 30, 140);
+    torus_ptr1->set_material(matte_ptr1);
+    add_object(torus_ptr1);
+
     auto* disk_ptr = new Disk(Point3D(-90, 30, -90), 70.0f, Normal(0, 1, 0));
     disk_ptr->set_material(matte_ptr1);
-    add_object(disk_ptr);
+//    add_object(disk_ptr);
 
     auto* rectangle_ptr = new Rectangle(Point3D(-90, 30, 90), Vector3D(0, 0, 100), Vector3D(100, 0, 0));
     rectangle_ptr->set_material(matte_ptr1);
-    add_object(rectangle_ptr);
+//    add_object(rectangle_ptr);
 
     auto* triangle_ptr = new Triangle(Point3D(0, 0, 90), Point3D(90, 0, 0), Point3D(-90, 0, 0));
     triangle_ptr->set_material(matte_ptr1);
-    add_object(triangle_ptr);
+//    add_object(triangle_ptr);
 
 
     auto* sphere_ptr3 = new Sphere();
