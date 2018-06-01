@@ -31,9 +31,9 @@ public:
     BBox    get_bounding_box() const override ;
 
 private:
-    Point3D  _center;
     float    _radius;
-    float    _height;
+    float    _height = 5.0;
+    Point3D  _center;
 };
 
 

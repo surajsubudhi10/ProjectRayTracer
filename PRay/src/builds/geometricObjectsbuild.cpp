@@ -42,7 +42,7 @@ void World::build()
     //// ================ Camera ===================== ////
 
     auto * pinhole_ptr = new Orthographic();
-    pinhole_ptr->set_eye(-1, 300, 00);
+    pinhole_ptr->set_eye(1400, 300, 00);
 //    pinhole_ptr->set_eye(1400, 300, 00);
     pinhole_ptr->set_lookat(0, 0, 0);
     pinhole_ptr->set_zoom(0.5f);
@@ -54,7 +54,7 @@ void World::build()
     auto * point_light_ptr = new PointLight();
     point_light_ptr->set_location(240, 1240, 240);
     point_light_ptr->scale_radiance(2.0);
-//    add_light(point_light_ptr);
+    add_light(point_light_ptr);
 
     auto * point_light_ptr2 = new PointLight();
     point_light_ptr2->set_location(0, 1840, 0);
@@ -83,17 +83,18 @@ void World::build()
     sphere_ptr1->set_radius(140.0);
 //    add_object(sphere_ptr1);
 
-    auto* opencylinder_ptr1 = new OpenCylinder(10, 10, Point3D(0), phong_ptr);
-//    add_object(opencylinder_ptr1);
+    auto* opencylinder_ptr1 = new OpenCylinder(100, 100, Point3D(100, 50, 0), matte_ptr1);
+    add_object(opencylinder_ptr1);
 
     auto* box_ptr1 = new Box(Point3D(-70, -10, -70), Point3D(70, 130, 70));
     box_ptr1->set_material(matte_ptr1);
 //    add_object(box_ptr1);
 
 
-    auto* torus_ptr1 = new Torus(Point3D(440, 130.0, -350.0), 30, 140);
+    //auto* torus_ptr1 = new Torus(Point3D(440, 130.0, -350.0), 30, 140);
+    auto* torus_ptr1 = new Torus(Point3D(0, 50, 0), 30, 140);
     torus_ptr1->set_material(matte_ptr1);
-    add_object(torus_ptr1);
+    //add_object(torus_ptr1);
 
     auto* disk_ptr = new Disk(Point3D(-90, 30, -90), 70.0f, Normal(0, 1, 0));
     disk_ptr->set_material(matte_ptr1);
