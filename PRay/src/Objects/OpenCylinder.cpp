@@ -130,7 +130,10 @@ bool OpenCylinder::hit(const Ray &ray, double &tmin, ShadeRec &sr) const
 
 Normal OpenCylinder::get_normal(const Point3D &p) const
 {
-    return Normal(p.x / _radius, 0, p.z / _radius);
+    auto norm = Normal(p.x / _radius, 0, p.z / _radius);
+    norm.normalize();
+
+    return norm;
 }
 
 BBox OpenCylinder::get_bounding_box() const

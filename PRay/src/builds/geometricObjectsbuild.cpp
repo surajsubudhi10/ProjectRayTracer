@@ -8,6 +8,7 @@
 #include <Materials/GlossyReflector.h>
 #include <Objects/OpenCylinder.h>
 #include <Objects/Torus.h>
+#include <Objects/OpenCone.h>
 #include "World/World.h"
 #include "Objects/Plane.h"
 //#include "Camera/PinHole.h"
@@ -84,17 +85,21 @@ void World::build()
 //    add_object(sphere_ptr1);
 
     auto* opencylinder_ptr1 = new OpenCylinder(100, 100, Point3D(100, 50, 0), matte_ptr1);
-    add_object(opencylinder_ptr1);
+//    add_object(opencylinder_ptr1);
 
     auto* box_ptr1 = new Box(Point3D(-70, -10, -70), Point3D(70, 130, 70));
     box_ptr1->set_material(matte_ptr1);
 //    add_object(box_ptr1);
 
+    auto* open_cone_ptr1 = new OpenCone(Point3D(0, 60, 0), 20, 70);
+    open_cone_ptr1->set_material(matte_ptr1);
+    add_object(open_cone_ptr1);
+
 
     //auto* torus_ptr1 = new Torus(Point3D(440, 130.0, -350.0), 30, 140);
     auto* torus_ptr1 = new Torus(Point3D(0, 50, 0), 30, 140);
     torus_ptr1->set_material(matte_ptr1);
-    //add_object(torus_ptr1);
+//    add_object(torus_ptr1);
 
     auto* disk_ptr = new Disk(Point3D(-90, 30, -90), 70.0f, Normal(0, 1, 0));
     disk_ptr->set_material(matte_ptr1);

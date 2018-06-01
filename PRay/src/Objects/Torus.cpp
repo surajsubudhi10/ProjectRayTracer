@@ -56,7 +56,10 @@ Normal Torus::get_normal(const Point3D &p) const
     auto ny = 4 * p.y *   square_val;
     auto nz = 4 * p.z *  (square_val - 2 * pow(_outer_radius, 2));
 
-    return Normal(nx, ny, nz);
+    auto norm = Normal(nx, ny, nz);
+    norm.normalize();
+
+    return norm;
 }
 
 bool Torus::shadow_hit(const Ray &ray, float &tmin) const
