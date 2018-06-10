@@ -10,6 +10,7 @@
 #include <Objects/Torus.h>
 #include <Objects/OpenCone.h>
 #include <Objects/SolidCylinder.h>
+#include <Objects/Instance.h>
 #include "World/World.h"
 #include "Objects/Plane.h"
 //#include "Camera/PinHole.h"
@@ -123,7 +124,14 @@ void World::build()
 
     auto solidCylinder_ptr = new SolidCylinder(100, 100, Point3D(100, 50, 0));
     solidCylinder_ptr->set_material(matte_ptr1);
-    add_object(solidCylinder_ptr);
+//    add_object(solidCylinder_ptr);
+
+    auto ellipsoid_ptr = new Instance(new Sphere(Point3D(), 30));
+    ellipsoid_ptr->set_material(matte_ptr1);
+    ellipsoid_ptr->scale(2, 3, 1);
+    ellipsoid_ptr->rotateX(-45);
+    ellipsoid_ptr->translate(0, 100, 0);
+    add_object(ellipsoid_ptr);
 
     //// ================ Ground Plane ===================== ////
 

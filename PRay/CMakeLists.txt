@@ -32,6 +32,7 @@ set(PRAY_SOURCE
         "src/Objects/OpenCone.cpp"
         "src/Objects/Compound.cpp"
         "src/Objects/SolidCylinder.cpp"
+        "src/Objects/Instance.cpp"
 
         ## Materials
         "src/Materials/Material.cpp"

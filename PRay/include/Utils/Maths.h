@@ -5,6 +5,8 @@
 #include "RGBColor.h"
 
 
+#define PI 3.14159
+
 // prototypes
 
 double min(double x0, double x1);
@@ -33,6 +35,8 @@ int SolveQuartic(double c[5], double s[4]);
 
 int SolveQuarticV2(double c[5], double s[4]);
 
+float to_randian(float val);
+float to_degree(float val);
 
 // inlined functions
 
@@ -100,4 +104,14 @@ inline double Abs(double val)
         return val;
     else
         return -1 * val;
+}
+
+inline float to_randian(float val)
+{
+    return static_cast<float>(val * PI / 180.0f);
+}
+
+inline float to_degree(float val)
+{
+    return static_cast<float>(val * 180.0f / PI);
 }

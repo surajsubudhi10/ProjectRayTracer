@@ -12,22 +12,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa45626b-4ccb-4ced-891c-6ae67bfa07ac" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/PRay/include/Objects/Compound.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PRay/include/Objects/SolidCylinder.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PRay/src/Objects/Compound.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PRay/src/Objects/SolidCylinder.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PRay/include/Objects/Instance.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PRay/src/Objects/Instance.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PRay/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/PRay/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PRay/include/Objects/GeometricObject.h" beforeDir="false" afterPath="$PROJECT_DIR$/PRay/include/Objects/GeometricObject.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PRay/include/Objects/OpenCylinder.h" beforeDir="false" afterPath="$PROJECT_DIR$/PRay/include/Objects/OpenCylinder.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PRay/include/Utils/Maths.h" beforeDir="false" afterPath="$PROJECT_DIR$/PRay/include/Utils/Maths.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PRay/include/Utils/Matrix.h" beforeDir="false" afterPath="$PROJECT_DIR$/PRay/include/Utils/Matrix.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PRay/include/Utils/Point3D.h" beforeDir="false" afterPath="$PROJECT_DIR$/PRay/include/Utils/Point3D.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PRay/src/Objects/OpenCylinder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PRay/src/Objects/OpenCylinder.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PRay/src/Utils/Matrix.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PRay/src/Utils/Matrix.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PRay/src/Utils/Normal.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PRay/src/Utils/Normal.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PRay/src/Utils/Point3D.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PRay/src/Utils/Point3D.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PRay/src/Utils/Vector3D.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PRay/src/Utils/Vector3D.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PRay/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PRay/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PRay/src/builds/geometricObjectsbuild.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PRay/src/builds/geometricObjectsbuild.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -44,101 +35,93 @@
       <file leaf-file-name="geometricObjectsbuild.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PRay/src/builds/geometricObjectsbuild.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
+            <state relative-caret-position="219">
+              <caret line="128" column="63" selection-start-line="128" selection-start-column="63" selection-end-line="128" selection-end-column="63" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Compound.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PRay/include/Objects/Compound.h">
+      <file leaf-file-name="Sphere.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PRay/src/Objects/Sphere.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="19" column="72" lean-forward="true" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="72" />
+            <state relative-caret-position="105">
+              <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Instance.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PRay/include/Objects/Instance.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="309">
+              <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GeometricObject.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PRay/include/Objects/GeometricObject.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="53" column="29" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Instance.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PRay/src/Objects/Instance.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="639">
+              <caret line="117" selection-start-line="117" selection-end-line="117" />
               <folding>
-                <element signature="e#88#105#0" expanded="true" />
+                <element signature="e#39#55#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Point3D.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PRay/src/Utils/Point3D.cpp">
+      <file leaf-file-name="Maths.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PRay/src/Utils/Maths.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-46">
-              <caret line="44" selection-start-line="44" selection-end-line="44" />
+            <state relative-caret-position="1605">
+              <caret line="108" column="1" selection-start-line="108" selection-start-column="1" selection-end-line="108" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SolidCylinder.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PRay/include/Objects/SolidCylinder.h">
+      <file leaf-file-name="Maths.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PRay/include/Utils/Maths.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="14" column="62" selection-start-line="14" selection-start-column="62" selection-end-line="14" selection-end-column="62" />
+            <state relative-caret-position="403">
+              <caret line="115" column="49" selection-start-line="115" selection-start-column="49" selection-end-line="115" selection-end-column="49" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SolidCylinder.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PRay/src/Objects/SolidCylinder.cpp">
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PRay/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="45" column="60" selection-start-line="45" selection-start-column="60" selection-end-line="45" selection-end-column="60" />
+            <state relative-caret-position="300">
+              <caret line="23" column="1" lean-forward="true" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
               <folding>
-                <element signature="e#39#73#0" expanded="true" />
+                <element signature="e#1#25#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Disk.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PRay/include/Objects/Disk.h">
+      <file leaf-file-name="World.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PRay/include/World/World.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-            </state>
+            <state relative-caret-position="-270" />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OpenCylinder.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PRay/include/Objects/OpenCylinder.h">
+      <file leaf-file-name="World.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PRay/src/World/World.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="14" column="65" selection-start-line="14" selection-start-column="65" selection-end-line="14" selection-end-column="65" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OpenCylinder.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PRay/src/Objects/OpenCylinder.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="13" column="74" selection-start-line="13" selection-start-column="74" selection-end-line="13" selection-end-column="74" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Normal.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PRay/src/Utils/Normal.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1291">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
-              <folding>
-                <element signature="e#57#73#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Vector3D.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PRay/src/Utils/Vector3D.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-91">
-              <caret line="105" column="24" selection-start-line="105" selection-start-column="24" selection-end-line="105" selection-end-column="24" />
-              <folding>
-                <element signature="e#60#76#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="443">
+              <caret line="242" column="16" selection-start-line="242" selection-start-column="16" selection-end-line="242" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -151,6 +134,7 @@
       <find>path_shade</find>
       <find>area_light_shade</find>
       <find>global_shade</find>
+      <find>shadow</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -159,8 +143,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/PRay/src/Camera/Camera.cpp" />
-        <option value="$PROJECT_DIR$/PRay/include/Camera/PinHole.h" />
         <option value="$PROJECT_DIR$/PRay/src/Camera/PinHole.cpp" />
         <option value="$PROJECT_DIR$/PRay/src/Lights/Ambient.cpp" />
         <option value="$PROJECT_DIR$/PRay/include/Camera/Camera.h" />
@@ -191,7 +173,6 @@
         <option value="$PROJECT_DIR$/PRay/src/builds/bareBoneBuild.cpp" />
         <option value="$PROJECT_DIR$/PRay/src/Samplers/Sampler.cpp" />
         <option value="$PROJECT_DIR$/PRay/src/Utils/Maths.cpp" />
-        <option value="$PROJECT_DIR$/PRay/main.cpp" />
         <option value="$PROJECT_DIR$/PRay/src/Objects/Torus.cpp" />
         <option value="$PROJECT_DIR$/PRay/include/Objects/OpenCone.h" />
         <option value="$PROJECT_DIR$/PRay/src/Objects/OpenCone.cpp" />
@@ -199,16 +180,19 @@
         <option value="$PROJECT_DIR$/PRay/src/Utils/Matrix.cpp" />
         <option value="$PROJECT_DIR$/PRay/src/Objects/Compound.cpp" />
         <option value="$PROJECT_DIR$/PRay/include/Objects/Compound.h" />
-        <option value="$PROJECT_DIR$/PRay/include/Utils/Maths.h" />
         <option value="$PROJECT_DIR$/PRay/include/Utils/Point3D.h" />
         <option value="$PROJECT_DIR$/PRay/src/Utils/Point3D.cpp" />
         <option value="$PROJECT_DIR$/PRay/src/Utils/Normal.cpp" />
         <option value="$PROJECT_DIR$/PRay/src/Utils/Vector3D.cpp" />
-        <option value="$PROJECT_DIR$/PRay/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/PRay/src/Objects/OpenCylinder.cpp" />
         <option value="$PROJECT_DIR$/PRay/include/Objects/OpenCylinder.h" />
         <option value="$PROJECT_DIR$/PRay/include/Objects/SolidCylinder.h" />
         <option value="$PROJECT_DIR$/PRay/src/Objects/SolidCylinder.cpp" />
+        <option value="$PROJECT_DIR$/PRay/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/PRay/include/Objects/Instance.h" />
+        <option value="$PROJECT_DIR$/PRay/main.cpp" />
+        <option value="$PROJECT_DIR$/PRay/include/Utils/Maths.h" />
+        <option value="$PROJECT_DIR$/PRay/src/Objects/Instance.cpp" />
         <option value="$PROJECT_DIR$/PRay/src/builds/geometricObjectsbuild.cpp" />
       </list>
     </option>
@@ -224,16 +208,17 @@
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-674" />
-    <option name="y" value="96" />
-    <option name="width" value="1924" />
-    <option name="height" value="1040" />
+    <option name="x" value="-614" />
+    <option name="y" value="206" />
+    <option name="width" value="1916" />
+    <option name="height" value="1035" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -258,6 +243,20 @@
               <item name="PRay" type="462c0819:PsiDirectoryNode" />
               <item name="include" type="462c0819:PsiDirectoryNode" />
               <item name="Objects" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PRAY" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjectRayTracer" type="462c0819:PsiDirectoryNode" />
+              <item name="PRay" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+              <item name="Utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PRAY" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjectRayTracer" type="462c0819:PsiDirectoryNode" />
+              <item name="PRay" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+              <item name="World" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="PRAY" type="b2602c69:ProjectViewProjectNode" />
@@ -290,7 +289,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -313,7 +311,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.PRAY">
-    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all" />
+    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="PRAY" RUN_TARGET_NAME="PRAY" EXPLICIT_BUILD_TARGET_NAME="all" />
     <configuration name="PRAY" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="PRAY" TARGET_NAME="PRAY" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="PRAY" RUN_TARGET_NAME="PRAY" />
     <list>
       <item itemvalue="Application.Build All" />
@@ -353,7 +351,8 @@
       <workItem from="1527828667384" duration="2802000" />
       <workItem from="1527872165623" duration="1416000" />
       <workItem from="1527878751716" duration="5154000" />
-      <workItem from="1528617617617" duration="6772000" />
+      <workItem from="1528617617617" duration="7350000" />
+      <workItem from="1528657976531" duration="5214000" />
     </task>
     <task id="LOCAL-00001" summary="Project restructure for cross platform support.">
       <created>1526322273705</created>
@@ -397,11 +396,18 @@
       <option name="project" value="LOCAL" />
       <updated>1527883289088</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Compound Object Support added (Solid Cylinder)">
+      <created>1528634894839</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1528634894839</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="137426000" />
+    <option name="totallyTimeSpent" value="143218000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -414,26 +420,25 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1368" height="769" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" x="0" y="0" width="183" height="915" id="Project" order="0" visible="true" weight="0.13541667" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3297414" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.27173913" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.3286638" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32905984" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.22670807" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.32608697" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39751554" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32905984" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -451,7 +456,8 @@
     <MESSAGE value="Adding READMe file." />
     <MESSAGE value="Merge Conflicts resolved." />
     <MESSAGE value="Cone Geometric Object added." />
-    <option name="LAST_COMMIT_MESSAGE" value="Cone Geometric Object added." />
+    <MESSAGE value="Compound Object Support added (Solid Cylinder)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Compound Object Support added (Solid Cylinder)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -491,34 +497,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/PRay/src/Utils/BBox.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-779">
-          <caret line="43" column="11" selection-start-line="43" selection-start-column="11" selection-end-line="43" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/include/Objects/Sphere.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/include/Objects/Plane.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/src/Objects/Box.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="42" column="12" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PRay/src/Objects/Triangle.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-131">
@@ -656,13 +634,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/src/World/World.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2115">
-          <caret line="141" selection-start-line="141" selection-end-line="141" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PRay/include/Utils/Vector3D.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="990">
@@ -670,31 +641,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/src/Utils/Maths.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1620">
-          <caret line="108" column="1" selection-start-line="108" selection-start-column="1" selection-end-line="108" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PRay/src/Objects/Torus.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="915">
           <caret line="61" column="16" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/src/Objects/Sphere.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1455">
-          <caret line="97" column="21" selection-start-line="97" selection-start-column="21" selection-end-line="97" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -726,9 +676,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1356">
           <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding>
-            <element signature="e#58#76#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -736,20 +683,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/include/Objects/GeometricObject.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="53" column="29" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/include/Utils/Maths.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -770,22 +703,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/src/Utils/Point2D.cpp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/PRay/src/Utils/Normal.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1291">
           <caret line="1" selection-start-line="1" selection-end-line="1" />
-          <folding>
-            <element signature="e#57#73#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PRay/src/Utils/Vector3D.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-91">
+        <state relative-caret-position="1575">
           <caret line="105" column="24" selection-start-line="105" selection-start-column="24" selection-end-line="105" selection-end-column="24" />
           <folding>
             <element signature="e#60#76#0" expanded="true" />
@@ -795,22 +722,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PRay/src/Utils/Point3D.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-46">
+        <state relative-caret-position="660">
           <caret line="44" selection-start-line="44" selection-end-line="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PRay/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-12">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PRay/include/Objects/Compound.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="19" column="72" lean-forward="true" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="72" />
+        <state relative-caret-position="285">
+          <caret line="19" column="72" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="72" />
           <folding>
             <element signature="e#88#105#0" expanded="true" />
           </folding>
@@ -826,39 +746,125 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PRay/src/Objects/OpenCylinder.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
+        <state relative-caret-position="195">
           <caret line="13" column="74" selection-start-line="13" selection-start-column="74" selection-end-line="13" selection-end-column="74" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PRay/include/Objects/OpenCylinder.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
+        <state relative-caret-position="210">
           <caret line="14" column="65" selection-start-line="14" selection-start-column="65" selection-end-line="14" selection-end-column="65" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PRay/include/Objects/SolidCylinder.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
+        <state relative-caret-position="210">
           <caret line="14" column="62" selection-start-line="14" selection-start-column="62" selection-end-line="14" selection-end-column="62" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3387" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/PRay/src/Objects/SolidCylinder.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="45" column="60" selection-start-line="45" selection-start-column="60" selection-end-line="45" selection-end-column="60" />
+        <state relative-caret-position="355">
+          <caret line="44" column="34" selection-start-line="44" selection-start-column="34" selection-end-line="44" selection-end-column="34" />
           <folding>
             <element signature="e#39#73#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/World/World.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-270" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Lights/AmbientOcculuder.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="72" column="38" selection-start-line="72" selection-start-column="28" selection-end-line="72" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/World/World.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="242" column="16" selection-start-line="242" selection-start-column="16" selection-end-line="242" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/Objects/Instance.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Utils/Maths.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1605">
+          <caret line="108" column="1" selection-start-line="108" selection-start-column="1" selection-end-line="108" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/Utils/Maths.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="115" column="49" selection-start-line="115" selection-start-column="49" selection-end-line="115" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Objects/Instance.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="639">
+          <caret line="117" selection-start-line="117" selection-end-line="117" />
+          <folding>
+            <element signature="e#39#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="23" column="1" lean-forward="true" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+          <folding>
+            <element signature="e#1#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/include/Objects/GeometricObject.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="53" column="29" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRay/src/Objects/Sphere.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/PRay/src/builds/geometricObjectsbuild.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
+        <state relative-caret-position="219">
+          <caret line="128" column="63" selection-start-line="128" selection-start-column="63" selection-end-line="128" selection-end-column="63" />
         </state>
       </provider>
     </entry>
