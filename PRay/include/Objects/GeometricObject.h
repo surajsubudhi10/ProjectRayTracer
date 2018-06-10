@@ -22,7 +22,7 @@ public:
 	virtual bool hit(const Ray& ray, double& t, ShadeRec& s) const = 0;
 	virtual bool shadow_hit(const Ray& ray, float& tmin) const = 0;
 
-	void set_material(Material* material);
+    virtual void set_material(Material* material);
 	Material* get_material() const;
 
 	void set_shadows(bool do_shadow);

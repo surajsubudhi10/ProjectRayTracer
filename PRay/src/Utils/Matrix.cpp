@@ -1,24 +1,28 @@
 // This file contains the definition of the class Matrix
 
+#include <cassert>
 #include "Utils/Matrix.h"
 
 // ----------------------------------------------------------------------- default constructor
 // a default matrix is an identity matrix
 
-Matrix::Matrix() {
-	for (int x = 0; x < 4; x++)
-		for (int y = 0; y < 4; y++) {
-			if (x == y)
-				m[x][y] = 1.0;
-			else
-				m[x][y] = 0.0;
-		}
+Matrix::Matrix()
+{
+	for (int x = 0; x < 4; x++) {
+        for (int y = 0; y < 4; y++) {
+            if (x == y)
+                m[x][y] = 1.0;
+            else
+                m[x][y] = 0.0;
+        }
+    }
 }
 
 
 // ----------------------------------------------------------------------- copy constructor
 
-Matrix::Matrix(const Matrix& mat) {
+Matrix::Matrix(const Matrix& mat)
+{
 	for (int x = 0; x < 4; x++)
 		for (int y = 0; y < 4; y++)
 			m[x][y] = mat.m[x][y];
@@ -31,8 +35,8 @@ Matrix::~Matrix() = default;
 
 // ----------------------------------------------------------------------- assignment operator
 
-Matrix&
-Matrix::operator= (const Matrix& rhs) {
+Matrix& Matrix::operator= (const Matrix& rhs)
+{
 	if (this == &rhs)
 		return (*this);
 
@@ -47,8 +51,8 @@ Matrix::operator= (const Matrix& rhs) {
 // ----------------------------------------------------------------------- operator*
 // multiplication of two matrices
 
-Matrix
-Matrix::operator* (const Matrix& mat) const {
+Matrix Matrix::operator* (const Matrix& mat) const
+{
 	Matrix 	product;
 
 	for (int y = 0; y < 4; y++)
@@ -68,8 +72,8 @@ Matrix::operator* (const Matrix& mat) const {
 // ----------------------------------------------------------------------- operator/
 // division by a scalar
 
-Matrix
-Matrix::operator/ (const double d) {
+Matrix Matrix::operator/ (const double d)
+{
 	for (int x = 0; x < 4; x++)
 		for (int y = 0; y < 4; y++)
 			m[x][y] = m[x][y] / d;
@@ -77,8 +81,8 @@ Matrix::operator/ (const double d) {
 	return (*this);
 }
 
-Matrix
-Matrix::scalar_mult(const double d) {
+Matrix Matrix::scalar_mult(const double d)
+{
 	for (int x = 0; x < 4; x++)
 		for (int y = 0; y < 4; y++)
 			m[x][y] = m[x][y] * d;
@@ -91,15 +95,28 @@ Matrix::scalar_mult(const double d) {
 // ----------------------------------------------------------------------- set_identity
 // set matrix to the identity matrix
 
-void
-Matrix::set_identity() {
-	for (int x = 0; x < 4; x++)
-		for (int y = 0; y < 4; y++) {
-			if (x == y)
-				m[x][y] = 1.0;
-			else
-				m[x][y] = 0.0;
-		}
+void Matrix::set_identity()
+{
+	for (int x = 0; x < 4; x++) {
+        for (int y = 0; y < 4; y++) {
+            if (x == y)
+                m[x][y] = 1.0;
+            else
+                m[x][y] = 0.0;
+        }
+    }
+}
+
+double* Matrix::operator[](int index)
+{
+    assert(index < 4 && index > -1);
+    return m[index];
+}
+
+const double *Matrix::operator[](int index) const
+{
+    assert(index < 4 && index > -1);
+    return m[index];
 }
 
 

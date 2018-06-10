@@ -12,6 +12,7 @@ class OpenCylinder : public GeometricObject
 {
 public:
     OpenCylinder();
+    OpenCylinder(float rad, float height, const Point3D& center);
     OpenCylinder(float rad, float height, const Point3D& center, Material* mat);
     OpenCylinder(const OpenCylinder& cylinder);
     ~OpenCylinder() override;

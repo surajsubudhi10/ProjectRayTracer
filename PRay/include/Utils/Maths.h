@@ -11,6 +11,8 @@ double min(double x0, double x1);
 
 double max(double x0, double x1);
 
+double Abs(double val);
+
 int rand_int();
 
 float rand_float();
@@ -89,4 +91,13 @@ inline int rand_int(int l, int h)
 inline double clamp(const double x, const double min, const double max) 
 {
 	return (x < min ? min : (x > max ? max : x));
+}
+
+inline double Abs(double val)
+{
+
+    if(val > 0)
+        return val;
+    else
+        return -1 * val;
 }

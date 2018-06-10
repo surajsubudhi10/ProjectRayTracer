@@ -9,6 +9,7 @@
 #include <Objects/OpenCylinder.h>
 #include <Objects/Torus.h>
 #include <Objects/OpenCone.h>
+#include <Objects/SolidCylinder.h>
 #include "World/World.h"
 #include "Objects/Plane.h"
 //#include "Camera/PinHole.h"
@@ -93,7 +94,7 @@ void World::build()
 
     auto* open_cone_ptr1 = new OpenCone(Point3D(0, 60, 0), 20, 70);
     open_cone_ptr1->set_material(matte_ptr1);
-    add_object(open_cone_ptr1);
+//    add_object(open_cone_ptr1);
 
 
     //auto* torus_ptr1 = new Torus(Point3D(440, 130.0, -350.0), 30, 140);
@@ -119,6 +120,10 @@ void World::build()
     sphere_ptr3->set_material(matte_ptr1);
     sphere_ptr3->set_radius(120.0);
     add_object(sphere_ptr3);
+
+    auto solidCylinder_ptr = new SolidCylinder(100, 100, Point3D(100, 50, 0));
+    solidCylinder_ptr->set_material(matte_ptr1);
+    add_object(solidCylinder_ptr);
 
     //// ================ Ground Plane ===================== ////
 

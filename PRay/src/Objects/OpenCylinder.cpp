@@ -11,6 +11,12 @@ OpenCylinder::OpenCylinder():
     bBox = OpenCylinder::get_bounding_box();
 }
 
+OpenCylinder::OpenCylinder(float rad, float height, const Point3D& center):
+        GeometricObject(), _radius(rad), _height(height), _center(center)
+{
+    bBox = OpenCylinder::get_bounding_box();
+}
+
 OpenCylinder::OpenCylinder(float rad, float height, const Point3D& center, Material *mat):
     GeometricObject(), _radius(rad), _height(height), _center(center)
 {
@@ -77,56 +83,6 @@ bool OpenCylinder::hit(const Ray &ray, double &tmin, ShadeRec &sr) const
 
 }
 
-
-
-//
-//bool OpenCylinder::hit(const Ray &ray, double &tmin, ShadeRec &sr) const
-//{
-//    /*if(!bBox.hit(ray))
-//        return false;*/
-//
-//    double t;
-//    const auto a = (ray.d.x * ray.d.x) + (ray.d.z * ray.d.z);
-//    const auto b = 2 * (ray.o.x * ray.d.x + ray.o.z * ray.d.z);
-//    const auto c = ray.o.x * ray.o.x + ray.d.x * ray.d.y - _radius * _radius;
-//
-//    const auto disc = b * b - 4.0 * a * c;
-//
-//    if (disc < 0.0)
-//        return(false);
-//    else {
-//        const auto e = sqrt(disc);
-//        const auto denom = 2.0 * a;
-//        t = (-b - e) / denom;    // smaller root
-//
-//        if (t > kEpsilon)
-//        {
-//            tmin = t;
-//            const auto hitPoint = ray.o + tmin * ray.d;
-//            if((hitPoint.y <= _center.y + _height / 2.0f) && (hitPoint.y >= _center.y - _height / 2.0f))
-//            {
-//                sr.hit_point = ray.o + t * ray.d;
-//                sr.normal = get_normal(sr.hit_point);
-//                return (true);
-//            }
-//        }
-//
-//        t = (-b + e) / denom;    // larger root
-//
-//        if (t > kEpsilon) {
-//            tmin = t;
-//            const auto hitPoint = ray.o + tmin * ray.d;
-//            if((hitPoint.y <= _center.y + _height / 2.0f) && (hitPoint.y >= _center.y - _height / 2.0f))
-//            {
-//                sr.hit_point = ray.o + t * ray.d;
-//                sr.normal = get_normal(sr.hit_point);
-//                return (true);
-//            }
-//        }
-//    }
-//
-//    return (false);
-//}
 
 Normal OpenCylinder::get_normal(const Point3D &p) const
 {

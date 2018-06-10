@@ -1,6 +1,7 @@
 // This file contains the definition of the class Vector3D
 
 #include <cmath>
+#include <cassert>
 #include <Utils/Vector3D.h>
 
 #include "Utils/Normal.h"
@@ -102,33 +103,31 @@ double Vector3D::length()
 
 void Vector3D::normalize() {
 	double length = sqrt(x * x + y * y + z * z);
+	assert(length != 0);
 	x /= length;
 	y /= length;
 	z /= length;
 }
 
 
-// ----------------------------------------------------------  hat
 // converts the vector to a unit vector and returns the vector
 
 Vector3D& Vector3D::hat()
 {
 	double length = sqrt(x * x + y * y + z * z);
+	assert(length != 0);
 	x /= length;
 	y /= length;
 	z /= length;
 	return (*this);
 }
 
-
-// non-member function
-
-// ----------------------------------------------------------  operator* 
 // multiplication by a matrix on the left
 
 Vector3D operator* (const Matrix& mat, const Vector3D& v)
 {
-	return (Vector3D(mat.m[0][0] * v.x + mat.m[0][1] * v.y + mat.m[0][2] * v.z,
-		mat.m[1][0] * v.x + mat.m[1][1] * v.y + mat.m[1][2] * v.z,
-		mat.m[2][0] * v.x + mat.m[2][1] * v.y + mat.m[2][2] * v.z));
+	return (Vector3D(
+			mat.m[0][0] * v.x + mat.m[0][1] * v.y + mat.m[0][2] * v.z,
+		    mat.m[1][0] * v.x + mat.m[1][1] * v.y + mat.m[1][2] * v.z,
+		    mat.m[2][0] * v.x + mat.m[2][1] * v.y + mat.m[2][2] * v.z));
 }

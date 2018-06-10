@@ -21,7 +21,8 @@ public:
 	Point3D operator- (const Vector3D& v) const;				// subtraction of a vector
 	Point3D operator* (double a) const;							// multiplication by a double on the right
 	double d_squared(const Point3D& p) const;					// square of distance between two points
-	double distance(const Point3D& p) const;					// distance bewteen two points
+    double distance(const Point3D& p) const;					// distance bewteen two points
+    
 };
 
 
@@ -76,26 +77,21 @@ Point3D::operator* (const double a) const {
 // -------------------------------------------------------------- d_squared
 // the square of the distance between the two points as a member function
 
-inline double
-Point3D::d_squared(const Point3D& p) const {
+inline double Point3D::d_squared(const Point3D& p) const {
 	return ((x - p.x) * (x - p.x)
 		+ (y - p.y) * (y - p.y)
 		+ (z - p.z) * (z - p.z));
 }
-
-
-
 
 // inlined non-member function
 
 // -------------------------------------------------------------- operator*
 // multiplication by a double on the left
 
-Point3D
-operator* (double a, const Point3D& p);
+Point3D operator* (double a, const Point3D& p);
 
-inline Point3D
-operator* (double a, const Point3D& p) {
+inline Point3D operator* (double a, const Point3D& p)
+{
 	return (Point3D(a * p.x, a * p.y, a * p.z));
 }
 
@@ -106,8 +102,7 @@ operator* (double a, const Point3D& p) {
 // -------------------------------------------------------------- operator*
 // multiplication by a matrix on the left
 
-Point3D
-operator* (const Matrix& mat, const Point3D& p);
+Point3D operator* (const Matrix& mat, const Point3D& p);
 
 
 

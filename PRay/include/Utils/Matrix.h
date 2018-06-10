@@ -19,6 +19,9 @@ public:
 	Matrix scalar_mult(double m);
 	Matrix operator/ (double d);
 	void set_identity();
+
+	double* operator[](int index);
+	const double* operator[](int index) const;
 };
 
 
