@@ -33,6 +33,7 @@ set(PRAY_SOURCE
         "src/Objects/Compound.cpp"
         "src/Objects/SolidCylinder.cpp"
         "src/Objects/Instance.cpp"
+        "src/Objects/BevelCylinder.cpp"
 
         ## Materials
         "src/Materials/Material.cpp"

@@ -25,7 +25,7 @@ public:
     void add_object(GeometricObject* obj);
     void set_material(Material* material) override;
 
-private:
+protected:
     std::vector<GeometricObject* > _objects;
 
 }; // End of class Compound

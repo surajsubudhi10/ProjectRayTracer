@@ -11,6 +11,7 @@
 #include <Objects/OpenCone.h>
 #include <Objects/SolidCylinder.h>
 #include <Objects/Instance.h>
+#include <Objects/BevelCylinder.h>
 #include "World/World.h"
 #include "Objects/Plane.h"
 //#include "Camera/PinHole.h"
@@ -126,10 +127,15 @@ void World::build()
     solidCylinder_ptr->set_material(matte_ptr1);
 //    add_object(solidCylinder_ptr);
 
-    auto ellipsoid_ptr = new Instance(new Sphere(Point3D(), 30));
+    auto bevelCylinder_ptr = new BevelCylinder(Point3D(100, 50, 0), 100.0f, 20.0f, 170.0f);
+//    bevelCylinder_ptr->set_material(matte_ptr1);
+//    add_object(bevelCylinder_ptr);
+
+    //auto ellipsoid_ptr = new Instance(new Sphere(Point3D(), 30));
+    auto ellipsoid_ptr = new Instance(bevelCylinder_ptr);
     ellipsoid_ptr->set_material(matte_ptr1);
-    ellipsoid_ptr->scale(2, 3, 1);
-    ellipsoid_ptr->rotateX(-45);
+//    ellipsoid_ptr->scale(2, 3, 1);
+    ellipsoid_ptr->rotateX(-90);
     ellipsoid_ptr->translate(0, 100, 0);
     add_object(ellipsoid_ptr);
 
