@@ -20,9 +20,9 @@ public:
     bool hit(const Ray& ray, double& tmin, ShadeRec& sr) const override;
     bool shadow_hit(const Ray& ray, float& tmin) const override ;
 
-    BBox    get_bounding_box();
+    virtual BBox get_bounding_box();
 
-    void add_object(GeometricObject* obj);
+    void add_object(GeometricObject* obj) override;
     void set_material(Material* material) override;
 
 protected:

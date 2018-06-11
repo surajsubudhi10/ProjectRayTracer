@@ -28,6 +28,8 @@ public:
 	void set_shadows(bool do_shadow);
 	bool get_shadows();
 
+	virtual void add_object(GeometricObject* obj);
+
 	virtual Point3D	sample();
 	virtual float pdf(const ShadeRec& sr) const;
 	virtual Normal get_normal(const Point3D& p) const;
@@ -80,3 +82,6 @@ inline BBox GeometricObject::get_bounding_box() const
 {
 	return(BBox(-1, 1, -1, 1, -1, 1));
 }
+
+inline void GeometricObject::add_object(GeometricObject *obj)
+{}

@@ -34,6 +34,7 @@ set(PRAY_SOURCE
         "src/Objects/SolidCylinder.cpp"
         "src/Objects/Instance.cpp"
         "src/Objects/BevelCylinder.cpp"
+        "src/Objects/Grid.cpp"
 
         ## Materials
         "src/Materials/Material.cpp"
@@ -69,6 +70,7 @@ set(PRAY_SOURCE
         ## builds
         #"src/builds/bareBoneBuild.cpp"
         "src/builds/geometricObjectsbuild.cpp"
+        #"src/builds/gridRandomSphere.cpp"
    )
 
 #-------------------------------------------------------------------------------

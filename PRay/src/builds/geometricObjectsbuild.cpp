@@ -12,6 +12,7 @@
 #include <Objects/SolidCylinder.h>
 #include <Objects/Instance.h>
 #include <Objects/BevelCylinder.h>
+#include <Objects/Grid.h>
 #include "World/World.h"
 #include "Objects/Plane.h"
 //#include "Camera/PinHole.h"
@@ -66,7 +67,7 @@ void World::build()
     add_light(point_light_ptr2);
 
     //// ============================================= ////
-
+    auto* grid_ptr = new Grid;
 
     auto* phong_ptr = new Phong();
     phong_ptr->set_ka(0.15);
@@ -121,7 +122,7 @@ void World::build()
     sphere_ptr3->set_center(Point3D(-230.0, 110.0, -230.0));
     sphere_ptr3->set_material(matte_ptr1);
     sphere_ptr3->set_radius(120.0);
-    add_object(sphere_ptr3);
+    grid_ptr->add_object(sphere_ptr3);
 
     auto solidCylinder_ptr = new SolidCylinder(100, 100, Point3D(100, 50, 0));
     solidCylinder_ptr->set_material(matte_ptr1);
@@ -137,7 +138,10 @@ void World::build()
 //    ellipsoid_ptr->scale(2, 3, 1);
     ellipsoid_ptr->rotateX(-90);
     ellipsoid_ptr->translate(0, 100, 0);
-    add_object(ellipsoid_ptr);
+//    grid_ptr->add_object(ellipsoid_ptr);
+
+    grid_ptr->setup_cells();
+    add_object(grid_ptr);
 
     //// ================ Ground Plane ===================== ////
 
@@ -148,6 +152,6 @@ void World::build()
 
     Plane* plane_ptr01 = new Plane(Point3D(0, -10, 0), Normal(0, 1, 0));
     plane_ptr01->set_material(matte_ptr01);
-    add_object(plane_ptr01);
+//    add_object(plane_ptr01);
 
 };
