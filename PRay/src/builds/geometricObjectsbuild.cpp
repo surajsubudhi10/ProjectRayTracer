@@ -29,25 +29,25 @@
 
 void World::build()
 {
-    auto num_of_samples = 64;
+    const auto numOfSamples = 64;
     vp.set_hres(500);
     vp.set_vres(400);
     vp.set_pixel_size(1.0);
-    vp.set_samples(num_of_samples);
+    vp.set_samples(numOfSamples);
     vp.set_gamma(1.0);
     vp.set_gamut_display(true);
     vp.set_max_depth(2);
 
     background_color = black;
 
-    auto* occluder_ptr = new AmbientOcculuder(black, new MultiJittered(num_of_samples));
+    auto* occluder_ptr = new AmbientOcculuder(black, new MultiJittered(numOfSamples));
     occluder_ptr->scale_radiance(3.0);
     set_ambient_light(occluder_ptr);
 
     //// ================ Camera ===================== ////
 
     auto * pinhole_ptr = new Orthographic();
-    pinhole_ptr->set_eye(1400, 300, 00);
+    pinhole_ptr->set_eye(1400, 300, 0);
 //    pinhole_ptr->set_eye(1400, 300, 00);
     pinhole_ptr->set_lookat(0, 0, 0);
     pinhole_ptr->set_zoom(0.5f);
@@ -119,7 +119,7 @@ void World::build()
 
 
     auto* sphere_ptr3 = new Sphere();
-    sphere_ptr3->set_center(Point3D(-230.0, 110.0, -230.0));
+    sphere_ptr3->set_center(Point3D(0.0, 110.0, 0.0));
     sphere_ptr3->set_material(matte_ptr1);
     sphere_ptr3->set_radius(120.0);
     grid_ptr->add_object(sphere_ptr3);
@@ -152,6 +152,6 @@ void World::build()
 
     Plane* plane_ptr01 = new Plane(Point3D(0, -10, 0), Normal(0, 1, 0));
     plane_ptr01->set_material(matte_ptr01);
-//    add_object(plane_ptr01);
+    add_object(plane_ptr01);
 
 };
