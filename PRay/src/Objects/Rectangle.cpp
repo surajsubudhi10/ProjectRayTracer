@@ -6,17 +6,12 @@
 
 const double Rectangle::kEpsilon = 0.001;
 
-// ----------------------------------------------------------------  default constructor
-
 Rectangle::Rectangle()
 	: GeometricObject(), point(-1, 0, -1), a(0, 0, 2), b(2, 0, 0), normal(0, 1, 0)
 {
     sampler_ptr = new MultiJittered(10);
 }
 
-
-// ----------------------------------------------------------------  constructor
-// this constructs the normal
 
 Rectangle::Rectangle(const Point3D& _p0, const Vector3D& _a, const Vector3D& _b)
 	: GeometricObject(), point(_p0), a(_a), b(_b)
@@ -27,9 +22,6 @@ Rectangle::Rectangle(const Point3D& _p0, const Vector3D& _a, const Vector3D& _b)
 }
 
 
-// ----------------------------------------------------------------  constructor
-// this has the normal as an argument
-
 Rectangle::Rectangle(const Point3D& _p0, const Vector3D& _a, const Vector3D& _b, const Normal& n)
 	: GeometricObject(),point(_p0), a(_a), b(_b)
 {
@@ -37,9 +29,16 @@ Rectangle::Rectangle(const Point3D& _p0, const Vector3D& _a, const Vector3D& _b,
     sampler_ptr = new MultiJittered(10);
 }
 
+Rectangle::Rectangle(const Point3D& center, float length, float breadth)
+    : GeometricObject()
+{
+    normal = Normal(0, 1, 0);
+    point = center - Vector3D(length / 2.0f, 0.0f, breadth / 2.0f);
+    a = Vector3D(0, 0, breadth);
+    b = Vector3D(length, 0, 0);
+    sampler_ptr = new MultiJittered(10);
+}
 
-
-// ---------------------------------------------------------------- clone
 
 Rectangle* Rectangle::clone() const
 {
@@ -47,15 +46,12 @@ Rectangle* Rectangle::clone() const
 }
 
 
-// ---------------------------------------------------------------- copy constructor
-
 Rectangle::Rectangle(const Rectangle& r)
 	: GeometricObject(r), point(r.point), a(r.a), b(r.b), normal(r.normal)
 {
     sampler_ptr = r.sampler_ptr;
 }
 
-// ---------------------------------------------------------------- assignment operator
 
 Rectangle& Rectangle::operator= (const Rectangle& rhs) 
 {
@@ -73,7 +69,6 @@ Rectangle& Rectangle::operator= (const Rectangle& rhs)
 	return (*this);
 }
 
-// ---------------------------------------------------------------- destructor
 
 Rectangle::~Rectangle()
 {
@@ -83,7 +78,6 @@ Rectangle::~Rectangle()
     }
 }
 
-//------------------------------------------------------------------ get_bounding_box 
 
 BBox Rectangle::get_bounding_box() const
 {
@@ -94,7 +88,6 @@ BBox Rectangle::get_bounding_box() const
 				min(point.z, point.z + a.z + b.z) - delta, max(point.z, point.z + a.z + b.z) + delta));
 }
 
-//------------------------------------------------------------------ hit 
 
 bool Rectangle::hit(const Ray& ray, double& tmin, ShadeRec& sr) const 
 {

@@ -9,6 +9,7 @@ public:
 	Rectangle();
 	Rectangle(const Point3D& _p0, const Vector3D& _a, const Vector3D& _b);
 	Rectangle(const Point3D& _p0, const Vector3D& _a, const Vector3D& _b, const Normal& n);
+    Rectangle(const Point3D& center, float length, float breadth);
 	Rectangle(const Rectangle& r);
 	~Rectangle() override;
 

@@ -7,34 +7,37 @@
 #include <Lights/AmbientOcculuder.h>
 #include <Lights/PointLight.h>
 #include <Camera/Orthographic.h>
-#include <cmath>
 #include <Objects/Grid.h>
 #include <Materials/Matte.h>
+#include "Objects/Plane.h"
+#include "Objects/Rectangle.h"
+#include "Materials/Phong.h"
 
 void World::build()
 {
-    auto num_of_samples = 64;
-    vp.set_hres(500);
+    const auto numOfSamples = 128
+    ;
+    vp.set_hres(400);
     vp.set_vres(400);
     vp.set_pixel_size(1.0);
-    vp.set_samples(num_of_samples);
+    vp.set_samples(numOfSamples);
     vp.set_gamma(1.0);
     vp.set_gamut_display(true);
     vp.set_max_depth(2);
 
     background_color = black;
 
-    auto* occluder_ptr = new AmbientOcculuder(black, new MultiJittered(num_of_samples));
+    auto* occluder_ptr = new AmbientOcculuder(black, new MultiJittered(numOfSamples));
     occluder_ptr->scale_radiance(3.0);
     set_ambient_light(occluder_ptr);
 
     //// ================ Camera ===================== ////
 
     auto * pinhole_ptr = new Orthographic();
-    pinhole_ptr->set_eye(100, 300, 00);
+    pinhole_ptr->set_eye(800, 800, 00);
 //    pinhole_ptr->set_eye(1400, 300, 00);
     pinhole_ptr->set_lookat(0, 0, 0);
-    pinhole_ptr->set_zoom(2.0f);
+    pinhole_ptr->set_zoom(0.5f);
     pinhole_ptr->compute_uvw();
     set_camera(pinhole_ptr);
 
@@ -52,26 +55,62 @@ void World::build()
 
     //// ============================================= ////
 
-    int numOfSphere = 100;
-    float volume = 0.1f / numOfSphere;
-    float radius = powf(static_cast<float>(0.75f * volume / PI), 1.0f / 3.0f);
-
+    int numOfSphere = 5;
     auto* grid_ptr = new Grid;
     set_rand_seed(15);
 
-    for(auto i = 0; i < numOfSphere; i++){
-        auto* matte_ptr = new Matte;
+    for(auto i = 0; i < numOfSphere; i++)
+    {
+        auto* phong_ptr = new Phong();
+        phong_ptr->set_ka(0.15);
+        phong_ptr->set_ca(1.0, 0.0, 0.0);
+        phong_ptr->set_kd(0.85);
+        phong_ptr->set_cd(rand_float(), rand_float(), rand_float());
+        phong_ptr->set_ks(0.3);
+        phong_ptr->set_exp_s(100);
+
+        /*auto* matte_ptr = new Matte;
         matte_ptr->set_ka(0.25f);
         matte_ptr->set_kd(0.75f);
-        matte_ptr->set_cd(rand_float(), rand_float(), rand_float());
+        matte_ptr->set_cd(rand_float(), rand_float(), rand_float());*/
 
         auto* sphere_ptr = new Sphere;
-        sphere_ptr->set_radius(radius * 100.0f);
-        sphere_ptr->set_center(100.0f * (rand_float()), 100.0f * (rand_float()), 100.0f * (rand_float()));
-        sphere_ptr->set_material(matte_ptr);
+        sphere_ptr->set_radius(50.0f);
+
+        const auto center = Point3D(0.0f, (i - 1) * 100.0f, (i - 1) * 100.0f);
+        sphere_ptr->set_center(center);
+        
+        sphere_ptr->set_material(phong_ptr);
         grid_ptr->add_object(sphere_ptr);
     }
 
+    auto cornerSpherMat = new Matte;
+    cornerSpherMat->set_ka(0.25f);
+    cornerSpherMat->set_kd(0.75f);
+    cornerSpherMat->set_cd(0.0, 0.0, 1.0);
+    auto cornerSpherePtr = new Sphere;
+    cornerSpherePtr->set_radius(50.0f);
+    cornerSpherePtr->set_material(cornerSpherMat);
+    cornerSpherePtr->set_center(0.0, 400, 400); // top left corner
+    //cornerSpherePtr->set_center(0.0, -400, 400); // bottom left corner
+    //cornerSpherePtr->set_center(0.0, 400, -400); // top right corner
+    //cornerSpherePtr->set_center(0.0, -400, -400); // bottom right corner
+    grid_ptr->add_object(cornerSpherePtr);
+
+    //// ================ Ground Plane ===================== ////
+
+    auto* matte_ptr01 = new Matte();
+    matte_ptr01->set_ka(0.25);
+    matte_ptr01->set_kd(0.65);
+    matte_ptr01->set_cd(0.5, 0.5, 0.5);
+
+    auto groundPlanePtr = new Rectangle(Point3D(0, -150, 0), 800, 800);
+    groundPlanePtr->set_material(matte_ptr01);
+    grid_ptr->add_object(groundPlanePtr);
+    
+
+    // Setup the grid
     grid_ptr->setup_cells();
     add_object(grid_ptr);
+
 }

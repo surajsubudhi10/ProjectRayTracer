@@ -20,13 +20,15 @@ public:
     bool hit(const Ray& ray, double& tmin, ShadeRec& sr) const override;
     bool shadow_hit(const Ray& ray, float& tmin) const override ;
 
-    virtual BBox get_bounding_box();
+    BBox get_bounding_box() const override;
 
     void add_object(GeometricObject* obj) override;
     void set_material(Material* material) override;
 
 protected:
     std::vector<GeometricObject* > _objects;
+    void build_bounding_box();
+
 
 }; // End of class Compound
 

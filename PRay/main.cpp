@@ -3,23 +3,20 @@
 
 #include <iostream>
 #include <cstdlib>
-#include <cmath>
 #include <ctime>
 
 int main() {
-
-	clock_t startTime, endTime;
-	startTime = clock();
+    const auto startTime = clock();
 	World w;
 	w.build();
-	const char* fileName = "AmbientOcclusion1000e.bmp";
+    const auto fileName = "AmbientOcclusion1000e.bmp";
 	//w.render_scene();
 	std::cout << "RayTracing.." << std::endl;
 
     w.camera_ptr->render_scene(w);
     w.Savebmp(fileName);
-    endTime = clock();
-    auto totalTime = ((float)endTime - (float)startTime) / CLOCKS_PER_SEC;
+    const auto endTime = clock();
+    const auto totalTime = (static_cast<float>(endTime) - static_cast<float>(startTime)) / CLOCKS_PER_SEC;
     std::cout << "RayTracing Completed in " << totalTime << " Seconds" << std::endl;
 
     system(fileName);

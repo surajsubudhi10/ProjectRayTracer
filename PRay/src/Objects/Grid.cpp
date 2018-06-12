@@ -22,7 +22,7 @@ Grid* Grid::clone() const
     return new Grid(*this);
 }
 
-BBox Grid::get_bounding_box() { return bbox;}
+BBox Grid::get_bounding_box() const { return bBox;}
 
 Point3D Grid::min_coordinates() const
 {
@@ -69,24 +69,25 @@ Point3D Grid::max_coordinates() const
             p1.z = object_box.z1;
     }
 
-    p1.x -= kEpsilon;
-    p1.y -= kEpsilon;
-    p1.z -= kEpsilon;
+    p1.x += kEpsilon;
+    p1.y += kEpsilon;
+    p1.z += kEpsilon;
 
     return p1;
 }
 
+
 void Grid::setup_cells()
 {
-    Point3D p0 = min_coordinates();
-    Point3D p1 = max_coordinates();
+    const Point3D p0 = min_coordinates();
+    const Point3D p1 = max_coordinates();
 
-    bbox.x0 = p0.x;
-    bbox.y0 = p0.y;
-    bbox.z0 = p0.z;
-    bbox.x1 = p1.x;
-    bbox.y1 = p1.y;
-    bbox.z1 = p1.z;
+    bBox.x0 = p0.x;
+    bBox.y0 = p0.y;
+    bBox.z0 = p0.z;
+    bBox.x1 = p1.x;
+    bBox.y1 = p1.y;
+    bBox.z1 = p1.z;
 
     const auto numOfObjects = _objects.size();
     const auto wx = p1.x - p0.x;
@@ -95,9 +96,9 @@ void Grid::setup_cells()
     const auto multiplier = 2.0f;
 
     const auto s = pow(wx * wy * wz / numOfObjects, 1.0f/ 3.0f);
-    nx = (int)(multiplier * wx / s) + 1;
-    ny = (int)(multiplier * wy / s) + 1;
-    nz = (int)(multiplier * wz / s) + 1;
+    nx = static_cast<int>(multiplier * wx / s) + 1;
+    ny = static_cast<int>(multiplier * wy / s) + 1;
+    nz = static_cast<int>(multiplier * wz / s) + 1;
 
     const auto numOfCells = static_cast<unsigned int>(nx * ny * nz);
     _cells.reserve(numOfCells);
@@ -185,27 +186,32 @@ void Grid::setup_cells()
 Grid::~Grid()
 = default;
 
+
+
 bool Grid::hit(const Ray &ray, double &tmin, ShadeRec &sr) const
 {
-    double ox = ray.o.x;
-	double oy = ray.o.y;
-	double oz = ray.o.z;
-	double dx = ray.d.x;
-	double dy = ray.d.y;
-	double dz = ray.d.z;
+    const auto ox = ray.o.x;
+	const auto oy = ray.o.y;
+	const auto oz = ray.o.z;
+	const auto dx = ray.d.x;
+	const auto dy = ray.d.y;
+	const auto dz = ray.d.z;
 
-	double x0 = bbox.x0;
-	double y0 = bbox.y0;
-	double z0 = bbox.z0;
-	double x1 = bbox.x1;
-	double y1 = bbox.y1;
-	double z1 = bbox.z1;
+	const auto x0 = bBox.x0;
+	const auto y0 = bBox.y0;
+	const auto z0 = bBox.z0;
+	const auto x1 = bBox.x1;
+	const auto y1 = bBox.y1;
+	const auto z1 = bBox.z1;
 
     double tx_min, ty_min, tz_min;
 	double tx_max, ty_max, tz_max; 
 
     double a = 1.0 / dx;
-    if (a >= 0) {
+    if(dx == 0){
+        tx_min = -kHugeValue;
+        tx_max =  kHugeValue;
+    } else if (a >= 0) {
         tx_min = (x0 - ox) * a;
         tx_max = (x1 - ox) * a;
     }
@@ -215,7 +221,11 @@ bool Grid::hit(const Ray &ray, double &tmin, ShadeRec &sr) const
     }
 
     double b = 1.0 / dy;
-    if (b >= 0) {
+    if (dy == 0) {
+        ty_min = -kHugeValue;
+        ty_max =  kHugeValue;
+    }
+    else if (b >= 0) {
         ty_min = (y0 - oy) * b;
         ty_max = (y1 - oy) * b;
     }
@@ -225,7 +235,10 @@ bool Grid::hit(const Ray &ray, double &tmin, ShadeRec &sr) const
     }
 
     double c = 1.0 / dz;
-    if (c >= 0) {
+    if (dz == 0) {
+        tz_min = -kHugeValue;
+        tz_max =  kHugeValue;
+    }else if (c >= 0) {
         tz_min = (z0 - oz) * c;
         tz_max = (z1 - oz) * c;
     }
@@ -263,7 +276,7 @@ bool Grid::hit(const Ray &ray, double &tmin, ShadeRec &sr) const
 
     int ix, iy, iz;
 
-    if (bbox.inside(ray.o)) {  			// does the ray start inside the grid?
+    if (bBox.inside(ray.o)) {  			// does the ray start inside the grid?
         ix = static_cast<int>(clamp((ox - x0) * nx / (x1 - x0), 0, nx - 1));
         iy = static_cast<int>(clamp((oy - y0) * ny / (y1 - y0), 0, ny - 1));
         iz = static_cast<int>(clamp((oz - z0) * nz / (z1 - z0), 0, nz - 1));

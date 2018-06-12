@@ -9,7 +9,7 @@
 Compound::Compound() :
     GeometricObject()
 {
-    bBox = Compound::get_bounding_box();
+    build_bounding_box();
 }
 
 Compound::Compound(const Compound &obj):
@@ -37,7 +37,7 @@ Compound *Compound::clone() const
 void Compound::add_object(GeometricObject *obj)
 {
     _objects.push_back(obj);
-    bBox = Compound::get_bounding_box();
+    build_bounding_box();
 }
 
 void Compound::set_material(Material *material)
@@ -45,6 +45,34 @@ void Compound::set_material(Material *material)
     for(auto obj : _objects){
         obj->set_material(material);
     }
+}
+
+void Compound::build_bounding_box()
+{
+    BBox tempBox;
+    for (auto obj : _objects) {
+        const auto boundBox = obj->get_bounding_box();
+
+        if (tempBox.x0 > boundBox.x0)
+            tempBox.x0 = boundBox.x0;
+
+        if (tempBox.y0 > boundBox.y0)
+            tempBox.y0 = boundBox.y0;
+
+        if (tempBox.z0 > boundBox.z0)
+            tempBox.z0 = boundBox.z0;
+
+        if (tempBox.x1 < boundBox.x1)
+            tempBox.x1 = boundBox.x1;
+
+        if (tempBox.y1 < boundBox.y1)
+            tempBox.y1 = boundBox.y1;
+
+        if (tempBox.z1 < boundBox.z1)
+            tempBox.z1 = boundBox.z1;
+    }
+
+    bBox = tempBox;
 }
 
 bool Compound::hit(const Ray &ray, double &tmin, ShadeRec &sr) const
@@ -86,8 +114,8 @@ bool Compound::shadow_hit(const Ray &ray, float &tmin) const
         return false;
 
     float t;
-    bool hit = false;
-    tmin = (float) kHugeValue;
+    auto hit = false;
+    tmin = static_cast<float>(kHugeValue);
 
     for(auto obj : _objects)
     {
@@ -101,33 +129,9 @@ bool Compound::shadow_hit(const Ray &ray, float &tmin) const
     return hit;
 }
 
-BBox Compound::get_bounding_box()
+BBox Compound::get_bounding_box() const
 {
-    BBox tempBox;
-    BBox bound_box;
-    for(auto obj : _objects){
-        bound_box = obj->get_bounding_box();
-
-        if(Abs(tempBox.x0) < Abs(bound_box.x0))
-            tempBox.x0 = bound_box.x0;
-
-        if(Abs(tempBox.y0) < Abs(bound_box.y0))
-            tempBox.y0 = bound_box.y0;
-
-        if(Abs(tempBox.z0) < Abs(bound_box.z0))
-            tempBox.z0 = bound_box.z0;
-
-        if(Abs(tempBox.x1) < Abs(bound_box.x1))
-            tempBox.x1 = bound_box.x1;
-
-        if(Abs(tempBox.y1) < Abs(bound_box.y1))
-            tempBox.y1 = bound_box.y1;
-
-        if(Abs(tempBox.z1) < Abs(bound_box.z1))
-            tempBox.z1 = bound_box.z1;
-    }
-
-    return tempBox;
+    return bBox;
 }
 
 
