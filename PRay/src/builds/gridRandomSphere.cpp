@@ -9,14 +9,15 @@
 #include <Camera/Orthographic.h>
 #include <Objects/Grid.h>
 #include <Materials/Matte.h>
+#include <Objects/Instance.h>
 #include "Objects/Plane.h"
 #include "Objects/Rectangle.h"
 #include "Materials/Phong.h"
 
 void World::build()
 {
-    const auto numOfSamples = 128
-    ;
+    const auto numOfSamples = 10;
+
     vp.set_hres(400);
     vp.set_vres(400);
     vp.set_pixel_size(1.0);
@@ -61,18 +62,18 @@ void World::build()
 
     for(auto i = 0; i < numOfSphere; i++)
     {
-        auto* phong_ptr = new Phong();
-        phong_ptr->set_ka(0.15);
-        phong_ptr->set_ca(1.0, 0.0, 0.0);
-        phong_ptr->set_kd(0.85);
-        phong_ptr->set_cd(rand_float(), rand_float(), rand_float());
-        phong_ptr->set_ks(0.3);
-        phong_ptr->set_exp_s(100);
+//        auto* phong_ptr = new Phong();
+//        phong_ptr->set_ka(0.15);
+//        phong_ptr->set_ca(1.0, 0.0, 0.0);
+//        phong_ptr->set_kd(0.85);
+//        phong_ptr->set_cd(rand_float(), rand_float(), rand_float());
+//        phong_ptr->set_ks(0.3);
+//        phong_ptr->set_exp_s(100);
 
-        /*auto* matte_ptr = new Matte;
+        auto* matte_ptr = new Matte;
         matte_ptr->set_ka(0.25f);
         matte_ptr->set_kd(0.75f);
-        matte_ptr->set_cd(rand_float(), rand_float(), rand_float());*/
+        matte_ptr->set_cd(rand_float(), rand_float(), rand_float());
 
         auto* sphere_ptr = new Sphere;
         sphere_ptr->set_radius(50.0f);
@@ -80,18 +81,22 @@ void World::build()
         const auto center = Point3D(0.0f, (i - 1) * 100.0f, (i - 1) * 100.0f);
         sphere_ptr->set_center(center);
         
-        sphere_ptr->set_material(phong_ptr);
-        grid_ptr->add_object(sphere_ptr);
+        sphere_ptr->set_material(matte_ptr);
+        //grid_ptr->add_object(sphere_ptr);
     }
 
     auto cornerSpherMat = new Matte;
     cornerSpherMat->set_ka(0.25f);
     cornerSpherMat->set_kd(0.75f);
     cornerSpherMat->set_cd(0.0, 0.0, 1.0);
-    auto cornerSpherePtr = new Sphere;
-    cornerSpherePtr->set_radius(50.0f);
+
+    auto cornerSpherePtr = new Instance(new Sphere(50));
+    //cornerSpherePtr->set_radius(50.0f);
     cornerSpherePtr->set_material(cornerSpherMat);
-    cornerSpherePtr->set_center(0.0, 400, 400); // top left corner
+    cornerSpherePtr->translate(0, 100, 50);
+    cornerSpherePtr->scale(1, 2, 2);
+    cornerSpherePtr->compute_bounding_box();
+    //cornerSpherePtr->set_center(0.0, 400, 400); // top left corner
     //cornerSpherePtr->set_center(0.0, -400, 400); // bottom left corner
     //cornerSpherePtr->set_center(0.0, 400, -400); // top right corner
     //cornerSpherePtr->set_center(0.0, -400, -400); // bottom right corner

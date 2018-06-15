@@ -20,6 +20,12 @@ Sphere::Sphere(Point3D c, double r)
       inv_area(static_cast<float>(1 / (4 * PI * exp2(radius)))), sampler_ptr(nullptr)
 {}
 
+Sphere::Sphere(double rad) :
+        GeometricObject(),
+        center(Point3D(0.0)), radius(rad),
+        inv_area(static_cast<float>(1 / (4 * PI * exp2(radius)))), sampler_ptr(nullptr)
+{}
+
 // ---------------------------------------------------------------- clone
 
 Sphere* Sphere::clone() const
@@ -195,3 +201,5 @@ BBox Sphere::get_bounding_box() const
     return (BBox(Point3D(center.x - radius - delta, center.y - radius - delta, center.z - radius - delta),
                  Point3D(center.x + radius + delta, center.y + radius + delta, center.z + radius + delta)));
 }
+
+

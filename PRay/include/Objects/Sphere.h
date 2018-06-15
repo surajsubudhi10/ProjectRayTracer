@@ -10,7 +10,8 @@ class Sphere : public GeometricObject {
 public:
 
 	Sphere();
-	Sphere(Point3D center, double r);					
+	Sphere(Point3D center, double r);
+	explicit Sphere(double rad);
 	Sphere(const Sphere& sphere);
 	~Sphere() override;
 

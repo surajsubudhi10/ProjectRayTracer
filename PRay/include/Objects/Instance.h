@@ -11,7 +11,7 @@ class Instance : public GeometricObject
 {
 public:
     Instance();
-    Instance(GeometricObject* object_ptr);
+    explicit Instance(GeometricObject* object_ptr);
 
     Instance* clone() const override ;
     ~Instance() override;
@@ -29,9 +29,14 @@ public:
     void scale(float x, float y, float z);
     void scale(float s);
 
+    void compute_bounding_box();
+    BBox get_bounding_box() const override;
+
 private:
     GeometricObject* _object_ptr;
     Matrix inv_matrix;
+
+    static Matrix forward_matrix;
 
 }; // End of Class Instance
 
