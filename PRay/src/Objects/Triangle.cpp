@@ -2,18 +2,40 @@
 #include "Utils/Maths.h"
 
 Triangle::Triangle()
-	: GeometricObject(), v0(0, 0, 0), v1(0, 0, 1), v2(1, 0, 0), normal(0, 1, 0)
-{}
-
-Triangle::Triangle(const Point3D& a, const Point3D& b, const Point3D& c)
-	: GeometricObject(), v0(a), v1(b), v2(c) 
+	: GeometricObject()//, v0(0, 0, 0), v1(0, 0, 1), v2(1, 0, 0), normal(0, 1, 0)
 {
-	normal = (v1 - v0) ^ (v2 - v0);
-	normal.normalize();
+	v0.position = Point3D(0, 0, 0);
+	v0.normal = Normal(0, 1, 0);
+
+	v1.position = Point3D(0, 0, 1);
+	v1.normal = Normal(0, 1, 0);
+
+	v2.position = Point3D(1, 0, 0);
+	v2.normal = Normal(0, 1, 0);
 }
 
+Triangle::Triangle(const Point3D& a, const Point3D& b, const Point3D& c)
+	: GeometricObject()//, v0(a), v1(b), v2(c) 
+{
+	auto normal = (v1.position - v0.position) ^ (v2.position - v0.position);
+	normal.normalize();
+
+	v0.position = Point3D(0, 0, 0);
+	v0.normal = normal;
+
+	v1.position = Point3D(0, 0, 1);
+	v1.normal = normal;
+
+	v2.position = Point3D(1, 0, 0);
+	v2.normal = normal;
+}
+
+Triangle::Triangle(const Vertex & _v0, const Vertex & _v1, const Vertex & _v2) 
+	: GeometricObject(), v0(_v0), v1(_v1), v2(_v2)
+{}
+
 Triangle::Triangle(const Triangle& tri)
-	: GeometricObject(), v0(tri.v0), v1(tri.v1), v2(tri.v2), normal(tri.normal)
+	: GeometricObject(), v0(tri.v0), v1(tri.v1), v2(tri.v2)//, normal(tri.normal)
 {}
 
 
@@ -25,7 +47,7 @@ Triangle& Triangle::operator=(const Triangle& tri)
 	v0 = tri.v0;
 	v1 = tri.v1;
 	v2 = tri.v2;
-	normal = tri.normal;
+	//normal = tri.normal;
 
 	return (*this);
 }
@@ -39,17 +61,17 @@ BBox Triangle::get_bounding_box() const
 {
 	double delta = 0.000001;
 
-	return (BBox(min(min(v0.x, v1.x), v2.x) - delta, max(max(v0.x, v1.x), v2.x) + delta,
-				 min(min(v0.y, v1.y), v2.y) - delta, max(max(v0.y, v1.y), v2.y) + delta,
-				 min(min(v0.z, v1.z), v2.z) - delta, max(max(v0.z, v1.z), v2.z) + delta));
+	return (BBox(min(min(v0.position.x, v1.position.x), v2.position.x) - delta, max(max(v0.position.x, v1.position.x), v2.position.x) + delta,
+				 min(min(v0.position.y, v1.position.y), v2.position.y) - delta, max(max(v0.position.y, v1.position.y), v2.position.y) + delta,
+				 min(min(v0.position.z, v1.position.z), v2.position.z) - delta, max(max(v0.position.z, v1.position.z), v2.position.z) + delta));
 }
 
 
 bool Triangle::hit(const Ray& ray, double& tmin, ShadeRec& sr) const 
 {
-	double a = v0.x - v1.x, b = v0.x - v2.x, c = ray.d.x, d = v0.x - ray.o.x;
-	double e = v0.y - v1.y, f = v0.y - v2.y, g = ray.d.y, h = v0.y - ray.o.y;
-	double i = v0.z - v1.z, j = v0.z - v2.z, k = ray.d.z, l = v0.z - ray.o.z;
+	double a = v0.position.x - v1.position.x, b = v0.position.x - v2.position.x, c = ray.d.x, d = v0.position.x - ray.o.x;
+	double e = v0.position.y - v1.position.y, f = v0.position.y - v2.position.y, g = ray.d.y, h = v0.position.y - ray.o.y;
+	double i = v0.position.z - v1.position.z, j = v0.position.z - v2.position.z, k = ray.d.z, l = v0.position.z - ray.o.z;
 
 	double m = f * k - g * j, n = h * k - g * l, p = f * l - h * j;
 	double q = g * i - e * k, s = e * j - f * i;
@@ -79,7 +101,11 @@ bool Triangle::hit(const Ray& ray, double& tmin, ShadeRec& sr) const
 		return (false);
 
 	tmin = t;
+
+	auto normal = (1.0 - (beta + gamma)) * v0.normal + beta * v1.normal + gamma * v2.normal;
+	normal.normalize();
 	sr.normal = normal;
+
 	sr.hit_point = ray.o + t * ray.d;
 
 	return (true);
@@ -91,9 +117,9 @@ bool Triangle::shadow_hit(const Ray& ray, float& tmin) const
 	if (!shadows)
 		return false;
 
-	double a = v0.x - v1.x, b = v0.x - v2.x, c = ray.d.x, d = v0.x - ray.o.x;
-	double e = v0.y - v1.y, f = v0.y - v2.y, g = ray.d.y, h = v0.y - ray.o.y;
-	double i = v0.z - v1.z, j = v0.z - v2.z, k = ray.d.z, l = v0.z - ray.o.z;
+	double a = v0.position.x - v1.position.x, b = v0.position.x - v2.position.x, c = ray.d.x, d = v0.position.x - ray.o.x;
+	double e = v0.position.y - v1.position.y, f = v0.position.y - v2.position.y, g = ray.d.y, h = v0.position.y - ray.o.y;
+	double i = v0.position.z - v1.position.z, j = v0.position.z - v2.position.z, k = ray.d.z, l = v0.position.z - ray.o.z;
 
 	double m = f * k - g * j, n = h * k - g * l, p = f * l - h * j;
 	double q = g * i - e * k, s = e * j - f * i;

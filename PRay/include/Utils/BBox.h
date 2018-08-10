@@ -20,6 +20,8 @@ public:
 	BBox& operator=(const BBox& bbox);
 	BBox* clone() const;
 
+	BBox expand(const BBox& box);
+
 	bool hit(const Ray& ray) const;
 	bool inside(const Point3D& p) const;
 };

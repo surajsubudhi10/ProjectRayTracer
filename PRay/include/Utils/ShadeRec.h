@@ -11,6 +11,10 @@ class Material;
 
 class ShadeRec {
 public:
+	ShadeRec(World& wr);					// constructor
+	ShadeRec(const ShadeRec& sr);			// copy constructor
+
+	void operator= (const ShadeRec& sr);
 
 	bool				hit_an_object;		// did the ray hit an object?
 	Material*			material_ptr;		// nearest object's material
@@ -23,7 +27,5 @@ public:
 	World&				w;					// world reference for shading
 	//float					u, v;				// texture coordinates
 
-	explicit ShadeRec(World& wr);				// constructor
-	ShadeRec(const ShadeRec& sr);		// copy constructor
 };
 

@@ -35,6 +35,7 @@ set(PRAY_SOURCE
         "src/Objects/Instance.cpp"
         "src/Objects/BevelCylinder.cpp"
         "src/Objects/Grid.cpp"
+		"src/Objects/Mesh.cpp"
 
         ## Materials
         "src/Materials/Material.cpp"
@@ -81,14 +82,21 @@ include_directories(
 )
 
 #-------------------------------------------------------------------------------
+# Set link directories
+#-------------------------------------------------------------------------------
+link_directories(
+		${ASSIMP_LIBRARY_DIRS}
+)
+
+#-------------------------------------------------------------------------------
 # Add executable
 #-------------------------------------------------------------------------------
 add_executable(PRAY ${PRAY_SOURCE})
 
 if (WIN32)
-    target_link_libraries( PRAY )# glew32 glfw ${GLFW_LIBRARIES} ${OPENGL_LIBRARIES} assimp)
+    target_link_libraries( PRAY assimp)# glew32 glfw ${GLFW_LIBRARIES} ${OPENGL_LIBRARIES} assimp)
 elseif(LINUX)
-    target_link_libraries( PRAY) # GLEW glfw ${GLFW_LIBRARIES} ${OPENGL_LIBRARIES} assimp)
+    target_link_libraries( PRAY assimp) # GLEW glfw ${GLFW_LIBRARIES} ${OPENGL_LIBRARIES} assimp)
 endif ()
 
 message(STATUS "RESOURCE_FILE : " ${RESOURCE_FILE})

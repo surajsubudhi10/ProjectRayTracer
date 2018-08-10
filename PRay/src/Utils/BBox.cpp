@@ -39,6 +39,21 @@ BBox* BBox::clone() const
 	return (new BBox(*this));
 }
 
+BBox BBox::expand(const BBox & box)
+{
+	BBox expandedBox;
+
+	expandedBox.x0 = x0 < box.x0 ? x0 : box.x0;
+	expandedBox.y0 = y0 < box.y0 ? y0 : box.y0;
+	expandedBox.z0 = z0 < box.z0 ? z0 : box.z0;
+
+	expandedBox.x1 = x1 > box.x1 ? x1 : box.x1;
+	expandedBox.y1 = y1 > box.y1 ? y1 : box.y1;
+	expandedBox.z1 = z1 > box.z1 ? z1 : box.z1;
+
+	return BBox();
+}
+
 BBox::~BBox() = default;
 
 bool BBox::hit(const Ray& ray) const 

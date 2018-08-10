@@ -11,8 +11,10 @@
 #include <Materials/Matte.h>
 #include <Objects/Instance.h>
 #include "Objects/Plane.h"
+#include "Objects/Triangle.h"
 #include "Objects/Rectangle.h"
 #include "Materials/Phong.h"
+#include "Objects/Mesh.h"
 
 void World::build()
 {
@@ -90,17 +92,24 @@ void World::build()
     cornerSpherMat->set_kd(0.75f);
     cornerSpherMat->set_cd(0.0, 0.0, 1.0);
 
-    auto cornerSpherePtr = new Instance(new Sphere(50));
+    //auto cornerSpherePtr = new Instance(new Sphere(50));
+	//auto cornerSpherePtr = new Instance(new Triangle());
+	//Mesh* meshPtr = new Mesh("../../../PRay/Resources/objects/rock/cubeEdit.obj");
+	Mesh* meshPtr = new Mesh("E:/SurajWorkspace/Personal/ProjectRayTracer/PRay/Resources/objects/rock/cubeEdit.obj");
+	auto cornerSpherePtr = new Instance(meshPtr);
     //cornerSpherePtr->set_radius(50.0f);
     cornerSpherePtr->set_material(cornerSpherMat);
-    cornerSpherePtr->translate(0, 100, 50);
-    cornerSpherePtr->scale(1, 2, 2);
+    //cornerSpherePtr->translate(0, 100, 50);
+    cornerSpherePtr->scale(20, 20, 20);
     cornerSpherePtr->compute_bounding_box();
     //cornerSpherePtr->set_center(0.0, 400, 400); // top left corner
     //cornerSpherePtr->set_center(0.0, -400, 400); // bottom left corner
     //cornerSpherePtr->set_center(0.0, 400, -400); // top right corner
     //cornerSpherePtr->set_center(0.0, -400, -400); // bottom right corner
-    grid_ptr->add_object(cornerSpherePtr);
+    
+	
+	
+	//grid_ptr->add_object(cornerSpherePtr);
 
     //// ================ Ground Plane ===================== ////
 

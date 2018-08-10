@@ -82,6 +82,15 @@ endif(WIN32)
 # Find dependencies
 #-------------------------------------------------------------------------------
 
+# ASSIMP
+find_package(ASSIMP QUIET)
+if(NOT ASSIMP_FOUND)
+    include_directories("${PRAY_SOURCE_DIR}/deps/Assimp/include")
+    set(ASSIMP_LIBRARY_DIRS "${PRAY_SOURCE_DIR}/deps/Assimp/lib")
+endif()
+message(STATUS "Found ASSIMP in ${ASSIMP_INCLUDE_DIR}")
+
+
 # stb_image
 #include_directories("${PRAY_SOURCE_DIR}/deps/Extras")
 
@@ -92,6 +101,12 @@ include_directories(
         ${PRAY_INCLUDE_DIRS}
 )
 
+#-------------------------------------------------------------------------------
+# Set link directories
+#-------------------------------------------------------------------------------
+link_directories(
+		${ASSIMP_LIBRARY_DIRS}
+)
 
 #-------------------------------------------------------------------------------
 # Set Resources directories
