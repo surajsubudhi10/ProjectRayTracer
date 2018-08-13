@@ -66,7 +66,7 @@ AmbientOcculuder::AmbientOcculuder(const AmbientOcculuder &ambientOcculuder) :
 
 bool AmbientOcculuder::in_shadow(const Ray &ray, const ShadeRec &sr) const
 {
-    float t;
+    auto t = (float) kHugeValue;
     auto num_objects = sr.w.objects.size();
 
     for(auto j = 0; j < num_objects; j++){

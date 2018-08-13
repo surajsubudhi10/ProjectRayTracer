@@ -38,7 +38,6 @@ void World::build()
 
     auto * pinhole_ptr = new Orthographic();
     pinhole_ptr->set_eye(800, 800, 00);
-//    pinhole_ptr->set_eye(1400, 300, 00);
     pinhole_ptr->set_lookat(0, 0, 0);
     pinhole_ptr->set_zoom(0.5f);
     pinhole_ptr->compute_uvw();
@@ -94,22 +93,15 @@ void World::build()
 
     //auto cornerSpherePtr = new Instance(new Sphere(50));
 	//auto cornerSpherePtr = new Instance(new Triangle());
-	//Mesh* meshPtr = new Mesh("../../../PRay/Resources/objects/rock/cubeEdit.obj");
-	Mesh* meshPtr = new Mesh("E:/SurajWorkspace/Personal/ProjectRayTracer/PRay/Resources/objects/rock/cubeEdit.obj");
+    Mesh* meshPtr = new Mesh(R"(D:\Code_Stuff\RayTracer\ProjectRay\PRay\Resources\basic\grid.obj)");
 	auto cornerSpherePtr = new Instance(meshPtr);
-    //cornerSpherePtr->set_radius(50.0f);
     cornerSpherePtr->set_material(cornerSpherMat);
-    //cornerSpherePtr->translate(0, 100, 50);
-    cornerSpherePtr->scale(20, 20, 20);
+    cornerSpherePtr->rotateX(45.0f);
+    //cornerSpherePtr->rotateY(45.0f);
+    cornerSpherePtr->scale(2, 2, 2);
+    //cornerSpherePtr->translate(0, 25, 0);
     cornerSpherePtr->compute_bounding_box();
-    //cornerSpherePtr->set_center(0.0, 400, 400); // top left corner
-    //cornerSpherePtr->set_center(0.0, -400, 400); // bottom left corner
-    //cornerSpherePtr->set_center(0.0, 400, -400); // top right corner
-    //cornerSpherePtr->set_center(0.0, -400, -400); // bottom right corner
-    
-	
-	
-	//grid_ptr->add_object(cornerSpherePtr);
+	grid_ptr->add_object(cornerSpherePtr);
 
     //// ================ Ground Plane ===================== ////
 
@@ -122,7 +114,6 @@ void World::build()
     groundPlanePtr->set_material(matte_ptr01);
     grid_ptr->add_object(groundPlanePtr);
     
-
     // Setup the grid
     grid_ptr->setup_cells();
     add_object(grid_ptr);

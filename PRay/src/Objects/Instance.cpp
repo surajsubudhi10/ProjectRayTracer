@@ -196,6 +196,10 @@ void Instance::compute_bounding_box()
     auto ymax = max(p0.y, max(p1.y, max(p2.y, max(p3.y, max(p4.y, max(p5.y, max(p6.y, p7.y)))))));
     auto zmax = max(p0.z, max(p1.z, max(p2.z, max(p3.z, max(p4.z, max(p5.z, max(p6.z, p7.z)))))));
 
+    // Temp ymin and ymax val
+//    ymin = -50;
+//    ymax = - ymin;
+
     std::cout << "Min : (" << xmin << ", " << ymin << ", " << zmin << ") \n";
     std::cout << "Max : (" << xmax << ", " << ymax << ", " << zmax << ") \n";
 

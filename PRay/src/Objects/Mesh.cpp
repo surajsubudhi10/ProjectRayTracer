@@ -50,38 +50,36 @@ Mesh * Mesh::clone() const
 
 bool Mesh::hit(const Ray & ray, double & tmin, ShadeRec& sr) const
 {
-	for (auto i = 0; i < triangleList.size(); i++) 
+	bool meshHit = false;
+	for (const auto &i : triangleList)
 	{
 		double t = kHugeValue;
 		ShadeRec tempShaderRecord(sr.w);
-		bool triangleHit = triangleList[i].hit(ray, t, tempShaderRecord);
+		bool triangleHit = i.hit(ray, t, tempShaderRecord);
 		
 		if (triangleHit) {
 			if (t < tmin) {
 				tmin = t;
 				sr = tempShaderRecord;
+				meshHit = true;
 			}
 		}
 	}
-
-	if (sr.hit_an_object) {
-		return true;
-	}
-
-	return false;
+	return meshHit;
 }
 
 bool Mesh::shadow_hit(const Ray & ray, float & tmin) const
 {
 	bool triangleHit = false;
-	for (auto i = 0; i < triangleList.size(); i++)
+	for (const auto &i : triangleList)
 	{
-		float t = kHugeValue;
-		triangleHit = triangleList[i].shadow_hit(ray, t);
+		auto t = (float) kHugeValue;
+		auto hit = i.shadow_hit(ray, t);
 
-		if (triangleHit) {
+		if (hit) {
 			if (t < tmin) {
 				tmin = t;
+				triangleHit = true;
 			}
 		}
 	}

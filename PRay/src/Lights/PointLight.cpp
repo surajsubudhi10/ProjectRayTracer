@@ -33,9 +33,6 @@ Light* PointLight::clone() const
 
 Vector3D PointLight::get_direction(ShadeRec& sr) 
 {
-	Vector3D temp = Vector3D(location);
-	Vector3D temp2 = location - sr.hit_point;
-	Vector3D temp3 = temp2.hat();
 	return ((location - sr.hit_point).hat());
 }
 
@@ -46,7 +43,7 @@ RGBColor PointLight::L(ShadeRec& sr)
 
 bool PointLight::in_shadow(const Ray& ray, const ShadeRec& sr) const 
 {
-	float t;
+	auto t = (float) kHugeValue;
 	auto num_objects = (int)sr.w.objects.size();
 	auto d = static_cast<float>(location.distance(ray.o));
 

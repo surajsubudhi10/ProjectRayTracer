@@ -187,7 +187,7 @@ Grid::~Grid()
 = default;
 
 
-
+// FIXME : Bug in Hit function and implement the shadow hit function
 bool Grid::hit(const Ray &ray, double &tmin, ShadeRec &sr) const
 {
     const auto ox = ray.o.x;

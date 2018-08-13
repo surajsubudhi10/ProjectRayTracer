@@ -80,7 +80,7 @@ bool Compound::hit(const Ray &ray, double &tmin, ShadeRec &sr) const
     if(!bBox.hit(ray))
         return false;
 
-    double t;
+    double t = kHugeValue;
     Normal normal;
     Point3D hit_point;
     bool hit = false;

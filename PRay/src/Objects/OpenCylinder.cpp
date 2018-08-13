@@ -62,7 +62,7 @@ bool OpenCylinder::hit(const Ray &ray, double &tmin, ShadeRec &sr) const
         {
             sr.hit_point = hitPoint;
             sr.normal = get_normal(sr.hit_point);
-            return (true);
+            return true;
         }
     }        
 
@@ -75,12 +75,10 @@ bool OpenCylinder::hit(const Ray &ray, double &tmin, ShadeRec &sr) const
         {
             sr.hit_point = hitPoint;
             sr.normal = get_normal(sr.hit_point);
-            return (true);
+            return true;
         }
     }
-
     return false;
-
 }
 
 
