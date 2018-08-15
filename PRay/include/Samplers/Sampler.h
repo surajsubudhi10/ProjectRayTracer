@@ -1,7 +1,13 @@
-#pragma once
+//
+// Created by Suraj on 18-05-2018.
+//
 
+#ifndef PRAY_SAMPLER_H
+#define PRAY_SAMPLER_H
 
 #include <vector>
+#include <memory>
+
 #include "../Utils/Point2D.h"
 #include "../Utils/Maths.h"
 #include "../Utils/Point3D.h"
@@ -45,6 +51,10 @@ protected:
 	int jump;											// random index jump
 };
 
+typedef std::shared_ptr<Sampler> SamplerPtr;
+
 inline int Sampler::get_num_samples() {
 	return num_samples;
 }
+
+#endif //PRAY_SAMPLER_H

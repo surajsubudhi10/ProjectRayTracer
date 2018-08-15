@@ -28,6 +28,8 @@ protected:
 	RGBColor color;
 };
 
+typedef std::shared_ptr<Ambient> AmbientPtr;
+
 // ------------------------------------------------------------------------------- scale_radiance
 
 inline void Ambient::scale_radiance(const float b) 

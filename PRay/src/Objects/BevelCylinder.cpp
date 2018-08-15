@@ -52,11 +52,20 @@ BevelCylinder::~BevelCylinder()
 
 void BevelCylinder::init()
 {
-    _objects.push_back(new Disk(_center + Vector3D(0,  _height / 2.0f, 0), _base_radius - _bevel_radius, Normal(0, 1, 0)));
-    _objects.push_back(new Disk(_center + Vector3D(0, -_height / 2.0f, 0), _base_radius - _bevel_radius, Normal(0, -1, 0)));
-    _objects.push_back(new OpenCylinder(_base_radius,  _height - (2.0f * _bevel_radius), _center));
-    _objects.push_back(new Torus(_center + Vector3D(0, ( _height / 2.0f) - _bevel_radius, 0), _bevel_radius, _base_radius - _bevel_radius));
-    _objects.push_back(new Torus(_center + Vector3D(0, (-_height / 2.0f) + _bevel_radius, 0), _bevel_radius, _base_radius - _bevel_radius));
+    const DiskPtr topDisk(new Disk(_center + Vector3D(0,  _height / 2.0f, 0), _base_radius - _bevel_radius, Normal(0, 1, 0)));
+    _objects.push_back(topDisk);
+
+    const DiskPtr buttomDisk(new Disk(_center + Vector3D(0, -_height / 2.0f, 0), _base_radius - _bevel_radius, Normal(0, -1, 0)));
+    _objects.push_back(buttomDisk);
+
+    const OpenCylinderPtr body(new OpenCylinder(_base_radius,  _height - (2.0f * _bevel_radius), _center));
+    _objects.push_back(body);
+
+    const TorusPtr topTorus(new Torus(_center + Vector3D(0, ( _height / 2.0f) - _bevel_radius, 0), _bevel_radius, _base_radius - _bevel_radius));
+    _objects.push_back(topTorus);
+
+    const TorusPtr bottomTorus(new Torus(_center + Vector3D(0, (-_height / 2.0f) + _bevel_radius, 0), _bevel_radius, _base_radius - _bevel_radius));
+    _objects.push_back(bottomTorus);
 
     bBox = get_bounding_box();
 }

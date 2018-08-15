@@ -41,9 +41,14 @@ Point3D SolidCylinder::get_center() const { return _center; }
 
 void SolidCylinder::init()
 {
-    add_object(new Disk(_center + Vector3D(0, _height / 2, 0), _radius, Normal(0, 1, 0)));
-    add_object(new Disk(_center + Vector3D(0, -_height / 2, 0), _radius, Normal(0, -1, 0)));
-    add_object(new OpenCylinder(_radius, _height, _center));
+    const DiskPtr topDisk(new Disk(_center + Vector3D(0, _height / 2, 0), _radius, Normal(0, 1, 0)));
+    add_object(topDisk);
+
+    const DiskPtr bottomDisk(new Disk(_center + Vector3D(0, -_height / 2, 0), _radius, Normal(0, -1, 0)));
+    add_object(bottomDisk);
+
+    const OpenCylinderPtr body(new OpenCylinder(_radius, _height, _center));
+    add_object(body);
 }
 
 

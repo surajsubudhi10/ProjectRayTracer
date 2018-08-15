@@ -57,7 +57,7 @@ BBox Box::get_bounding_box() const
 	return (BBox(x0, x1, y0, y1, z0, z1));
 }
 
-bool Box::hit(const Ray& ray, double& tmin, ShadeRec& sr) const 
+bool Box::hit(const Ray& ray, double& tmin, ShadeRec& sr) const
 {
 
 	double ox = ray.o.x;

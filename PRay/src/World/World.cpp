@@ -32,18 +32,8 @@ World::World()
 
 //------------------------------------------------------------------ destructor
 
-World::~World() {
-
-    if (camera_ptr) {
-        delete camera_ptr;
-        camera_ptr = nullptr;
-    }
-    
-    if (ambient_ptr) {
-        delete ambient_ptr;
-        ambient_ptr = nullptr;
-    }
-
+World::~World()
+{
     delete_objects();
     delete_lights();
 }
@@ -115,13 +105,8 @@ RGBColor World::clamp_to_color(const RGBColor& raw_color) const
     return (c);
 }
 
-void World::set_ambient_light(Ambient* amb) 
+void World::set_ambient_light(AmbientPtr amb)
 {
-    if (ambient_ptr) 
-    {
-        delete ambient_ptr;
-        ambient_ptr = nullptr;
-    }
     ambient_ptr = amb;
 }
 
@@ -140,7 +125,7 @@ ShadeRec World::hit_objects(const Ray& ray)
         {
             sr.hit_an_object = true;
             tmin = static_cast<float>(t);
-            sr.material_ptr = objects[j]->get_material();
+            //sr.material_ptr = objects[j]->get_material();
             sr.hit_point = ray.o + t * ray.d;
             normal = sr.normal;
         }
@@ -183,25 +168,11 @@ ShadeRec World::hit_bare_bones_objects(const Ray& ray)
 
 void World::delete_objects() 
 {
-    int num_objects = objects.size();
-
-    for (int j = 0; j < num_objects; j++) {
-        delete objects[j];
-        objects[j] = nullptr;
-    }
-
     objects.erase(objects.begin(), objects.end());
 }
 
 void World::delete_lights()
 {
-    int num_objects = lights.size();
-
-    for (int j = 0; j < num_objects; j++) {
-        //delete lights[j];
-        lights[j] = nullptr;
-    }
-
     lights.erase(lights.begin(), lights.end());
 }
 
@@ -246,9 +217,12 @@ RGBColor World::Trace(const Ray& ray, const int depth)
         ShadeRec sr(hit_objects(ray)); // sr is copy constructed
         if (sr.hit_an_object) {
             sr.ray = ray;
-            return (sr.material_ptr->shade(sr));
+            if(sr.material_ptr){
+                auto color = sr.material_ptr->shade(sr);
+                return color;
+            }
         } else
-            return (background_color);
+            return background_color;
     }
 }
 

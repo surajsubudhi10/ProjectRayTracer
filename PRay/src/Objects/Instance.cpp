@@ -16,7 +16,7 @@ Instance::Instance() :
     inv_matrix.set_identity();
 }
 
-Instance::Instance(GeometricObject *object_ptr) :
+Instance::Instance(GeometricObjectPtr object_ptr) :
     GeometricObject()
 {
     _object_ptr = object_ptr;
@@ -29,9 +29,7 @@ Instance* Instance::clone() const
 }
 
 Instance::~Instance()
-{
-    delete _object_ptr;
-}
+{}
 
 bool Instance::hit(const Ray &ray, double &tmin, ShadeRec &sr) const
 {
@@ -48,6 +46,7 @@ bool Instance::hit(const Ray &ray, double &tmin, ShadeRec &sr) const
             material_ptr = _object_ptr->get_material();
         }
 
+        sr.material_ptr = material_ptr;
         sr.hit_point = ray.o + tmin * ray.d;
 
         return true;

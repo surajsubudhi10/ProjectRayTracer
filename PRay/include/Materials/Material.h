@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+
 #include "../Utils/ShadeRec.h"
 #include "../Utils/RGBColor.h"
 
@@ -13,7 +15,7 @@ public:
     virtual ~Material();
 	
 	Material& operator= (const Material& m);
-	virtual Material* clone() const = 0;
+	virtual std::shared_ptr<Material> clone() const = 0;
 
 	virtual RGBColor shade(ShadeRec& sr);
 	virtual RGBColor area_light_shade(ShadeRec& sr);
@@ -26,6 +28,8 @@ public:
 protected:
 	bool shadows;
 };
+
+typedef std::shared_ptr<Material> MaterialPtr;
 
 inline void Material::set_shadows(bool shadow) 
 {

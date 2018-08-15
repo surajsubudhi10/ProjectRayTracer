@@ -7,7 +7,7 @@ class Disk : public GeometricObject
 public:
 	Disk();
 	Disk(const Point3D& cen, float rad, const Normal& norm);
-	Disk(const Disk& disk);
+    Disk(const Disk& disk);
 
 	Disk* clone() const override;
 	Disk& operator= (const Disk& rhs);
@@ -21,4 +21,6 @@ private:
 	float radius;
 	Normal normal;
 };
+
+typedef std::shared_ptr<Disk> DiskPtr;
 

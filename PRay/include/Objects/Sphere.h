@@ -5,7 +5,8 @@
 
 //-------------------------------------------------------------------------------- class Sphere
 
-class Sphere : public GeometricObject {
+class Sphere : public GeometricObject
+{
 
 public:
 
@@ -40,7 +41,7 @@ protected:
 	float		inv_area;
 };
 
-
+typedef std::shared_ptr<Sphere> SpherePtr;
 
 inline void Sphere::set_center(const Point3D& c) 
 {

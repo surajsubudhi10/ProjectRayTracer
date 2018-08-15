@@ -35,3 +35,5 @@ private:
 
 	static const double kEpsilon;
 };
+
+typedef std::shared_ptr<Rectangle> RectanglePtr;

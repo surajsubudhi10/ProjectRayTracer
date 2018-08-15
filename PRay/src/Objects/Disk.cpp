@@ -31,7 +31,7 @@ Disk* Disk::clone() const
 	return (new Disk(*this));
 }
 
-bool Disk::hit(const Ray& ray, double& tmin, ShadeRec& sr) const 
+bool Disk::hit(const Ray& ray, double& tmin, ShadeRec& sr) const
 {
 	float t = static_cast<float>((center - ray.o) * normal / (ray.d * normal));
 

@@ -22,14 +22,17 @@ public:
 
     BBox get_bounding_box() const override;
 
-    void add_object(GeometricObject* obj) override;
-    void set_material(Material* material) override;
+    void add_object(GeometricObjectPtr obj) override;
+    void set_material(MaterialPtr material) override;
 
 protected:
-    std::vector<GeometricObject* > _objects;
+    std::vector<GeometricObjectPtr > _objects;
     void build_bounding_box();
 
 
 }; // End of class Compound
+
+typedef std::shared_ptr<Compound> CompoundPtr;
+
 
 #endif //PRAY_COMPOUND_H

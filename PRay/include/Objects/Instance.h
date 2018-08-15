@@ -5,13 +5,15 @@
 #ifndef PRAY_INSTANCE_H
 #define PRAY_INSTANCE_H
 
+#include <memory>
+
 #include "GeometricObject.h"
 
 class Instance : public GeometricObject
 {
 public:
     Instance();
-    explicit Instance(GeometricObject* object_ptr);
+    explicit Instance(GeometricObjectPtr object_ptr);
 
     Instance* clone() const override ;
     ~Instance() override;
@@ -33,12 +35,13 @@ public:
     BBox get_bounding_box() const override;
 
 private:
-    GeometricObject* _object_ptr;
+    GeometricObjectPtr _object_ptr;
     Matrix inv_matrix;
 
     static Matrix forward_matrix;
 
 }; // End of Class Instance
 
+typedef std::shared_ptr<Instance> InstancePtr;
 
 #endif //PRAY_INSTANCE_H

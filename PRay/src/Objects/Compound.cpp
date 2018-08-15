@@ -23,24 +23,20 @@ Compound::Compound(const Compound &obj):
 }
 
 Compound::~Compound()
-{
-    for(auto object : _objects){
-        delete object;
-    }
-}
+{}
 
 Compound *Compound::clone() const
 {
     return new Compound(*this);
 }
 
-void Compound::add_object(GeometricObject *obj)
+void Compound::add_object(GeometricObjectPtr obj)
 {
     _objects.push_back(obj);
     build_bounding_box();
 }
 
-void Compound::set_material(Material *material)
+void Compound::set_material(MaterialPtr material)
 {
     for(auto obj : _objects){
         obj->set_material(material);

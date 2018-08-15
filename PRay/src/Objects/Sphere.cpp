@@ -82,7 +82,7 @@ Sphere::~Sphere()
 
 //---------------------------------------------------------------- hit
 
-bool Sphere::hit(const Ray& ray, double& tmin, ShadeRec& sr) const 
+bool Sphere::hit(const Ray& ray, double& tmin, ShadeRec& sr) const
 {
 
     double 		t;
@@ -104,6 +104,7 @@ bool Sphere::hit(const Ray& ray, double& tmin, ShadeRec& sr) const
             tmin = t;
             sr.normal = (temp + t * ray.d) / radius;
             sr.hit_point = ray.o + t * ray.d;
+            sr.material_ptr = material_ptr;
             return true;
         }
 
@@ -114,6 +115,7 @@ bool Sphere::hit(const Ray& ray, double& tmin, ShadeRec& sr) const
             tmin = t;
             sr.normal = (temp + t * ray.d) / radius;
             sr.hit_point = ray.o + t * ray.d;
+            sr.material_ptr = material_ptr;
             return true;
         }
     }

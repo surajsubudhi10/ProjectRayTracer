@@ -1,5 +1,6 @@
 #pragma once
 
+#include <memory>
 
 #include <Utils/Point3D.h>
 #include "../Utils/Vector3D.h"
@@ -37,6 +38,8 @@ protected:
 	Vector3D u, v, w;
 	float exposure_time;
 };
+
+typedef std::shared_ptr<Camera> CameraPtr;
 
 inline void Camera::set_eye(const Point3D &e) {
 	eye = e;

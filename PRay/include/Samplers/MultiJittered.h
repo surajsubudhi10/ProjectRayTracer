@@ -17,3 +17,5 @@ private:
 	void generate_samples() override;
 };
 
+typedef std::shared_ptr<MultiJittered> MultiJitteredPtr;
+

@@ -1,6 +1,6 @@
 #include <Objects/Mesh.h>
 #include<iostream>
-
+#include <Objects/BVH.h>
 
 
 Mesh::Mesh(const std::string & modelPath)
@@ -51,47 +51,50 @@ Mesh * Mesh::clone() const
 bool Mesh::hit(const Ray & ray, double & tmin, ShadeRec& sr) const
 {
 	bool meshHit = false;
-	for (const auto &i : triangleList)
-	{
-		double t = kHugeValue;
-		ShadeRec tempShaderRecord(sr.w);
-		bool triangleHit = i.hit(ray, t, tempShaderRecord);
-		
-		if (triangleHit) {
-			if (t < tmin) {
-				tmin = t;
-				sr = tempShaderRecord;
-				meshHit = true;
-			}
-		}
-	}
+	meshHit = meshBVH->hit(ray, tmin, sr);
+
+//	for (const auto &i : triangleList)
+//	{
+//		double t = kHugeValue;
+//		ShadeRec tempShaderRecord(sr.w);
+//		const bool triangleHit = i->hit(ray, t, tempShaderRecord);
+//
+//		if (triangleHit) {
+//			if (t < tmin) {
+//				tmin = t;
+//			    sr = tempShaderRecord;
+//				meshHit = true;
+//			}
+//		}
+//	}
 	return meshHit;
 }
 
 bool Mesh::shadow_hit(const Ray & ray, float & tmin) const
 {
 	bool triangleHit = false;
-	for (const auto &i : triangleList)
-	{
-		auto t = (float) kHugeValue;
-		auto hit = i.shadow_hit(ray, t);
-
-		if (hit) {
-			if (t < tmin) {
-				tmin = t;
-				triangleHit = true;
-			}
-		}
-	}
+	triangleHit = meshBVH->shadow_hit(ray, tmin);
+//	for (const auto &i : triangleList)
+//	{
+//		auto t = (float) kHugeValue;
+//		auto hit = i->shadow_hit(ray, t);
+//
+//		if (hit) {
+//			if (t < tmin) {
+//				tmin = t;
+//				triangleHit = true;
+//			}
+//		}
+//	}
 	return triangleHit;
 }
 
 BBox Mesh::get_bounding_box() const
 {
-	BBox bounding_box =  triangleList[0].get_bounding_box();
+	BBox bounding_box =  triangleList[0]->get_bounding_box();
 	for (auto i = 1; i < triangleList.size(); i++)
 	{
-		bounding_box = bounding_box.expand(triangleList[i].get_bounding_box());
+		bounding_box = bounding_box.expand(triangleList[i]->get_bounding_box());
 	}
 
 	return bounding_box;
@@ -163,13 +166,12 @@ void Mesh::ProcessMesh(aiMesh *mesh, const aiScene *scene)
 
 void Mesh::SetupTriangleList()
 {
-	for (size_t i = 0; i < indicesList.size(); i++)
+	for (auto &i : indicesList)
 	{
-		auto index0 = indicesList[i][0];
-		auto index1 = indicesList[i][1];
-		auto index2 = indicesList[i][2];
-
-		Triangle tempTriangle(vertexList[index0], vertexList[index1], vertexList[index2]);
+		TrianglePtr tempTriangle(new Triangle(vertexList[i[0]], vertexList[i[1]], vertexList[i[2]]));
+        tempTriangle->set_material(material_ptr);
 		triangleList.push_back(tempTriangle);
 	}
+
+	meshBVH = new BVH(&triangleList[0], static_cast<int>(triangleList.size()));
 }

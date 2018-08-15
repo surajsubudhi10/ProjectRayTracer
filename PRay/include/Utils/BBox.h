@@ -24,4 +24,7 @@ public:
 
 	bool hit(const Ray& ray) const;
 	bool inside(const Point3D& p) const;
+
+	inline Vector3D min() { return Vector3D(x0, y0, z0);}
+    inline Vector3D max() { return Vector3D(x1, y1, z1);}
 };

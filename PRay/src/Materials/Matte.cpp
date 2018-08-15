@@ -59,9 +59,10 @@ Matte& Matte::operator= (const Matte& m)
 	return (*this);
 }
 
-Material* Matte::clone() const
+MaterialPtr Matte::clone() const
 {
-	return (new Matte(*this));
+    MaterialPtr newMatteMaterial(new Matte(*this));
+	return newMatteMaterial;
 }
 
 void Matte::set_sampler(Sampler* sampl_ptr) 

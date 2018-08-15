@@ -61,6 +61,8 @@ void World::build()
     auto* grid_ptr = new Grid;
     set_rand_seed(15);
 
+
+
     for(auto i = 0; i < numOfSphere; i++)
     {
 //        auto* phong_ptr = new Phong();

@@ -2,6 +2,8 @@
 // Created by Suraj on 18-05-2018.
 //
 
+#include <utility>
+
 #include <Lights/AmbientOcculuder.h>
 #include <Samplers/MultiJittered.h>
 #include <World/World.h>
@@ -14,10 +16,10 @@ AmbientOcculuder::AmbientOcculuder() :
     sampler_ptr->map_samples_to_hemisphere(1);
 }
 
-AmbientOcculuder::AmbientOcculuder(const RGBColor &col, Sampler *sampler) :
+AmbientOcculuder::AmbientOcculuder(const RGBColor &col, SamplerPtr sampler) :
         Ambient(),
         min_amount(col),
-        sampler_ptr(sampler)
+        sampler_ptr(std::move(sampler))
 {
     sampler_ptr->map_samples_to_hemisphere(1);
 }
@@ -29,19 +31,10 @@ Vector3D AmbientOcculuder::get_direction(ShadeRec &sr)
 }
 
 AmbientOcculuder::~AmbientOcculuder()
+{}
+
+void AmbientOcculuder::set_sampler(SamplerPtr sampler)
 {
-    if(sampler_ptr != nullptr)
-        delete sampler_ptr;
-
-    sampler_ptr = nullptr;
-}
-
-void AmbientOcculuder::set_sampler(Sampler *sampler)
-{
-    if(sampler_ptr != nullptr){
-        delete sampler_ptr;
-    }
-
     sampler_ptr = sampler;
     sampler_ptr->map_samples_to_hemisphere(1);
 }

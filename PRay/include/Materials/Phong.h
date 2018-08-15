@@ -14,7 +14,7 @@ public:
 	~Phong() override;
 
 	Phong& operator= (const Phong&);
-	Material* clone() const override;
+	MaterialPtr clone() const override;
 
 	RGBColor shade(ShadeRec& sr) override;
 

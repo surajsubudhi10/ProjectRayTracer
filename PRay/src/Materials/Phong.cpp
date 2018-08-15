@@ -79,9 +79,10 @@ Phong& Phong::operator= (const Phong& p)
 		specular_brdf = (Glossy*)p.specular_brdf->clone();
 }
 
-Material* Phong::clone() const
+MaterialPtr Phong::clone() const
 {
-	return (new Phong(*this));
+    MaterialPtr newPhongMaterial(new Phong(*this));
+	return newPhongMaterial;
 }
 
 

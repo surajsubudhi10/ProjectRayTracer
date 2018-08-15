@@ -51,7 +51,7 @@ BBox BBox::expand(const BBox & box)
 	expandedBox.y1 = y1 > box.y1 ? y1 : box.y1;
 	expandedBox.z1 = z1 > box.z1 ? z1 : box.z1;
 
-	return BBox();
+	return expandedBox;
 }
 
 BBox::~BBox() = default;

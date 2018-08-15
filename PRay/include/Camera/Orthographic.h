@@ -23,4 +23,6 @@ private:
     float zoom;
 };
 
+typedef std::shared_ptr<Orthographic> OrthographicPtr;
+
 #endif //PRAY_ORTHOGRAPHIC_H

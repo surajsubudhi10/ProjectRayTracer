@@ -67,7 +67,7 @@ BBox Triangle::get_bounding_box() const
 }
 
 
-bool Triangle::hit(const Ray& ray, double& tmin, ShadeRec& sr) const 
+bool Triangle::hit(const Ray& ray, double& tmin, ShadeRec& sr) const
 {
 	double a = v0.position.x - v1.position.x, b = v0.position.x - v2.position.x, c = ray.d.x, d = v0.position.x - ray.o.x;
 	double e = v0.position.y - v1.position.y, f = v0.position.y - v2.position.y, g = ray.d.y, h = v0.position.y - ray.o.y;
@@ -89,26 +89,26 @@ bool Triangle::hit(const Ray& ray, double& tmin, ShadeRec& sr) const
 	double gamma = e2 * inv_denom;
 
 	if (gamma < 0.0)
-		return (false);
+		return false;
 
 	if (beta + gamma > 1.0)
-		return (false);
+		return false;
 
 	double e3 = a * p - b * r + d * s;
 	double t = e3 * inv_denom;
 
 	if (t < kEpsilon)
-		return (false);
+		return false;
 
 	tmin = t;
 
 	auto normal = (1.0 - (beta + gamma)) * v0.normal + beta * v1.normal + gamma * v2.normal;
 	normal.normalize();
 	sr.normal = normal;
-
+    sr.material_ptr = material_ptr;
 	sr.hit_point = ray.o + t * ray.d;
 
-	return (true);
+	return true;
 
 }
 

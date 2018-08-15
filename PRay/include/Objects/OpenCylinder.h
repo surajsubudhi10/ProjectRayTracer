@@ -13,7 +13,7 @@ class OpenCylinder : public GeometricObject
 public:
     OpenCylinder();
     OpenCylinder(float rad, float height, const Point3D& center);
-    OpenCylinder(float rad, float height, const Point3D& center, Material* mat);
+    OpenCylinder(float rad, float height, const Point3D& center, MaterialPtr mat);
     OpenCylinder(const OpenCylinder& cylinder);
     ~OpenCylinder() override;
 
@@ -37,5 +37,6 @@ private:
     Point3D  _center;
 };
 
+typedef std::shared_ptr<OpenCylinder> OpenCylinderPtr;
 
 #endif //PRAY_OPENCYLINDER_H

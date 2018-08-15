@@ -60,7 +60,7 @@ Plane::~Plane()
 
 // ----------------------------------------------------------------- hit
 
-bool Plane::hit(const Ray& ray, double& tmin, ShadeRec& sr) const 
+bool Plane::hit(const Ray& ray, double& tmin, ShadeRec& sr) const
 {
 	float t = static_cast<float>((a - ray.o) * n / (ray.d * n));
 

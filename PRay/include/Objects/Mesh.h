@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <string>
+#include <memory>
 
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
@@ -26,10 +27,14 @@ public:
 private:
 	std::vector<Vertex> vertexList;
 	std::vector<Index> indicesList;
-	std::vector<Triangle> triangleList;
+	std::vector<GeometricObjectPtr> triangleList;
+
+	class BVH* meshBVH;
 
 	void ProcessNode(aiNode *node, const aiScene *scene);
 	void ProcessMesh(aiMesh *mesh, const aiScene *scene);
 	void SetupTriangleList();
 
 };
+
+typedef std::shared_ptr<Mesh> MeshPtr;

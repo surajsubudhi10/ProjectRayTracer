@@ -89,13 +89,12 @@ BBox Rectangle::get_bounding_box() const
 }
 
 
-bool Rectangle::hit(const Ray& ray, double& tmin, ShadeRec& sr) const 
+bool Rectangle::hit(const Ray& ray, double& tmin, ShadeRec& sr) const
 {
-
 	double t = (point - ray.o) * normal / (ray.d * normal);
 
 	if (t <= kEpsilon)
-		return (false);
+		return false;
 
 	Point3D p = ray.o + t * ray.d;
 	Vector3D d = p - point;
@@ -103,19 +102,25 @@ bool Rectangle::hit(const Ray& ray, double& tmin, ShadeRec& sr) const
 	double ddota = d * a;
 
 	if (ddota < 0.0 || ddota > a.len_squared())
-		return (false);
+		return false;
 
 	double ddotb = d * b;
 
 	if (ddotb < 0.0 || ddotb > b.len_squared())
-		return (false);
+		return false;
 
-	tmin = t;
-	sr.normal = normal;
-	//sr.local_hit_point = p;
-	sr.hit_point = p;
+	if(t < tmin)
+	{
+		tmin = t;
+		sr.normal = normal;
+		//sr.local_hit_point = p;
+		sr.hit_point = p;
+		sr.material_ptr = material_ptr;
 
-	return (true);
+		return true;
+	}
+
+	return false;
 }
 
 bool Rectangle::shadow_hit(const Ray& ray, float& tmin) const 
@@ -134,15 +139,19 @@ bool Rectangle::shadow_hit(const Ray& ray, float& tmin) const
 	double ddota = d * a;
 
 	if (ddota < 0.0 || ddota > a.len_squared())
-		return (false);
+		return false;
 
 	double ddotb = d * b;
 
 	if (ddotb < 0.0 || ddotb > b.len_squared())
 		return (false);
 
-	tmin = static_cast<float>(t);
-	return (true);
+	if(t < tmin) {
+		tmin = static_cast<float>(t);
+		return true;
+	}
+
+	return false;
 }
 
 // ---------------------------------------------------------------- sample

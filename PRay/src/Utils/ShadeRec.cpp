@@ -31,7 +31,7 @@ ShadeRec::ShadeRec(const ShadeRec& sr)
 {}
 
 
-void ShadeRec::operator=(const ShadeRec& sr) 
+void ShadeRec::operator=(const ShadeRec& sr)
 {
 	hit_an_object = sr.hit_an_object;
 	material_ptr = sr.material_ptr;
@@ -39,7 +39,6 @@ void ShadeRec::operator=(const ShadeRec& sr)
 	normal = sr.normal;
 	ray = sr.ray;
 	depth = sr.depth;
-	//w = sr.w;
 	t = 0.0;
 }
 

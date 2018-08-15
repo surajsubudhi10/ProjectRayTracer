@@ -28,6 +28,8 @@ private:
 	Point3D location;
 };
 
+typedef std::shared_ptr<PointLight> PointLightPtr;
+
 // ------------------------------------------------------------------------------- scale_radiance
 
 inline void PointLight::scale_radiance(float b)

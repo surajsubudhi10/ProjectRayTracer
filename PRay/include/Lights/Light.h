@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+
 #include "../Utils/Vector3D.h"
 #include "../Utils/RGBColor.h"
 #include "../Utils/Ray.h"
@@ -29,6 +31,8 @@ public:
 protected:
 	bool shadows;
 };
+
+typedef std::shared_ptr<Light> LightPtr;
 
 inline void Light::set_shadows(const bool shadow) 
 {

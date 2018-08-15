@@ -13,7 +13,7 @@ public:
 	~Matte();
 
 	Matte& operator= (const Matte& m);
-	Material* clone() const override;
+	MaterialPtr clone() const override;
 
 	void set_ka(float k);
 	void set_kd(float k);
@@ -31,3 +31,5 @@ private:
 	Lambertian*	ambient_ptr;
 	Lambertian* diffuse_ptr;
 };
+
+typedef std::shared_ptr<Matte> MattePtr;

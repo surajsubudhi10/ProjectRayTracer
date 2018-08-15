@@ -1,5 +1,6 @@
 #pragma once
 
+#include <utility>
 #include <vector>
 
 #include "ViewPlane.h"
@@ -21,27 +22,25 @@ public:
 
 	ViewPlane					vp;
 	RGBColor					background_color;
-	Light*						ambient_ptr;
-	vector<GeometricObject*>	objects;
-	Camera*						camera_ptr;	// the camera to use
-	vector<Light*>				lights;
-
-//	RGBColor* primaryBuffer;
-	vector<RGBColor> primaryBuffer;
+	LightPtr					ambient_ptr;
+	vector<GeometricObjectPtr>	objects;
+	CameraPtr					camera_ptr;	// the camera to use
+	vector<LightPtr>			lights;
+	vector<RGBColor>            primaryBuffer;
 
 public:
 
 	World();
 	~World();
 
-	void add_object(GeometricObject* object_ptr);
-	void add_light(Light* light_ptr);
+	void add_object(const GeometricObjectPtr &object_ptr);
+	void add_light(const LightPtr &light_ptr);
 
 	void build();
 	void render_scene();// const;
 
-	void set_camera(Camera* camera);
-	void set_ambient_light(Ambient* amb);
+	void set_camera(CameraPtr camera);
+	void set_ambient_light(AmbientPtr amb);
 	
 	RGBColor max_to_one(const RGBColor& c) const;
 	RGBColor clamp_to_color(const RGBColor& c) const;
@@ -67,17 +66,17 @@ private:
 
 // ------------------------------------------------------------------ add_object
 
-inline void World::add_object(GeometricObject* object_ptr) 
+inline void World::add_object(const GeometricObjectPtr &object_ptr)
 {
 	objects.push_back(object_ptr);
 }
 
-inline void World::add_light(Light* light_ptr) 
+inline void World::add_light(const LightPtr &light_ptr)
 {
 	lights.push_back(light_ptr);
 }
 
-inline void World::set_camera(Camera* camera) 
+inline void World::set_camera(CameraPtr camera)
 {
-	camera_ptr = camera;
+	camera_ptr = std::move(camera);
 }

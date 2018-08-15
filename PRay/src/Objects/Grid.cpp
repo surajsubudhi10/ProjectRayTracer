@@ -139,7 +139,7 @@ void Grid::setup_cells()
                         counts[index] += 1;
                     } else{
                         if(counts[index] == 1){
-                            auto * compound_ptr = new Compound;
+                            CompoundPtr compound_ptr(new Compound);
                             compound_ptr->add_object(_cells[index]);
                             compound_ptr->add_object(obj);
 
@@ -353,7 +353,7 @@ bool Grid::hit(const Ray &ray, double &tmin, ShadeRec &sr) const
     while(true)
     {
         const auto index = ix + nx * iy + nx * ny * iz;
-        auto* objectPtr = _cells[index];
+        auto objectPtr = _cells[index];
 
         if(tx_next < ty_next && tx_next < tz_next)
         {

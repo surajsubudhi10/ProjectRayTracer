@@ -17,7 +17,7 @@ OpenCylinder::OpenCylinder(float rad, float height, const Point3D& center):
     bBox = OpenCylinder::get_bounding_box();
 }
 
-OpenCylinder::OpenCylinder(float rad, float height, const Point3D& center, Material *mat):
+OpenCylinder::OpenCylinder(float rad, float height, const Point3D& center, MaterialPtr mat):
     GeometricObject(), _radius(rad), _height(height), _center(center)
 {
     set_material(mat);
@@ -97,9 +97,10 @@ BBox OpenCylinder::get_bounding_box() const
                  Point3D(_center.x + _radius + delta, _center.y + _height + delta, _center.z + _radius + delta)));
 }
 
-OpenCylinder *OpenCylinder::clone() const
+OpenCylinder* OpenCylinder::clone() const
 {
-    return (new OpenCylinder(*this));
+    OpenCylinderPtr newOpenCy(new OpenCylinder(*this));
+    return newOpenCy.get();
 }
 
 bool OpenCylinder::shadow_hit(const Ray &ray, float &tmin) const

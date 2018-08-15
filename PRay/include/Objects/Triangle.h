@@ -16,7 +16,7 @@ public:
 	Triangle(const Vertex& _v0, const Vertex& _v1, const Vertex& _v2);
 	Triangle(const Triangle& tri);
 
-	Triangle& operator=(const Triangle& bbox);
+	Triangle& operator=(const Triangle& triangle);
 	Triangle* clone() const override;
 
 	bool hit(const Ray& ray, double& tmin, ShadeRec& sr) const override;
@@ -27,8 +27,6 @@ public:
 	Vertex v0;
 	Vertex v1;
 	Vertex v2;
-
-
-	//Point3D v0, v1, v2;
-	//Normal normal;
 };
+
+typedef std::shared_ptr<Triangle> TrianglePtr;

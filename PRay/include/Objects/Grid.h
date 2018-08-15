@@ -21,7 +21,7 @@ public:
     //bool shadow_hit(const Ray& ray, float& tmin) const override;
 
 private:
-    std::vector<GeometricObject*> _cells;
+    std::vector<GeometricObjectPtr> _cells;
     //BBox bbox;
     int nx, ny, nz; // Number of cells in x, y and z directions
 

@@ -37,4 +37,6 @@ private:
     float _outer_radius;
 }; // End of class Torus
 
+typedef std::shared_ptr<Torus> TorusPtr;
+
 #endif //PRAY_TORUS_H

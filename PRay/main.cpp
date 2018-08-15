@@ -20,6 +20,6 @@ int main() {
     std::cout << "RayTracing Completed in " << totalTime << " Seconds" << std::endl;
 
     system(fileName);
-	//system("pause");
+	system("pause");
 	return 0;
 }
