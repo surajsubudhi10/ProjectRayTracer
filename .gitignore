@@ -244,5 +244,5 @@ ModelManifest.xml
 cmake-build-debug
 vs-build
 builds
-.idea/workspace.xml
+.idea/*
 
