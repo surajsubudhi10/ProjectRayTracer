@@ -56,7 +56,7 @@ bool Mesh::hit(const Ray & ray, double & tmin, ShadeRec& sr) const
 //	for (const auto &i : triangleList)
 //	{
 //		double t = kHugeValue;
-//		ShadeRec tempShaderRecord(sr.w);
+//		ShadeRec tempShaderRecord(sr.mW);
 //		const bool triangleHit = i->hit(ray, t, tempShaderRecord);
 //
 //		if (triangleHit) {

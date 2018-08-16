@@ -10,7 +10,7 @@ int main() {
 	World w;
 	w.build();
     const auto fileName = "CustomMesh.bmp";
-	//w.render_scene();
+	//mW.render_scene();
 	std::cout << "RayTracing.." << std::endl;
 
     w.camera_ptr->render_scene(w);
@@ -20,6 +20,6 @@ int main() {
     std::cout << "RayTracing Completed in " << totalTime << " Seconds" << std::endl;
 
     system(fileName);
-	system("pause");
+	//system("pause");
 	return 0;
 }

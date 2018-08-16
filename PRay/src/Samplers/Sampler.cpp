@@ -94,7 +94,7 @@ void Sampler::setup_shuffled_indices()
 
 void Sampler::map_samples_to_unit_disk()
 {
-	int size = samples.size();
+	int size = samples.capacity();
 	float r, phi;	//polar coordinates
 	Point2D sp;	// sample point on unit disk
 
@@ -132,8 +132,10 @@ void Sampler::map_samples_to_unit_disk()
 
 		phi *= PI / 4.0;		// common to all sectors
 
-		disk_samples[j].x = (r * cosf(phi));
-		disk_samples[j].y = (r * sinf(phi));
+        const Point2D diskSamplePoint(r * cosf(phi), r * sinf(phi));
+        disk_samples.push_back(diskSamplePoint);
+		//disk_samples[j].x = ();
+		//disk_samples[j].y = ();
 	}
 }
 

@@ -57,11 +57,11 @@ void World::render_scene(){ //const {
 
     ray.d = Vector3D(0, 0, -1);
 
-    for (int r = 0; r < vres; r++)			// up
+    for (int r = 0; r < vres; r++)			// mUp
         for (int c = 0; c < hres; c++) {	// across 					
             pixel_color = black;
 
-            for (int p = 0; p < n; p++){			// going up the pixel
+            for (int p = 0; p < n; p++){			// going mUp the pixel
                 for (int q = 0; q < n; q++)		// going across the pixel
                 {
                     sp = vp.sampler_ptr->sample_unit_square();
@@ -232,7 +232,7 @@ RGBColor World::Trace(const Ray& ray, double& tmin, const int depth)
 }
 
 
-void World::Savebmp(const char *filename) {//, int w, int h, int dpi){//, RGBType *data){
+void World::Savebmp(const char *filename) {//, int mW, int h, int dpi){//, RGBType *data){
     FILE *f;
     int w = vp.hres;
     int h = vp.vres;

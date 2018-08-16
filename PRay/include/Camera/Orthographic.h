@@ -16,11 +16,11 @@ public:
 
     void render_scene(World& world) override;
 
-    void set_zoom(float zm);
-    float get_zoom() const;
+    void zoom(float zm);
+    float zoom() const;
 
 private:
-    float zoom;
+    float mZoom;
 };
 
 typedef std::shared_ptr<Orthographic> OrthographicPtr;

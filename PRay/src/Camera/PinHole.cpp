@@ -6,11 +6,14 @@
 #include "Utils/Maths.h"
 
 Pinhole::Pinhole()
-	: /*Camera(),*/ d(10.0), zoom(1.0)
+	: Camera(), mViewPlaneDis(10.0), mZoom(1.0)
 {}
 
 Pinhole::Pinhole(const Point3D& e, const Point3D& l, const Vector3D& u, float distance, float z)
-	: /*Camera(e, l, u),*/ d(distance), zoom(z)
+	: Camera(e, l, u), mViewPlaneDis(distance), mZoom(z)
+{}
+
+Pinhole::~Pinhole()
 {}
 
 void Pinhole::render_scene(World& w)
@@ -22,10 +25,10 @@ void Pinhole::render_scene(World& w)
 	Point2D sp;				// sample point in [0, 1] x [0, 1]
 	Point2D pp;				// sample point on a pixel
 
-	vp.s /= zoom;
-	//ray.o = eye;
+	vp.s /= mZoom;
+	ray.o = mEye;
 
-	for (int r = 0; r < vp.vres; r++){	// up
+	for (int r = 0; r < vp.vres; r++){	// mUp
 		for (int c = 0; c < vp.hres; c++)
 		{
 			L = black;
@@ -45,7 +48,7 @@ void Pinhole::render_scene(World& w)
 			}
 
 			L /= vp.num_samples;
-			//L *= exposure_time;
+			//L *= mExposureTime;
 			w.primaryBuffer.push_back(L);
 		}
     }
@@ -53,7 +56,7 @@ void Pinhole::render_scene(World& w)
 
 Vector3D Pinhole::ray_direction(const Point2D& p) const 
 {
-	Vector3D dir;// = p.x * u + p.y * v - d * w;
+	Vector3D dir = p.x * mU + p.y * mV - mViewPlaneDis * mW;
 	dir.normalize();
 	return(dir);
 }

@@ -7,7 +7,7 @@
 #include <World/ViewPlane.h>
 #include <World/World.h>
 
-Orthographic::Orthographic() : Camera(), zoom(1.0)
+Orthographic::Orthographic() : Camera(), mZoom(1.0)
 {}
 
 void Orthographic::render_scene(World &world)
@@ -18,12 +18,12 @@ void Orthographic::render_scene(World &world)
     int depth = 0;          //vp.max_depth;			// recursion depth
     Point2D sp;				// sample point in [0, 1] x [0, 1]
     Point2D pp;				// sample point on a pixel
-    ray.d = -w;
+    ray.d = -mW;
 
-    vp.s /= zoom;
+    vp.s /= mZoom;
     world.primaryBuffer.clear();
 
-    for (int r = 0; r < vp.vres; r++){	// up
+    for (int r = 0; r < vp.vres; r++){	// mUp
         for (int c = 0; c < vp.hres; c++)
         {
             L = black;
@@ -33,8 +33,8 @@ void Orthographic::render_scene(World &world)
                 sp = vp.sampler_ptr->sample_unit_square();
                 pp.x = static_cast<float>(vp.s * (c - 0.5 * vp.hres + sp.x));
                 pp.y = static_cast<float>(vp.s * (r - 0.5 * vp.vres + sp.y));
-                ray.o = eye + pp.x * u + pp.y * v;
-                //Point3D(pp.x , pp.y, eye.z);
+                ray.o = mEye + pp.x * mU + pp.y * mV;
+                //Point3D(pp.x , pp.y, mEye.z);
 
                 RGBColor mapped_color;
                 mapped_color = world.Trace(ray, depth);
@@ -43,17 +43,17 @@ void Orthographic::render_scene(World &world)
             }
 
             L /= vp.num_samples;
-            L *= exposure_time;
+            L *= mExposureTime;
             world.primaryBuffer.push_back(L);
         }
     }
 }
 
-void Orthographic::set_zoom(float zm) { zoom = zm; }
-float Orthographic::get_zoom() const { return zoom; }
+void Orthographic::zoom(float zm) { mZoom = zm; }
+float Orthographic::zoom() const { return mZoom; }
 
 Orthographic::Orthographic(const Orthographic &ortho) :
-    Camera(ortho), zoom(ortho.zoom)
+    Camera(ortho), mZoom(ortho.mZoom)
 {}
 
 Orthographic::~Orthographic()

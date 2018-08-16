@@ -74,7 +74,8 @@ set(PRAY_SOURCE
         #"src/builds/geometricObjectsbuild.cpp"
         #"src/builds/gridRandomSphere.cpp"
         #"src/builds/meshTestBuilds.cpp"
-        "src/builds/bvhTestBuilds.cpp"
+        #"src/builds/bvhTestBuilds.cpp"
+        "src/builds/prespCamTestBuild.cpp"
    )
 
 #-------------------------------------------------------------------------------

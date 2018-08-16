@@ -6,36 +6,31 @@
 #include "../Utils/Vector3D.h"
 
 
-class Pinhole //: public Camera {
+class Pinhole : public Camera
 {
 public:
 	// constructors
 	Pinhole();
-
 	Pinhole(const Point3D& e, const Point3D& l, const Vector3D& u, float distance, float z);
+	~Pinhole() override;
 
-	~Pinhole();
-
-	void set_d(float distance);
-	void set_view_distance(float distance);
-	void set_zoom(float z);
+	void view_plane_distance(float distance);
+	void zoom(float z);
 	Vector3D ray_direction(const Point2D& p) const;
-	void render_scene(World& w);// override;
+	void render_scene(World& w) override;// override;
 
 private:
 
-	float d;		// View plane distance
-	float zoom;		// zoom factor
+	float mViewPlaneDis;		// View plane distance
+	float mZoom;		// zoom factor
 };
 
-inline void Pinhole::set_d(float distance) {
-	d = distance;
+typedef std::shared_ptr<Pinhole> PinholePtr;
+
+inline void Pinhole::view_plane_distance(float distance) {
+	mViewPlaneDis = distance;
 }
 
-inline void Pinhole::set_view_distance(float distance) {
-	set_d(distance);
-}
-
-inline void Pinhole::set_zoom(float z) {
-	zoom = z;
+inline void Pinhole::zoom(float z) {
+	mZoom = z;
 }
