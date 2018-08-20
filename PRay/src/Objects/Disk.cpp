@@ -36,19 +36,20 @@ bool Disk::hit(const Ray& ray, double& tmin, ShadeRec& sr) const
 	float t = static_cast<float>((center - ray.o) * normal / (ray.d * normal));
 
 	if (t <= kEpsilon)
-		return (false);
+		return false;
 
 	Point3D p = ray.o + t * ray.d;
 
-	if (center.d_squared(p) < (radius*radius)) {
+	if (center.d_squared(p) < (radius*radius))
+	{
 		tmin = t;
 		sr.normal = normal;
 //		sr.local_hit_point = p;
 		sr.hit_point = p;
-		return (true);
+		return true;
 	}
 	else
-		return (false);
+		return false;
 }
 
 bool Disk::shadow_hit(const Ray& ray, float& tmin) const
@@ -56,16 +57,17 @@ bool Disk::shadow_hit(const Ray& ray, float& tmin) const
 	float t = static_cast<float>((center - ray.o) * normal / (ray.d * normal));
 
 	if (t <= kEpsilon)
-		return (false);
+		return false;
 
 	Point3D p = ray.o + t * ray.d;
 
-	if (center.d_squared(p) < (radius*radius)) {
+	if (center.d_squared(p) < (radius*radius))
+	{
 		tmin = t;
-		return (true);
+		return true;
 	}
 	else
-		return (false);
+		return false;
 }
 
 BBox Disk::get_bounding_box() const

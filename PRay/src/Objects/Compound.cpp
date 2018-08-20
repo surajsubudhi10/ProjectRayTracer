@@ -82,7 +82,7 @@ bool Compound::hit(const Ray &ray, double &tmin, ShadeRec &sr) const
     bool hit = false;
     tmin = kHugeValue;
 
-    for(auto obj : _objects)
+    for(const auto &obj : _objects)
     {
         if(obj->hit(ray, t, sr) && t < tmin)
         {
@@ -99,6 +99,7 @@ bool Compound::hit(const Ray &ray, double &tmin, ShadeRec &sr) const
         sr.t = static_cast<float>(tmin);
         sr.normal = normal;
         sr.hit_point = hit_point;
+        sr.material_ptr = material_ptr;
     }
 
     return hit;

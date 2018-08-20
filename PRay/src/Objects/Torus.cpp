@@ -50,13 +50,12 @@ BBox Torus::get_bounding_box() const
 
 Normal Torus::get_normal(const Point3D &p) const
 {
+    auto rootVal = sqrt(pow(p.x, 2) + pow(p.z, 2));
+    auto nx = (4 * p.x * (rootVal - _outer_radius)) / rootVal;
+    auto ny = 2 * p.y;
+    auto nz = (4 * p.z * (rootVal - _outer_radius)) / rootVal;
 
-    auto square_val = (p.x * p.x + p.y * p.y + p.z * p.z + (pow(_outer_radius, 2) - pow(_inner_radius, 2)));
-    auto nx = 4 * p.x *  (square_val - 2 * pow(_outer_radius, 2));
-    auto ny = 4 * p.y *   square_val;
-    auto nz = 4 * p.z *  (square_val - 2 * pow(_outer_radius, 2));
-
-    auto norm = Normal(nx, ny, nz);
+    auto norm =  Normal(nx, ny, nz);
     norm.normalize();
 
     return norm;
@@ -106,7 +105,7 @@ bool Torus::shadow_hit(const Ray &ray, float &tmin) const
                 t = roots[j];
         }
     }
-
+    tmin = static_cast<float>(t);
     return intersected;
 }
 
@@ -161,6 +160,7 @@ bool Torus::hit(const Ray &ray, double &tmin, ShadeRec &sr) const
     tmin = t;
     sr.hit_point = origin + tmin * direction;
     sr.normal = get_normal(sr.hit_point);
+    sr.material_ptr = material_ptr;
     return true;
 }
 

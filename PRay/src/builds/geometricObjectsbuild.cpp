@@ -1,36 +1,43 @@
+//
+// Created by Suraj Subudhi on 8/18/2018.
+//
 
-#include <Materials/Reflective.h>
-#include <Objects/Rectangle.h>
-#include <Camera/Orthographic.h>
-#include <Camera/ThinLens.h>
+#include <World/World.h>
 #include <Samplers/MultiJittered.h>
+
 #include <Lights/AmbientOcculuder.h>
-#include <Materials/GlossyReflector.h>
+#include <Lights/PointLight.h>
+
+#include <Materials/Matte.h>
+
+#include <Objects/Instance.h>
+#include <Objects/BVH.h>
+#include <Objects/SolidCylinder.h>
+
+#include <Camera/PinHole.h>
+#include <Camera/Orthographic.h>
+#include <Objects/Box.h>
+#include <Objects/Rectangle.h>
+#include <Objects/Mesh.h>
 #include <Objects/OpenCylinder.h>
 #include <Objects/Torus.h>
+#include <Objects/Disk.h>
 #include <Objects/OpenCone.h>
-#include <Objects/SolidCylinder.h>
-#include <Objects/Instance.h>
-#include <Objects/BevelCylinder.h>
-#include <Objects/Grid.h>
-#include "World/World.h"
-#include "Objects/Plane.h"
-//#include "Camera/PinHole.h"
 
-#include "Lights/Ambient.h"
-#include "Lights/PointLight.h"
+//#define USE_ACCEL
+//#define USE_PRESPECTIVE
 
-#include "Materials/Matte.h"
-#include "Materials/Phong.h"
-
-#include "Objects/Box.h"
-#include "Objects/Triangle.h"
-#include "Objects/Disk.h"
+#ifdef USE_PRESPECTIVE
+#define USE_PIN_HOLE
+#else
+#define ORTHO
+#endif
 
 void World::build()
 {
-    const auto numOfSamples = 64;
-    vp.set_hres(500);
+    const auto numOfSamples = 10;
+
+    vp.set_hres(400);
     vp.set_vres(400);
     vp.set_pixel_size(1.0);
     vp.set_samples(numOfSamples);
@@ -40,118 +47,189 @@ void World::build()
 
     background_color = black;
 
-    auto* occluder_ptr = new AmbientOcculuder(black, new MultiJittered(numOfSamples));
-    occluder_ptr->scale_radiance(3.0);
-    set_ambient_light(occluder_ptr);
+//    MultiJitteredPtr multiJitteredPtr(new MultiJittered(numOfSamples));
+//    AmbientOcculuderPtr occluder_ptr(new AmbientOcculuder(black, multiJitteredPtr));
+    AmbientPtr ambientPtr(new Ambient);
+    ambientPtr->scale_radiance(0.5);
+    set_ambient_light(ambientPtr);
 
     //// ================ Camera ===================== ////
+#ifdef ORTHO
+    OrthographicPtr orthoCam_ptr(new Orthographic);
+    orthoCam_ptr->eye(200, 200, 0);
+    orthoCam_ptr->lookat(0, 0, 0);
+    orthoCam_ptr->compute_uvw();
+    set_camera(orthoCam_ptr);
 
-    auto * pinhole_ptr = new Orthographic();
-    pinhole_ptr->set_eye(1400, 300, 0);
-//    pinhole_ptr->set_eye(1400, 300, 00);
-    pinhole_ptr->set_lookat(0, 0, 0);
-    pinhole_ptr->set_zoom(0.5f);
+#endif
+
+#ifdef USE_PIN_HOLE
+    PinholePtr pinhole_ptr(new Pinhole);
+    pinhole_ptr->eye(0, 150, 00);
+    pinhole_ptr->lookat(0, -70, 0);
+    pinhole_ptr->zoom(1.5f);
+    const auto viewPlaneDis = (pinhole_ptr->lookat() - pinhole_ptr->eye()).length();
+    pinhole_ptr->view_plane_distance((float) viewPlaneDis);
     pinhole_ptr->compute_uvw();
     set_camera(pinhole_ptr);
+#endif
 
     //// ====================== LIGHTS ======================= ////
 
-    auto * point_light_ptr = new PointLight();
-    point_light_ptr->set_location(240, 1240, 240);
+    PointLightPtr point_light_ptr(new PointLight());
+    point_light_ptr->set_location(200, 200, 200);
     point_light_ptr->scale_radiance(2.0);
     add_light(point_light_ptr);
 
-    auto * point_light_ptr2 = new PointLight();
-    point_light_ptr2->set_location(0, 1840, 0);
-    point_light_ptr2->scale_radiance(2.0);
-    add_light(point_light_ptr2);
-
     //// ============================================= ////
-    auto* grid_ptr = new Grid;
 
-    auto* phong_ptr = new Phong();
-    phong_ptr->set_ka(0.15);
-    phong_ptr->set_ca(1.0, 0.0, 0.0);
-    phong_ptr->set_kd(0.85);
-    phong_ptr->set_cd(0.5, 0.5, 0.5);
-    phong_ptr->set_ks(0.3);
-    phong_ptr->set_exp_s(100);
+    std::vector<GeometricObjectPtr> renderObjects;
 
-    auto* matte_ptr1 = new Matte();
-    matte_ptr1->set_ka(0.25);
-    matte_ptr1->set_kd(0.65);
-    matte_ptr1->set_cd(1, 0, 1);
+    MattePtr cornerSpherMat(new Matte);
+    cornerSpherMat->set_ka(0.25f);
+    cornerSpherMat->set_kd(0.75f);
+    cornerSpherMat->set_cd(0.0, 0.0, 1.0);
 
-    auto* sphere_ptr1 = new Sphere();
-    sphere_ptr1->set_center(Point3D(0, 130.0, 0.0));
-	sphere_ptr1->set_material(phong_ptr);
-    sphere_ptr1->set_radius(140.0);
-//    add_object(sphere_ptr1);
-
-    auto* opencylinder_ptr1 = new OpenCylinder(100, 100, Point3D(100, 50, 0), matte_ptr1);
-//    add_object(opencylinder_ptr1);
-
-    auto* box_ptr1 = new Box(Point3D(-70, -10, -70), Point3D(70, 130, 70));
-    box_ptr1->set_material(matte_ptr1);
-//    add_object(box_ptr1);
-
-    auto* open_cone_ptr1 = new OpenCone(Point3D(0, 60, 0), 20, 70);
-    open_cone_ptr1->set_material(matte_ptr1);
-//    add_object(open_cone_ptr1);
+    MeshPtr meshPtr(new Mesh(R"(D:\Code_Stuff\RayTracer\ProjectRay\PRay\Resources\basic\bunny_mod.obj)"));
+    InstancePtr cornerSpherePtr( new Instance(meshPtr));
+    cornerSpherePtr->set_material(cornerSpherMat);
+    cornerSpherePtr->rotateY(90);
+    cornerSpherePtr->scale(5, 5, 5);
+    cornerSpherePtr->translate(0, -100, 0);
+    cornerSpherePtr->compute_bounding_box();
 
 
-    //auto* torus_ptr1 = new Torus(Point3D(440, 130.0, -350.0), 30, 140);
-    auto* torus_ptr1 = new Torus(Point3D(0, 50, 0), 30, 140);
-    torus_ptr1->set_material(matte_ptr1);
-//    add_object(torus_ptr1);
+    /// Sphere
+    MattePtr sphereMat(new Matte);
+    sphereMat->set_ka(0.25f);
+    sphereMat->set_kd(0.75f);
+    sphereMat->set_cd(0.0, 1.0, 0.0);
 
-    auto* disk_ptr = new Disk(Point3D(-90, 30, -90), 70.0f, Normal(0, 1, 0));
-    disk_ptr->set_material(matte_ptr1);
-//    add_object(disk_ptr);
+    SpherePtr spherePtr(new Sphere(Point3D(0.0, 0.0, 0.0), 30.0f));
+    InstancePtr sphereInstancePtr( new Instance(spherePtr));
+    sphereInstancePtr->set_material(sphereMat);
+    sphereInstancePtr->translate(-100, -70, 100);
+    sphereInstancePtr->compute_bounding_box();
 
-    auto* rectangle_ptr = new Rectangle(Point3D(-90, 30, 90), Vector3D(0, 0, 100), Vector3D(100, 0, 0));
-    rectangle_ptr->set_material(matte_ptr1);
-//    add_object(rectangle_ptr);
+    /// Torus
+    MattePtr torusMat(new Matte);
+    torusMat->set_ka(0.25f);
+    torusMat->set_kd(0.75f);
+    torusMat->set_cd(1.0, 1.0, 0.0);
 
-    auto* triangle_ptr = new Triangle(Point3D(0, 0, 90), Point3D(90, 0, 0), Point3D(-90, 0, 0));
-    triangle_ptr->set_material(matte_ptr1);
-//    add_object(triangle_ptr);
+    TorusPtr torusPtr(new Torus(Point3D(-0.0, 0.0, -0.0), 20.0, 50.0));
+    InstancePtr torusInstancePtr( new Instance(torusPtr));
+    torusInstancePtr->set_material(torusMat);
+    torusInstancePtr->scale(0.5f);
+    torusInstancePtr->translate(0, -80, 100);
+    torusInstancePtr->compute_bounding_box();
+
+    /// Box
+    MattePtr boxMat(new Matte);
+    boxMat->set_ka(0.25f);
+    boxMat->set_kd(0.75f);
+    boxMat->set_cd(1.0, 0.0, 1.0);
+
+    BoxPtr boxPtr(new Box(-20, 20, -20, 20, -20, 20));
+    InstancePtr boxInstancePtr( new Instance(boxPtr));
+    boxInstancePtr->set_material(boxMat);
+    boxInstancePtr->translate(100, -80, 100);
+    boxInstancePtr->compute_bounding_box();
+
+    /// OpenCylinder
+    MattePtr openCylinderMat(new Matte);
+    openCylinderMat->set_ka(0.25f);
+    openCylinderMat->set_kd(0.75f);
+    openCylinderMat->set_cd(0.25, 0.25, 1.0);
+
+    OpenCylinderPtr openCylinderPtr(new OpenCylinder(80, 30, Point3D()));
+    InstancePtr openCylinderInstancePtr( new Instance(openCylinderPtr));
+    openCylinderInstancePtr->set_material(openCylinderMat);
+    openCylinderInstancePtr->translate(-100, -60, -100);
+    openCylinderInstancePtr->compute_bounding_box();
+
+    /// CloseCylinder
+    MattePtr solidCylinderMat(new Matte);
+    solidCylinderMat->set_ka(0.25f);
+    solidCylinderMat->set_kd(0.75f);
+    solidCylinderMat->set_cd(0.0, 0.25, 0.0);
+
+    SolidCylinderPtr solidCylinderPtr(new SolidCylinder(80, 30, Point3D()));
+    InstancePtr solidCylinderInstancePtr( new Instance(solidCylinderPtr));
+    solidCylinderInstancePtr->set_material(solidCylinderMat);
+    //solidCylinderInstancePtr->translate(0, -60, -100);
+    solidCylinderInstancePtr->translate(100, -60, 100);
+    solidCylinderInstancePtr->compute_bounding_box();
+
+    /// Triangle
+    MattePtr triangleMat(new Matte);
+    triangleMat->set_ka(0.25f);
+    triangleMat->set_kd(0.75f);
+    triangleMat->set_cd(0.25, 0.75, 0.75);
+
+    TrianglePtr trianglePtr(new Triangle(Point3D(0, 0, 5), Point3D(0, 0, -5), Point3D(-5, 0, 0)));
+    InstancePtr triangleInstancePtr( new Instance(trianglePtr));
+    triangleInstancePtr->set_material(triangleMat);
+    triangleInstancePtr->scale(10.0f);
+    triangleInstancePtr->translate(-100, -99, 0);
+    triangleInstancePtr->compute_bounding_box();
+
+    /// Disc
+    MattePtr discMat(new Matte);
+    discMat->set_ka(0.25f);
+    discMat->set_kd(0.75f);
+    discMat->set_cd(0.25, 0.75, 0.75);
+
+    DiskPtr discPtr(new Disk(Point3D(0, 0, 0), 30.0f, Normal(0, 1, 0)));
+    InstancePtr discInstancePtr( new Instance(discPtr));
+    discInstancePtr->set_material(discMat);
+    discInstancePtr->translate(0, -99, 0);
+    discInstancePtr->compute_bounding_box();
+
+    /// OpenCone
+    MattePtr openConeMat(new Matte);
+    openConeMat->set_ka(0.25f);
+    openConeMat->set_kd(0.75f);
+    openConeMat->set_cd(0.75, 0.15, 0.35);
+
+    OpenConePtr openConePtr(new OpenCone(Point3D(0, 0, 0), 30.0f, 80.0f));
+    InstancePtr coneInstancePtr( new Instance(openConePtr));
+    coneInstancePtr->set_material(openConeMat);
+    coneInstancePtr->translate(100, -20, 0);
+    coneInstancePtr->compute_bounding_box();
 
 
-    auto* sphere_ptr3 = new Sphere();
-    sphere_ptr3->set_center(Point3D(0.0, 110.0, 0.0));
-    sphere_ptr3->set_material(matte_ptr1);
-    sphere_ptr3->set_radius(120.0);
-    grid_ptr->add_object(sphere_ptr3);
-
-    auto solidCylinder_ptr = new SolidCylinder(100, 100, Point3D(100, 50, 0));
-    solidCylinder_ptr->set_material(matte_ptr1);
-//    add_object(solidCylinder_ptr);
-
-    auto bevelCylinder_ptr = new BevelCylinder(Point3D(100, 50, 0), 100.0f, 20.0f, 170.0f);
-//    bevelCylinder_ptr->set_material(matte_ptr1);
-//    add_object(bevelCylinder_ptr);
-
-    //auto ellipsoid_ptr = new Instance(new Sphere(Point3D(), 30));
-    auto ellipsoid_ptr = new Instance(bevelCylinder_ptr);
-    ellipsoid_ptr->set_material(matte_ptr1);
-//    ellipsoid_ptr->scale(2, 3, 1);
-    ellipsoid_ptr->rotateX(-90);
-    ellipsoid_ptr->translate(0, 100, 0);
-//    grid_ptr->add_object(ellipsoid_ptr);
-
-    grid_ptr->setup_cells();
-    add_object(grid_ptr);
 
     //// ================ Ground Plane ===================== ////
 
-    auto* matte_ptr01 = new Matte();
+    MattePtr matte_ptr01(new Matte());
     matte_ptr01->set_ka(0.25);
     matte_ptr01->set_kd(0.65);
     matte_ptr01->set_cd(0.5, 0.5, 0.5);
 
-    Plane* plane_ptr01 = new Plane(Point3D(0, -10, 0), Normal(0, 1, 0));
-    plane_ptr01->set_material(matte_ptr01);
-    add_object(plane_ptr01);
+    RectanglePtr groundPlanePtr(new Rectangle(Point3D(0, -100, 0), 400, 400));
+    groundPlanePtr->set_material(matte_ptr01);
 
-};
+#ifdef USE_ACCEL
+    //renderObjects.push_back(cornerSpherePtr);
+    renderObjects.push_back(frontSpherePtr);
+    renderObjects.push_back(midSpherePtr);
+    //renderObjects.push_back(backSpherePtr);
+    renderObjects.push_back(groundPlanePtr);
+    BVHPtr bvh(new BVH(&renderObjects[0], static_cast<int>(renderObjects.size())));
+    add_object(bvh);
+#else
+//    add_object(cornerSpherePtr);
+    add_object(torusInstancePtr);
+    add_object(sphereInstancePtr);
+//    add_object(boxInstancePtr);
+    add_object(openCylinderInstancePtr);
+    add_object(solidCylinderInstancePtr);
+    add_object(triangleInstancePtr);
+    add_object(discInstancePtr);
+    add_object(coneInstancePtr);
+    add_object(groundPlanePtr);
+#endif
+
+
+}

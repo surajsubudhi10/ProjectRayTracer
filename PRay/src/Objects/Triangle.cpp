@@ -17,16 +17,15 @@ Triangle::Triangle()
 Triangle::Triangle(const Point3D& a, const Point3D& b, const Point3D& c)
 	: GeometricObject()//, v0(a), v1(b), v2(c) 
 {
+	v0.position = a;
+	v1.position = b;
+	v2.position = c;
+
 	auto normal = (v1.position - v0.position) ^ (v2.position - v0.position);
 	normal.normalize();
 
-	v0.position = Point3D(0, 0, 0);
 	v0.normal = normal;
-
-	v1.position = Point3D(0, 0, 1);
 	v1.normal = normal;
-
-	v2.position = Point3D(1, 0, 0);
 	v2.normal = normal;
 }
 

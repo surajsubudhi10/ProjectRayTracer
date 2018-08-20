@@ -36,5 +36,6 @@ private:
 
 }; // End of Class SolidCylinder
 
+typedef std::shared_ptr<SolidCylinder> SolidCylinderPtr;
 
 #endif //PRAY_SOLIDCYLINDER_H

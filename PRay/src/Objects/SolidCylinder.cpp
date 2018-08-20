@@ -25,15 +25,16 @@ SolidCylinder::SolidCylinder(const SolidCylinder &solidCylinder) :
 
 bool SolidCylinder::hit(const Ray &ray, double &tmin, ShadeRec &sr) const
 {
-    if(bBox.hit(ray))
+    if(bBox.hit(ray)) {
         return Compound::hit(ray, tmin, sr);
+    }
 
     return false;
 }
 
 void SolidCylinder::set_height(float height) { _height = height; init(); }
 void SolidCylinder::set_radius(float radius) {_radius = radius;  init(); }
-void SolidCylinder::set_center(const Point3D &cen) {_center = cen; }
+void SolidCylinder::set_center(const Point3D &cen) {_center = cen; init();}
 
 float SolidCylinder::get_height() const { return _height; }
 float SolidCylinder::get_radius() const { return _radius; }
@@ -41,13 +42,13 @@ Point3D SolidCylinder::get_center() const { return _center; }
 
 void SolidCylinder::init()
 {
-    const DiskPtr topDisk(new Disk(_center + Vector3D(0, _height / 2, 0), _radius, Normal(0, 1, 0)));
-    add_object(topDisk);
+//    const DiskPtr topDisk(new Disk(_center + Vector3D(0, _height / 2, 0), _radius, Normal(0, 1, 0)));
+//    add_object(topDisk);
+//
+//    const DiskPtr bottomDisk(new Disk(_center + Vector3D(0, -_height / 2, 0), _radius, Normal(0, -1, 0)));
+//    add_object(bottomDisk);
 
-    const DiskPtr bottomDisk(new Disk(_center + Vector3D(0, -_height / 2, 0), _radius, Normal(0, -1, 0)));
-    add_object(bottomDisk);
-
-    const OpenCylinderPtr body(new OpenCylinder(_radius, _height, _center));
+    const OpenCylinderPtr body(new OpenCylinder(_height, _radius, _center));
     add_object(body);
 }
 

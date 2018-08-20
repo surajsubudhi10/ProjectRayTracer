@@ -9,8 +9,8 @@ int main() {
     const auto startTime = clock();
 	World w;
 	w.build();
-    const auto fileName = "CustomMesh.bmp";
-	//mW.render_scene();
+    const auto fileName = "test.bmp";
+	//w.render_scene();
 	std::cout << "RayTracing.." << std::endl;
 
     w.camera_ptr->render_scene(w);

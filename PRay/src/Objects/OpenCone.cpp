@@ -72,6 +72,7 @@ bool OpenCone::hit(const Ray &ray, double &tmin, ShadeRec &sr) const
         const auto dis = (hitPoint - _center).len_squared();
         if(angle > 0  && dis <= K3) {
             sr.hit_point = hitPoint;
+            sr.material_ptr = material_ptr;
             sr.normal = get_normal(sr.hit_point);
             return true;
         }
@@ -87,6 +88,7 @@ bool OpenCone::hit(const Ray &ray, double &tmin, ShadeRec &sr) const
         const auto dis = (hitPoint - _center).len_squared();
         if(angle > 0 && dis <= K3) {
             sr.hit_point = hitPoint;
+            sr.material_ptr = material_ptr;
             sr.normal = get_normal(sr.hit_point);
             return true;
         }

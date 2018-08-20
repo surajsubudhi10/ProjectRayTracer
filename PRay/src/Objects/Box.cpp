@@ -134,21 +134,26 @@ bool Box::hit(const Ray& ray, double& tmin, ShadeRec& sr) const
 		face_out = (c >= 0.0) ? 5 : 2;
 	}
 
-	if (t0 < t1 && t1 > kEpsilon) {  // condition for a hit
-		if (t0 > kEpsilon) {
+	if (t0 < t1 && t1 > kEpsilon)   // condition for a hit
+	{
+		if (t0 > kEpsilon)
+		{
 			tmin = t0;  			// ray hits outside surface
 			sr.normal = get_normal(face_in);
+			sr.material_ptr = material_ptr;
 		}
-		else {
+		else
+		{
 			tmin = t1;				// ray hits inside surface
 			sr.normal = get_normal(face_out);
+			sr.material_ptr = material_ptr;
 		}
 
 		sr.hit_point = ray.o + tmin * ray.d;
-		return (true);
+		return true;
 	}
 	else
-		return (false);
+		return false;
 
 }
 

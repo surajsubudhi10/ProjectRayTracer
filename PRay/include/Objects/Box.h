@@ -24,3 +24,4 @@ private:
 	double x0, x1, y0, y1, z0, z1;
 };
 
+typedef std::shared_ptr<Box> BoxPtr;

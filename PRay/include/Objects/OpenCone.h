@@ -37,5 +37,6 @@ private:
 
 };
 
+typedef std::shared_ptr<OpenCone> OpenConePtr;
 
 #endif //PRAY_OPENCONE_H

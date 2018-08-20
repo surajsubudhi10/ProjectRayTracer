@@ -4,6 +4,7 @@
 
 #include <Objects/OpenCylinder.h>
 #include <cmath>
+#include <utility>
 
 OpenCylinder::OpenCylinder():
     GeometricObject(), _radius(2.0f), _height(5.0), _center(Point3D(0.0))
@@ -11,16 +12,16 @@ OpenCylinder::OpenCylinder():
     bBox = OpenCylinder::get_bounding_box();
 }
 
-OpenCylinder::OpenCylinder(float rad, float height, const Point3D& center):
+OpenCylinder::OpenCylinder(float height, float rad, const Point3D& center):
         GeometricObject(), _radius(rad), _height(height), _center(center)
 {
     bBox = OpenCylinder::get_bounding_box();
 }
 
-OpenCylinder::OpenCylinder(float rad, float height, const Point3D& center, MaterialPtr mat):
+OpenCylinder::OpenCylinder(float height, float rad, const Point3D& center, MaterialPtr mat):
     GeometricObject(), _radius(rad), _height(height), _center(center)
 {
-    set_material(mat);
+    set_material(std::move(mat));
     bBox = OpenCylinder::get_bounding_box();
 }
 
@@ -45,23 +46,23 @@ bool OpenCylinder::hit(const Ray &ray, double &tmin, ShadeRec &sr) const
     const auto c = pow(originToCenter.x, 2) + pow(originToCenter.z, 2) - pow(_radius, 2);
     
     const auto disc = b * b - (4 * a * c);
-    double t;
 
     if(disc < 0)
         return false;
 
     const auto e = sqrt(disc);
     const auto denom = 2.0 * a;
-    t = (-b - e) / denom;    // smaller root
+    double t = (-b - e) / denom;    // smaller root
         
     if (t > kEpsilon)
     {
-        tmin = t;
-        const auto hitPoint = ray.o + tmin * ray.d;
+        const auto hitPoint = ray.o + t * ray.d;
         if((hitPoint.y <= _center.y + _height / 2.0f) && (hitPoint.y >= _center.y - _height / 2.0f))
         {
+            tmin = t;
             sr.hit_point = hitPoint;
             sr.normal = get_normal(sr.hit_point);
+            sr.material_ptr = material_ptr;
             return true;
         }
     }        
@@ -69,12 +70,13 @@ bool OpenCylinder::hit(const Ray &ray, double &tmin, ShadeRec &sr) const
     t = (-b + e) / denom;    // larger root
 
     if (t > kEpsilon) {
-        tmin = t;
-        const auto hitPoint = ray.o + tmin * ray.d;
+        const auto hitPoint = ray.o + t * ray.d;
         if ((hitPoint.y <= _center.y + _height / 2.0f) && (hitPoint.y >= _center.y - _height / 2.0f))
         {
+            tmin = t;
             sr.hit_point = hitPoint;
             sr.normal = get_normal(sr.hit_point);
+            sr.material_ptr = material_ptr;
             return true;
         }
     }
@@ -117,7 +119,7 @@ bool OpenCylinder::shadow_hit(const Ray &ray, float &tmin) const
     const auto c = pow(originToCenter.x, 2) + pow(originToCenter.z, 2) - pow(_radius, 2);
 
     const auto disc = b * b - (4 * a * c);
-    double t;
+    double t = kHugeValue;
 
     if (disc < 0.0)
         return(false);
@@ -129,7 +131,7 @@ bool OpenCylinder::shadow_hit(const Ray &ray, float &tmin) const
 
     if (t > kEpsilon)
     {
-        tmin = t;
+        tmin = static_cast<float>(t);
         const auto hitPoint = ray.o + tmin * ray.d;
         if((hitPoint.y <= _center.y + _height / 2.0f) && (hitPoint.y >= _center.y - _height / 2.0f))
             return (true);
@@ -139,13 +141,13 @@ bool OpenCylinder::shadow_hit(const Ray &ray, float &tmin) const
 
     if (t > kEpsilon)
     {
-        tmin = t;
+        tmin = static_cast<float>(t);
         const auto hitPoint = ray.o + tmin * ray.d;
         if((hitPoint.y <= _center.y + _height / 2.0f) && (hitPoint.y >= _center.y - _height / 2.0f))
             return (true);
     }
 
-    return (false);
+    return false;
 }
 
 
