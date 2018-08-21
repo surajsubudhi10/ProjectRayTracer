@@ -105,6 +105,7 @@ bool Torus::shadow_hit(const Ray &ray, float &tmin) const
                 t = roots[j];
         }
     }
+
     tmin = static_cast<float>(t);
     return intersected;
 }
@@ -157,11 +158,16 @@ bool Torus::hit(const Ray &ray, double &tmin, ShadeRec &sr) const
     if(!intersected)
         return false;
 
-    tmin = t;
-    sr.hit_point = origin + tmin * direction;
-    sr.normal = get_normal(sr.hit_point);
-    sr.material_ptr = material_ptr;
-    return true;
+	if (t < tmin) 
+	{
+		tmin = t;
+		sr.hit_point = origin + tmin * direction;
+		sr.normal = get_normal(sr.hit_point);
+		sr.material_ptr = material_ptr;
+		return true;
+	}
+
+	return false;
 }
 
 void Torus::set_center(const Point3D &cen) { _center = cen; }

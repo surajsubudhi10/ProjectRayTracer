@@ -69,7 +69,8 @@ bool OpenCylinder::hit(const Ray &ray, double &tmin, ShadeRec &sr) const
 
     t = (-b + e) / denom;    // larger root
 
-    if (t > kEpsilon) {
+    if (t > kEpsilon) 
+	{
         const auto hitPoint = ray.o + t * ray.d;
         if ((hitPoint.y <= _center.y + _height / 2.0f) && (hitPoint.y >= _center.y - _height / 2.0f))
         {

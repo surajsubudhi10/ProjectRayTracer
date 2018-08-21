@@ -31,6 +31,8 @@ public:
     void scale(float x, float y, float z);
     void scale(float s);
 
+	void set_material(MaterialPtr mat) override;
+
     void compute_bounding_box();
     BBox get_bounding_box() const override;
 

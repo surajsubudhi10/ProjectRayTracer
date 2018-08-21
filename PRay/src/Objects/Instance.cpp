@@ -49,7 +49,7 @@ bool Instance::hit(const Ray &ray, double &tmin, ShadeRec &sr) const
         sr.material_ptr = material_ptr;
         sr.hit_point = ray.o + tmin * ray.d;
 
-        return true;
+         return true;
     }
 
     return false;
@@ -169,6 +169,11 @@ void Instance::scale(float x, float y, float z)
 void Instance::scale(float s)
 {
     scale(s, s, s);
+}
+
+void Instance::set_material(MaterialPtr mat)
+{
+	_object_ptr->set_material(mat);
 }
 
 BBox Instance::get_bounding_box() const

@@ -112,33 +112,35 @@ void World::set_ambient_light(AmbientPtr amb)
 
 ShadeRec World::hit_objects(const Ray& ray)
 {
-    ShadeRec	sr(*this);
-    double		t = kHugeValue;
+    ShadeRec	finalSr(*this);
     Normal		normal;
     Point3D		local_hit_point;
     auto		tmin = (float) kHugeValue;
     int			num_objects = objects.size();
+	double		t = kHugeValue;
 
     for (int j = 0; j < num_objects; j++)
     {
-        if (objects[j]->hit(ray, t, sr) && (t < tmin))
+		ShadeRec tempSr(*this);
+        if (objects[j]->hit(ray, t, tempSr) && (t <= tmin))
         {
-            sr.hit_an_object = true;
+			finalSr = tempSr;
+			finalSr.hit_an_object = true;
             tmin = static_cast<float>(t);
             //sr.material_ptr = objects[j]->get_material();
-            sr.hit_point = ray.o + t * ray.d;
-            normal = sr.normal;
+			finalSr.hit_point = ray.o + tmin * ray.d;
+            normal = finalSr.normal;
         }
     }
 
-    if (sr.hit_an_object)
+    if (finalSr.hit_an_object)
     {
-        sr.t = tmin;
-        sr.normal = normal;
-        sr.hit_point = ray.o + sr.t * ray.d;
+		finalSr.t = tmin;
+		finalSr.normal = normal;
+		finalSr.hit_point = ray.o + finalSr.t * ray.d;
     }
 
-    return (sr);
+    return finalSr;
 }
 
 // ----------------------------------------------------------------------------- hit_bare_bones_objects

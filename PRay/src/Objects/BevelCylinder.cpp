@@ -50,23 +50,31 @@ void BevelCylinder::set_center(const Point3D &cen) { _center = cen;  init(); }
 BevelCylinder::~BevelCylinder()
 = default;
 
+bool BevelCylinder::hit(const Ray &ray, double &tmin, ShadeRec &sr) const
+{
+	if (bBox.hit(ray)) {
+		return Compound::hit(ray, tmin, sr);
+	}
+
+	return false;
+}
+
+
 void BevelCylinder::init()
 {
     const DiskPtr topDisk(new Disk(_center + Vector3D(0,  _height / 2.0f, 0), _base_radius - _bevel_radius, Normal(0, 1, 0)));
-    _objects.push_back(topDisk);
+	add_object(topDisk);
 
     const DiskPtr buttomDisk(new Disk(_center + Vector3D(0, -_height / 2.0f, 0), _base_radius - _bevel_radius, Normal(0, -1, 0)));
-    _objects.push_back(buttomDisk);
+    add_object(buttomDisk);
 
-    const OpenCylinderPtr body(new OpenCylinder(_base_radius,  _height - (2.0f * _bevel_radius), _center));
-    _objects.push_back(body);
+    const OpenCylinderPtr body(new OpenCylinder(_height - (2.0f * _bevel_radius), _base_radius,  _center));
+	add_object(body);
 
     const TorusPtr topTorus(new Torus(_center + Vector3D(0, ( _height / 2.0f) - _bevel_radius, 0), _bevel_radius, _base_radius - _bevel_radius));
-    _objects.push_back(topTorus);
+	add_object(topTorus);
 
     const TorusPtr bottomTorus(new Torus(_center + Vector3D(0, (-_height / 2.0f) + _bevel_radius, 0), _bevel_radius, _base_radius - _bevel_radius));
-    _objects.push_back(bottomTorus);
-
-    bBox = get_bounding_box();
+	add_object(bottomTorus);
 }
 

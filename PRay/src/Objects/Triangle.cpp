@@ -99,16 +99,20 @@ bool Triangle::hit(const Ray& ray, double& tmin, ShadeRec& sr) const
 	if (t < kEpsilon)
 		return false;
 
-	tmin = t;
+	if (t < tmin) 
+	{
+		tmin = t;
 
-	auto normal = (1.0 - (beta + gamma)) * v0.normal + beta * v1.normal + gamma * v2.normal;
-	normal.normalize();
-	sr.normal = normal;
-    sr.material_ptr = material_ptr;
-	sr.hit_point = ray.o + t * ray.d;
+		auto normal = (1.0 - (beta + gamma)) * v0.normal + beta * v1.normal + gamma * v2.normal;
+		normal.normalize();
+		sr.normal = normal;
+		sr.material_ptr = material_ptr;
+		sr.hit_point = ray.o + t * ray.d;
 
-	return true;
+		return true;
+	}
 
+	return false;
 }
 
 bool Triangle::shadow_hit(const Ray& ray, float& tmin) const 

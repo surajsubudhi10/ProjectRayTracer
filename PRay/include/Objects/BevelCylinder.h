@@ -25,6 +25,8 @@ public:
     Point3D get_center() const;
     float   get_height() const;
 
+	bool    hit(const Ray &ray, double &tmin, ShadeRec &sr) const;
+
 
 private:
     Point3D _center;
@@ -35,5 +37,7 @@ private:
     void init();
 
 }; // End of Class BevelCylinder
+
+typedef std::shared_ptr<BevelCylinder> BevelCylinderPtr;
 
 #endif //PRAY_BEVELCYLINDER_H

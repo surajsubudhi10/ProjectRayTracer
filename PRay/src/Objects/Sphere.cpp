@@ -99,7 +99,7 @@ bool Sphere::hit(const Ray& ray, double& tmin, ShadeRec& sr) const
         double denom = 2.0 * a;
         t = (-b - e) / denom;    // smaller root
 
-        if (t > kEpsilon)
+        if (t > kEpsilon && t < tmin)
         {
             tmin = t;
             sr.normal = (temp + t * ray.d) / radius;
@@ -110,7 +110,7 @@ bool Sphere::hit(const Ray& ray, double& tmin, ShadeRec& sr) const
 
         t = (-b + e) / denom;    // larger root
 
-        if (t > kEpsilon)
+        if (t > kEpsilon && t < tmin)
         {
             tmin = t;
             sr.normal = (temp + t * ray.d) / radius;

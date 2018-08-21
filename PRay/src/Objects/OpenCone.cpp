@@ -66,11 +66,11 @@ bool OpenCone::hit(const Ray &ray, double &tmin, ShadeRec &sr) const
 
     if (t > kEpsilon)
     {
-        tmin = t;
         auto hitPoint = ray.o + t * ray.d;
         const auto angle = (hitPoint - _center) * Vector3D(0, -1, 0);
         const auto dis = (hitPoint - _center).len_squared();
         if(angle > 0  && dis <= K3) {
+			tmin = t;
             sr.hit_point = hitPoint;
             sr.material_ptr = material_ptr;
             sr.normal = get_normal(sr.hit_point);
@@ -82,11 +82,11 @@ bool OpenCone::hit(const Ray &ray, double &tmin, ShadeRec &sr) const
 
     if (t > kEpsilon)
     {
-        tmin = t;
         auto hitPoint = ray.o + t * ray.d;
         const auto angle = (hitPoint - _center) * Vector3D(0, -1, 0);
         const auto dis = (hitPoint - _center).len_squared();
         if(angle > 0 && dis <= K3) {
+			tmin = t;
             sr.hit_point = hitPoint;
             sr.material_ptr = material_ptr;
             sr.normal = get_normal(sr.hit_point);

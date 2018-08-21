@@ -40,11 +40,11 @@ bool Disk::hit(const Ray& ray, double& tmin, ShadeRec& sr) const
 
 	Point3D p = ray.o + t * ray.d;
 
-	if (center.d_squared(p) < (radius*radius))
+	
+	if (center.d_squared(p) < (radius*radius) && t < tmin)
 	{
 		tmin = t;
 		sr.normal = normal;
-//		sr.local_hit_point = p;
 		sr.hit_point = p;
 		return true;
 	}

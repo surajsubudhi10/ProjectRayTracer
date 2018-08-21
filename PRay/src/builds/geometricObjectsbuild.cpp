@@ -10,12 +10,13 @@
 
 #include <Materials/Matte.h>
 
+#include <Camera/PinHole.h>
+#include <Camera/Orthographic.h>
+
 #include <Objects/Instance.h>
 #include <Objects/BVH.h>
 #include <Objects/SolidCylinder.h>
-
-#include <Camera/PinHole.h>
-#include <Camera/Orthographic.h>
+#include <Objects/BevelCylinder.h>
 #include <Objects/Box.h>
 #include <Objects/Rectangle.h>
 #include <Objects/Mesh.h>
@@ -56,7 +57,7 @@ void World::build()
     //// ================ Camera ===================== ////
 #ifdef ORTHO
     OrthographicPtr orthoCam_ptr(new Orthographic);
-    orthoCam_ptr->eye(200, 200, 0);
+    orthoCam_ptr->eye(00, 100, 0);
     orthoCam_ptr->lookat(0, 0, 0);
     orthoCam_ptr->compute_uvw();
     set_camera(orthoCam_ptr);
@@ -77,7 +78,7 @@ void World::build()
     //// ====================== LIGHTS ======================= ////
 
     PointLightPtr point_light_ptr(new PointLight());
-    point_light_ptr->set_location(200, 200, 200);
+    point_light_ptr->set_location(100, 200, 100);
     point_light_ptr->scale_radiance(2.0);
     add_light(point_light_ptr);
 
@@ -90,13 +91,13 @@ void World::build()
     cornerSpherMat->set_kd(0.75f);
     cornerSpherMat->set_cd(0.0, 0.0, 1.0);
 
-    MeshPtr meshPtr(new Mesh(R"(D:\Code_Stuff\RayTracer\ProjectRay\PRay\Resources\basic\bunny_mod.obj)"));
+    /*MeshPtr meshPtr(new Mesh(R"(E:\SurajWorkspace\Personal\ProjectRayTracer\PRay\Resources\basic\bunny_mod.obj)"));
     InstancePtr cornerSpherePtr( new Instance(meshPtr));
     cornerSpherePtr->set_material(cornerSpherMat);
     cornerSpherePtr->rotateY(90);
     cornerSpherePtr->scale(5, 5, 5);
     cornerSpherePtr->translate(0, -100, 0);
-    cornerSpherePtr->compute_bounding_box();
+    cornerSpherePtr->compute_bounding_box();*/
 
 
     /// Sphere
@@ -145,7 +146,8 @@ void World::build()
     OpenCylinderPtr openCylinderPtr(new OpenCylinder(80, 30, Point3D()));
     InstancePtr openCylinderInstancePtr( new Instance(openCylinderPtr));
     openCylinderInstancePtr->set_material(openCylinderMat);
-    openCylinderInstancePtr->translate(-100, -60, -100);
+	openCylinderInstancePtr->translate(-100, -60, -100);
+	//openCylinderInstancePtr->translate(100, -60, 100);
     openCylinderInstancePtr->compute_bounding_box();
 
     /// CloseCylinder
@@ -157,9 +159,22 @@ void World::build()
     SolidCylinderPtr solidCylinderPtr(new SolidCylinder(80, 30, Point3D()));
     InstancePtr solidCylinderInstancePtr( new Instance(solidCylinderPtr));
     solidCylinderInstancePtr->set_material(solidCylinderMat);
-    //solidCylinderInstancePtr->translate(0, -60, -100);
-    solidCylinderInstancePtr->translate(100, -60, 100);
+    solidCylinderInstancePtr->translate(0, -60, -100);
     solidCylinderInstancePtr->compute_bounding_box();
+
+	/// BevelCylinder
+	MattePtr bevelCylinderMat(new Matte);
+	bevelCylinderMat->set_ka(0.25f);
+	bevelCylinderMat->set_kd(0.75f);
+	bevelCylinderMat->set_cd(0.95, 0.25, 0.15);
+
+	BevelCylinderPtr bevelCylinderPtr(new BevelCylinder(Point3D(), 30, 10, 80));
+	InstancePtr bevelCylinderInstancePtr(new Instance(bevelCylinderPtr));
+	bevelCylinderInstancePtr->set_material(bevelCylinderMat);
+	bevelCylinderInstancePtr->rotateZ(-90);
+	bevelCylinderInstancePtr->rotateY(45);
+	bevelCylinderInstancePtr->translate(0, -60, 0);
+	bevelCylinderInstancePtr->compute_bounding_box();
 
     /// Triangle
     MattePtr triangleMat(new Matte);
@@ -183,7 +198,7 @@ void World::build()
     DiskPtr discPtr(new Disk(Point3D(0, 0, 0), 30.0f, Normal(0, 1, 0)));
     InstancePtr discInstancePtr( new Instance(discPtr));
     discInstancePtr->set_material(discMat);
-    discInstancePtr->translate(0, -99, 0);
+    discInstancePtr->translate(00, -99, 0);
     discInstancePtr->compute_bounding_box();
 
     /// OpenCone
@@ -197,6 +212,8 @@ void World::build()
     coneInstancePtr->set_material(openConeMat);
     coneInstancePtr->translate(100, -20, 0);
     coneInstancePtr->compute_bounding_box();
+
+
 
 
 
@@ -220,14 +237,15 @@ void World::build()
     add_object(bvh);
 #else
 //    add_object(cornerSpherePtr);
-    add_object(torusInstancePtr);
-    add_object(sphereInstancePtr);
-//    add_object(boxInstancePtr);
-    add_object(openCylinderInstancePtr);
-    add_object(solidCylinderInstancePtr);
-    add_object(triangleInstancePtr);
-    add_object(discInstancePtr);
-    add_object(coneInstancePtr);
+    //add_object(torusInstancePtr);
+    //add_object(sphereInstancePtr);
+    //add_object(boxInstancePtr);
+    //add_object(openCylinderInstancePtr);
+    //add_object(solidCylinderInstancePtr);
+	add_object(bevelCylinderInstancePtr);
+    //add_object(triangleInstancePtr);
+    //add_object(discInstancePtr);
+    //add_object(coneInstancePtr);
     add_object(groundPlanePtr);
 #endif
 

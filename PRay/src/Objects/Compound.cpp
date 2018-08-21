@@ -128,7 +128,7 @@ bool Compound::shadow_hit(const Ray &ray, float &tmin) const
 
 BBox Compound::get_bounding_box() const
 {
-    return bBox;
+	return bBox;
 }
 
 
