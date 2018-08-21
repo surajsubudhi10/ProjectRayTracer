@@ -25,8 +25,8 @@
 #include <Objects/Disk.h>
 #include <Objects/OpenCone.h>
 
-//#define USE_ACCEL
-//#define USE_PRESPECTIVE
+#define USE_ACCEL
+#define USE_PRESPECTIVE
 
 #ifdef USE_PRESPECTIVE
 #define USE_PIN_HOLE
@@ -57,7 +57,7 @@ void World::build()
     //// ================ Camera ===================== ////
 #ifdef ORTHO
     OrthographicPtr orthoCam_ptr(new Orthographic);
-    orthoCam_ptr->eye(00, 100, 0);
+    orthoCam_ptr->eye(200, 100, 0);
     orthoCam_ptr->lookat(0, 0, 0);
     orthoCam_ptr->compute_uvw();
     set_camera(orthoCam_ptr);
@@ -66,9 +66,9 @@ void World::build()
 
 #ifdef USE_PIN_HOLE
     PinholePtr pinhole_ptr(new Pinhole);
-    pinhole_ptr->eye(0, 150, 00);
+    pinhole_ptr->eye(0, 300, 500);
     pinhole_ptr->lookat(0, -70, 0);
-    pinhole_ptr->zoom(1.5f);
+    pinhole_ptr->zoom(1.0f);
     const auto viewPlaneDis = (pinhole_ptr->lookat() - pinhole_ptr->eye()).length();
     pinhole_ptr->view_plane_distance((float) viewPlaneDis);
     pinhole_ptr->compute_uvw();
@@ -78,7 +78,7 @@ void World::build()
     //// ====================== LIGHTS ======================= ////
 
     PointLightPtr point_light_ptr(new PointLight());
-    point_light_ptr->set_location(100, 200, 100);
+    point_light_ptr->set_location(00, 50, 00);
     point_light_ptr->scale_radiance(2.0);
     add_light(point_light_ptr);
 
@@ -91,14 +91,12 @@ void World::build()
     cornerSpherMat->set_kd(0.75f);
     cornerSpherMat->set_cd(0.0, 0.0, 1.0);
 
-    /*MeshPtr meshPtr(new Mesh(R"(E:\SurajWorkspace\Personal\ProjectRayTracer\PRay\Resources\basic\bunny_mod.obj)"));
+    MeshPtr meshPtr(new Mesh(R"(D:\Code_Stuff\RayTracer\ProjectRay\PRay\Resources\basic\bunny_mod.obj)"));
     InstancePtr cornerSpherePtr( new Instance(meshPtr));
     cornerSpherePtr->set_material(cornerSpherMat);
-    cornerSpherePtr->rotateY(90);
-    cornerSpherePtr->scale(5, 5, 5);
+    cornerSpherePtr->scale(3, 3, 3);
     cornerSpherePtr->translate(0, -100, 0);
-    cornerSpherePtr->compute_bounding_box();*/
-
+    cornerSpherePtr->compute_bounding_box();
 
     /// Sphere
     MattePtr sphereMat(new Matte);
@@ -147,7 +145,6 @@ void World::build()
     InstancePtr openCylinderInstancePtr( new Instance(openCylinderPtr));
     openCylinderInstancePtr->set_material(openCylinderMat);
 	openCylinderInstancePtr->translate(-100, -60, -100);
-	//openCylinderInstancePtr->translate(100, -60, 100);
     openCylinderInstancePtr->compute_bounding_box();
 
     /// CloseCylinder
@@ -171,9 +168,7 @@ void World::build()
 	BevelCylinderPtr bevelCylinderPtr(new BevelCylinder(Point3D(), 30, 10, 80));
 	InstancePtr bevelCylinderInstancePtr(new Instance(bevelCylinderPtr));
 	bevelCylinderInstancePtr->set_material(bevelCylinderMat);
-	bevelCylinderInstancePtr->rotateZ(-90);
-	bevelCylinderInstancePtr->rotateY(45);
-	bevelCylinderInstancePtr->translate(0, -60, 0);
+	bevelCylinderInstancePtr->translate(100, -60, -100);
 	bevelCylinderInstancePtr->compute_bounding_box();
 
     /// Triangle
@@ -213,10 +208,6 @@ void World::build()
     coneInstancePtr->translate(100, -20, 0);
     coneInstancePtr->compute_bounding_box();
 
-
-
-
-
     //// ================ Ground Plane ===================== ////
 
     MattePtr matte_ptr01(new Matte());
@@ -224,28 +215,34 @@ void World::build()
     matte_ptr01->set_kd(0.65);
     matte_ptr01->set_cd(0.5, 0.5, 0.5);
 
-    RectanglePtr groundPlanePtr(new Rectangle(Point3D(0, -100, 0), 400, 400));
+    RectanglePtr groundPlanePtr(new Rectangle(Point3D(0, -100, 0), 1600, 1200));
     groundPlanePtr->set_material(matte_ptr01);
 
 #ifdef USE_ACCEL
-    //renderObjects.push_back(cornerSpherePtr);
-    renderObjects.push_back(frontSpherePtr);
-    renderObjects.push_back(midSpherePtr);
-    //renderObjects.push_back(backSpherePtr);
+    renderObjects.push_back(cornerSpherePtr);
+    renderObjects.push_back(torusInstancePtr);
+    renderObjects.push_back(sphereInstancePtr);
+    renderObjects.push_back(boxInstancePtr);
+    renderObjects.push_back(openCylinderInstancePtr);
+    renderObjects.push_back(solidCylinderInstancePtr);
+	renderObjects.push_back(bevelCylinderInstancePtr);
+    renderObjects.push_back(triangleInstancePtr);
+    renderObjects.push_back(discInstancePtr);
+    renderObjects.push_back(coneInstancePtr);
     renderObjects.push_back(groundPlanePtr);
     BVHPtr bvh(new BVH(&renderObjects[0], static_cast<int>(renderObjects.size())));
     add_object(bvh);
 #else
 //    add_object(cornerSpherePtr);
-    //add_object(torusInstancePtr);
-    //add_object(sphereInstancePtr);
-    //add_object(boxInstancePtr);
-    //add_object(openCylinderInstancePtr);
-    //add_object(solidCylinderInstancePtr);
+    add_object(torusInstancePtr);
+    add_object(sphereInstancePtr);
+    add_object(boxInstancePtr);
+    add_object(openCylinderInstancePtr);
+    add_object(solidCylinderInstancePtr);
 	add_object(bevelCylinderInstancePtr);
-    //add_object(triangleInstancePtr);
-    //add_object(discInstancePtr);
-    //add_object(coneInstancePtr);
+    add_object(triangleInstancePtr);
+    add_object(discInstancePtr);
+    add_object(coneInstancePtr);
     add_object(groundPlanePtr);
 #endif
 

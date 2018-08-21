@@ -1,0 +1,19 @@
+# File exported by Houdini 16.5.378 (www.sidefx.com)
+# 4 points
+# 6 vertices
+# 2 primitives
+# Bounds: [-50, 0, -50] to [50, 0, 50]
+g 
+v -50 0 -50
+v 50 0 -50
+v -50 0 50
+v 50 0 50
+vn 0 1 0
+vn 0 1 0
+vn 0 1 0
+vn 0 1 0
+vn 0 1 0
+vn 0 1 0
+g 
+f 1//1 4//2 2//3
+f 1//4 3//5 4//6
