@@ -23,7 +23,7 @@ public:
 
 	Sampler& operator= (const Sampler& rhs);
 	virtual ~Sampler();
-	virtual Sampler* clone() const = 0;
+	virtual std::shared_ptr<Sampler> clone() const = 0;
 	virtual void generate_samples() = 0;				// generate sample patterns in a unit square
 	void map_samples_to_unit_disk();					// mapping samples to a disk/circle
 	void map_samples_to_hemisphere(float e);			// mapping samples to a hemisphere

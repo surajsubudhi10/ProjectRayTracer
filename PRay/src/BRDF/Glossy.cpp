@@ -31,11 +31,6 @@ Glossy& Glossy::operator= (const Glossy& rhs)
 	cs = rhs.cs;
 	exp = rhs.exp;
 
-	if (sampler_ptr) {
-		delete sampler_ptr;
-		sampler_ptr = nullptr;
-	}
-
 	if (rhs.sampler_ptr)
 		sampler_ptr = rhs.sampler_ptr->clone();
 
@@ -43,12 +38,7 @@ Glossy& Glossy::operator= (const Glossy& rhs)
 }
 
 Glossy::~Glossy()
-{
-	if (sampler_ptr) {
-		delete sampler_ptr;
-		sampler_ptr = nullptr;
-	}
-}
+{}
 
 BRDF* Glossy::clone() const
 {
@@ -76,7 +66,6 @@ RGBColor Glossy::sample_f(const ShadeRec& sr, Vector3D& wi, const Vector3D& wo) 
 
 RGBColor Glossy::sample_f(const ShadeRec& sr, Vector3D& wi, const Vector3D& wo, float& pdf) const 
 {
-
 	auto ndotwo = static_cast<float>(sr.normal * wo);
 	Vector3D r = -wo + 2.0 * sr.normal * ndotwo;     // direction of mirror reflection
 
@@ -95,7 +84,6 @@ RGBColor Glossy::sample_f(const ShadeRec& sr, Vector3D& wi, const Vector3D& wo, 
 	pdf = static_cast<float>(phong_lobe * (sr.normal * wi));
 
 	return (ks * cs * phong_lobe);
-
 }
 
 RGBColor Glossy::rho(const ShadeRec& sr, const Vector3D& wo) const 
@@ -105,6 +93,7 @@ RGBColor Glossy::rho(const ShadeRec& sr, const Vector3D& wo) const
 
 void Glossy::set_samples(const int num_samples, const float exp) 
 {
-	sampler_ptr = new MultiJittered(num_samples);
+	MultiJitteredPtr jitterSample(new MultiJittered(num_samples));
+	sampler_ptr = jitterSample;
 	sampler_ptr->map_samples_to_hemisphere(exp);
 }

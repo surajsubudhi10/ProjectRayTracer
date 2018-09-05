@@ -40,6 +40,8 @@ private:
 	Glossy* 	specular_brdf;
 };
 
+typedef std::shared_ptr<Phong> PhongPtr;
+
 inline void Phong::set_exp(float exp_s)
 {
 	set_exp_s(exp_s);

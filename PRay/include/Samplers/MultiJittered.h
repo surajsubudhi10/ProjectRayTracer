@@ -10,7 +10,7 @@ public:
 	MultiJittered(int num_samples, int m);
 	MultiJittered(const MultiJittered& mjs);
 	MultiJittered& operator= (const MultiJittered& rhs);
-	MultiJittered* clone() const override;
+	SamplerPtr clone() const override;
 	~MultiJittered() override;
 
 private:

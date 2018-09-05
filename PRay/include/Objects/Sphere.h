@@ -22,7 +22,7 @@ public:
 	void set_center(const Point3D& c);
 	void set_center(double x, double y, double z);
 	void set_radius(double r);
-	void set_sampler(Sampler* sampler);
+	void set_sampler(SamplerPtr sampler);
 
 	bool hit(const Ray& ray, double& t, ShadeRec& s) const override;
 	bool shadow_hit(const Ray& ray, float& tmin) const override;
@@ -36,7 +36,7 @@ protected:
 
 	Point3D 	center;   			// center coordinates as a point  
 	double 		radius;				// the radius 
-	Sampler*	sampler_ptr;		// sampler for being a light object
+	SamplerPtr	sampler_ptr;		// sampler for being a light object
 	static const double kEpsilon;   // for shadows and secondary rays
 	float		inv_area;
 };

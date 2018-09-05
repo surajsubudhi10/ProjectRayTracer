@@ -6,41 +6,37 @@
 
 int qsplit(GeometricObjectPtr* objectList, int size, float pivotVal, int axis)
 {
-    BBox bbox;
-    double centroid;
     int retVal = 0;
-
     for(auto i = 0; i < size; i++)
     {
-        bbox = objectList[i]->get_bounding_box();
-
+        BBox bbox = objectList[i]->get_bounding_box();
         double minVal = 0, maxVal = 0;
-        if(axis == 0){
+        if (axis == 0) {
             minVal = bbox.x0;
             maxVal = bbox.x1;
-        }else if(axis == 1){
+        } else if (axis == 1) {
             minVal = bbox.y0;
             maxVal = bbox.y1;
-        }else if(axis == 2){
+        } else if (axis == 2) {
             minVal = bbox.z0;
             maxVal = bbox.z1;
         }
 
-        centroid = (minVal + maxVal) / 2.0;
-        if(centroid < pivotVal)
+        double centroid = (minVal + maxVal) / 2.0;
+        if (centroid < pivotVal)
         {
+            // Swap Objects basically keeping the left objects at the start of object list and right ones at the end of the array/list
             auto tempObject = objectList[i];
             objectList[i] = objectList[retVal];
             objectList[retVal] = tempObject;
             retVal++;
         }
-
-        if(retVal == 0 || retVal == size){
-            retVal = size / 2;
-        }
-
-        return retVal;
     }
+
+    if(retVal == 0 || retVal == size){
+        retVal = size / 2;
+    }
+    return retVal;
 }
 
 BVH::BVH()
@@ -55,8 +51,8 @@ BVH::BVH(GeometricObjectPtr obj1, GeometricObjectPtr obj2, const BBox &boundingB
 
 BVH::BVH(GeometricObjectPtr obj1, GeometricObjectPtr obj2)
 {
-    leftObject = obj1;
-    rightObject = obj2;
+    leftObject = std::move(obj1);
+    rightObject = std::move(obj2);
     bbox = leftObject->get_bounding_box();
     bbox = bbox.expand(rightObject->get_bounding_box());
 }
@@ -138,12 +134,12 @@ GeometricObjectPtr BVH::build_branch(GeometricObjectPtr* objects, int numOfObjec
         return bvh;
     }
 
-    BBox tempBBox = objects[0]->get_bounding_box();
+    BBox rootBBox = objects[0]->get_bounding_box();
     for (int i = 1; i < numOfObjects; ++i) {
-        tempBBox = tempBBox.expand(objects[i]->get_bounding_box());
+        rootBBox = rootBBox.expand(objects[i]->get_bounding_box());
     }
 
-    const Vector3D pivotPoint = (tempBBox.min() + tempBBox.max()) / 2.0f;
+    const Vector3D pivotPoint = (rootBBox.min() + rootBBox.max()) / 2.0f;
 
     auto pivot_axis = static_cast<float>(pivotPoint.x);
     if(axis == 1)
@@ -156,7 +152,7 @@ GeometricObjectPtr BVH::build_branch(GeometricObjectPtr* objects, int numOfObjec
     GeometricObjectPtr left = build_branch(objects, midPoint, (axis + 1) % 3);
     GeometricObjectPtr right = build_branch(&objects[midPoint], numOfObjects - midPoint, (axis + 1) % 3);
 
-    BVHPtr newBVH(new BVH(left, right, tempBBox));
+    BVHPtr newBVH(new BVH(left, right, rootBBox));
     return newBVH;
 }
 
@@ -176,3 +172,4 @@ BVH *BVH::clone() const
 {
     return (new BVH(*this));
 }
+

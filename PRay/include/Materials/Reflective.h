@@ -23,7 +23,8 @@ public:
 
 private:
     class PerfectSpecular* reflective_brdf;
-
 };
+
+typedef std::shared_ptr<Reflective> ReflectivePtr;
 
 #endif //PRAY_REFLECTIVE_H

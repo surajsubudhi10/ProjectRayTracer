@@ -23,7 +23,7 @@ public:
     void set_cr(float r, float g, float b);
 
     RGBColor sample_f(const ShadeRec& sr, Vector3D& wi, const Vector3D& wo) const override;
-    virtual RGBColor sample_f(const ShadeRec& sr, Vector3D& wi, const Vector3D& wo, float& pdf) const;
+//    virtual RGBColor sample_f(const ShadeRec& sr, Vector3D& wi, const Vector3D& wo, float& pdf) const;
     RGBColor rho(const ShadeRec& sr, const Vector3D& wo) const override;
     RGBColor f(const ShadeRec& sr, const Vector3D& wi, const Vector3D& wo) const override;
 

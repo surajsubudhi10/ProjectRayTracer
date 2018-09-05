@@ -30,7 +30,7 @@ private:
 	float ks;			// specular coefficient
 	RGBColor cs;		// specular color
 	float exp;			// specular exponent
-	Sampler* sampler_ptr;
+	SamplerPtr sampler_ptr;
 };
 
 inline void Glossy::set_ks(const float the_ks) 

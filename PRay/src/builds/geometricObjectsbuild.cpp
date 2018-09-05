@@ -48,11 +48,13 @@ void World::build()
 
     background_color = black;
 
-//    MultiJitteredPtr multiJitteredPtr(new MultiJittered(numOfSamples));
-//    AmbientOcculuderPtr occluder_ptr(new AmbientOcculuder(black, multiJitteredPtr));
-    AmbientPtr ambientPtr(new Ambient);
-    ambientPtr->scale_radiance(0.5);
-    set_ambient_light(ambientPtr);
+    MultiJitteredPtr multiJitteredPtr(new MultiJittered(numOfSamples));
+    AmbientOcculuderPtr occluder_ptr(new AmbientOcculuder(black, multiJitteredPtr));
+    occluder_ptr->scale_radiance(0.75f);
+    set_ambient_light(occluder_ptr);
+//    AmbientPtr ambientPtr(new Ambient);
+//    ambientPtr->scale_radiance(0.5);
+//    set_ambient_light(ambientPtr);
 
     //// ================ Camera ===================== ////
 #ifdef ORTHO

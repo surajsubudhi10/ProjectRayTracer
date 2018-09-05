@@ -65,7 +65,7 @@ MaterialPtr Matte::clone() const
 	return newMatteMaterial;
 }
 
-void Matte::set_sampler(Sampler* sampl_ptr) 
+void Matte::set_sampler(SamplerPtr sampl_ptr)
 {
 	ambient_ptr->set_sampler(sampl_ptr);
 	diffuse_ptr->set_sampler(sampl_ptr->clone());

@@ -9,7 +9,9 @@ public:
 	explicit Regular(int num);
 	Regular(const Regular& u);
 	Regular& operator= (const Regular& rhs);
-	Regular* clone() const override;
+	SamplerPtr clone() const override;
 	~Regular() override;
 	void generate_samples() override;
 };
+
+typedef std::shared_ptr<Regular> RegularPtr;

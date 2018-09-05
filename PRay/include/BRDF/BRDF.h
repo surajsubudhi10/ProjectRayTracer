@@ -15,7 +15,7 @@ public:
 	virtual	~BRDF();
 	
 	BRDF& operator= (const BRDF& rhs);
-	void set_sampler(Sampler* sPtr);
+	void set_sampler(SamplerPtr sPtr);
 
 	virtual RGBColor f(const ShadeRec& sr, const Vector3D& wi, const Vector3D& wo) const = 0;
 	virtual RGBColor sample_f(const ShadeRec& sr, Vector3D& wi, const Vector3D& wo) const = 0;
@@ -23,5 +23,5 @@ public:
 
 protected:
 
-	Sampler* sampler_ptr;
+	SamplerPtr sampler_ptr;
 };

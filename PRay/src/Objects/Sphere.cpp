@@ -59,11 +59,6 @@ Sphere& Sphere::operator= (const Sphere& rhs)
     radius = rhs.radius;
     inv_area = rhs.inv_area;
 
-    if (sampler_ptr) {
-        delete sampler_ptr;
-        sampler_ptr = nullptr;
-    }
-
     if (rhs.sampler_ptr)
         sampler_ptr = rhs.sampler_ptr->clone();
 
@@ -73,12 +68,7 @@ Sphere& Sphere::operator= (const Sphere& rhs)
 // ---------------------------------------------------------------- destructor
 
 Sphere::~Sphere()
-{
-    if (sampler_ptr) {
-        delete sampler_ptr;
-        sampler_ptr = nullptr;
-    }
-}
+{}
 
 //---------------------------------------------------------------- hit
 
@@ -163,13 +153,8 @@ bool Sphere::shadow_hit(const Ray& ray, float& tmin) const
 
 // ---------------------------------------------------------------- setSampler
 
-void Sphere::set_sampler(Sampler* sampler) 
+void Sphere::set_sampler(SamplerPtr sampler)
 {
-    if (sampler_ptr) {
-        delete sampler_ptr;
-        sampler_ptr = nullptr;
-    }
-
     sampler_ptr = sampler;
     sampler_ptr->map_samples_to_sphere();
 }

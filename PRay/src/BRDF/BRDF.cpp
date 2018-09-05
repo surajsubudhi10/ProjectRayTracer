@@ -1,3 +1,4 @@
+#include <utility>
 #include "BRDF/BRDF.h"
 
 BRDF::BRDF() : sampler_ptr(nullptr)
@@ -18,11 +19,6 @@ BRDF& BRDF::operator= (const BRDF& rhs)
 	if (this == &rhs)
 		return (*this);
 
-	if (sampler_ptr) {
-		delete sampler_ptr;
-		sampler_ptr = nullptr;
-	}
-
 	if (rhs.sampler_ptr) {
 		sampler_ptr = rhs.sampler_ptr->clone();	
 	}
@@ -32,16 +28,11 @@ BRDF& BRDF::operator= (const BRDF& rhs)
 
 
 BRDF::~BRDF()
-{
-	if (sampler_ptr) {
-		delete sampler_ptr;
-		sampler_ptr = nullptr;
-	}
-}
+{}
 
-void BRDF::set_sampler(Sampler* sPtr) 
+void BRDF::set_sampler(SamplerPtr sPtr)
 {
-	sampler_ptr = sPtr;
+	sampler_ptr = std::move(sPtr);
 	sampler_ptr->map_samples_to_hemisphere(1);	
 }
 

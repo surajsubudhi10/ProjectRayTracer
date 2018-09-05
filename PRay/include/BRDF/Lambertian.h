@@ -29,6 +29,8 @@ private:
 };
 
 inline void Lambertian::set_kd(const float the_kd) {
+	if(kd > 1.0f) kd = 1.0f;
+	if(kd < 0.0f) kd = 0.0f;
 	kd = the_kd;
 }
 

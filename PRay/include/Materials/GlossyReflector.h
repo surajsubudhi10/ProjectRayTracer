@@ -24,8 +24,8 @@ public:
 
 private:
     class Glossy* glossy_reflector_brdf;
-
 };
 
+typedef std::shared_ptr<GlossyReflector> GlossyReflectorPtr;
 
 #endif //PRAY_GLOSSYREFLECTOR_H

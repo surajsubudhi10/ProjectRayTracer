@@ -1,6 +1,5 @@
 cmake-build-debug
 vs-build
-builds
 .idea/*
 OutputImages
 

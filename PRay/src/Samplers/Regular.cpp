@@ -40,9 +40,10 @@ Regular& Regular::operator= (const Regular& rhs)
 
 // ---------------------------------------------------------------- clone
 
-Regular* Regular::clone() const
+SamplerPtr Regular::clone() const
 {
-	return (new Regular(*this));
+	RegularPtr clonedRegular(new Regular(*this));
+	return (clonedRegular);
 }
 
 // ---------------------------------------------------------------- destructor			

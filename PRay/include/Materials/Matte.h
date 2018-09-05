@@ -19,7 +19,7 @@ public:
 	void set_kd(float k);
 	void set_cd(const RGBColor& c);
 	void set_cd(float r, float g, float b);
-	void set_sampler(Sampler* sampl_ptr);
+	void set_sampler(SamplerPtr sampl_ptr);
 
 	RGBColor shade(ShadeRec& sr) override;
 	RGBColor area_light_shade(ShadeRec& sr) override;

@@ -71,12 +71,13 @@ set(PRAY_SOURCE
 
         ## builds
         #"src/builds/bareBoneBuild.cpp"
-        "src/builds/geometricObjectsbuild.cpp"
+        #"src/builds/geometricObjectsbuild.cpp"
         #"src/builds/gridRandomSphere.cpp"
         #"src/builds/meshTestBuilds.cpp"
         #"src/builds/bvhTestBuilds.cpp"
         #"src/builds/prespCamTestBuild.cpp"
         #"src/builds/lightTestBuilds.cpp"
+        "src/builds/materialsTestBuild.cpp"
    )
 
 #-------------------------------------------------------------------------------

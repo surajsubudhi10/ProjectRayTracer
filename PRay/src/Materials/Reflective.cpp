@@ -14,7 +14,8 @@ Reflective::Reflective() : Phong()
 Reflective::Reflective(const Reflective &ref) : Phong(ref), reflective_brdf(ref.reflective_brdf)
 {}
 
-RGBColor Reflective::shade(ShadeRec &sr) {
+RGBColor Reflective::shade(ShadeRec &sr)
+{
     RGBColor L(Phong::shade(sr));
 
     auto wo = -sr.ray.d;

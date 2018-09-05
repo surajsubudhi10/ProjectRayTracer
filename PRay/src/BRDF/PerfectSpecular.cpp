@@ -35,11 +35,11 @@ RGBColor PerfectSpecular::sample_f(const ShadeRec &sr, Vector3D &wi, const Vecto
     return (kr * cr / (sr.normal * wi));
 }
 
-RGBColor PerfectSpecular::sample_f(const ShadeRec &sr, Vector3D &wi, const Vector3D &wo, float &pdf) const {
-    auto ndotwo = sr.normal * wo;
-    wi = -wo + 2.0f * sr.normal * ndotwo;
-    return (kr * cr / (sr.normal * wi));
-}
+//RGBColor PerfectSpecular::sample_f(const ShadeRec &sr, Vector3D &wi, const Vector3D &wo, float &pdf) const {
+//    auto ndotwo = sr.normal * wo;
+//    wi = -wo + 2.0f * sr.normal * ndotwo;
+//    return (kr * cr / (sr.normal * wi));
+//}
 
 RGBColor PerfectSpecular::rho(const ShadeRec &sr, const Vector3D &wo) const {
     return black;

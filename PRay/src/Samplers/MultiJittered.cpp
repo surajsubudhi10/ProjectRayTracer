@@ -50,9 +50,10 @@ MultiJittered& MultiJittered::operator= (const MultiJittered& rhs)
 
 // ---------------------------------------------------------------- clone
 
-MultiJittered* MultiJittered::clone() const
+SamplerPtr MultiJittered::clone() const
 {
-	return (new MultiJittered(*this));
+	MultiJitteredPtr clonedMultiJitter(new MultiJittered(*this));
+	return clonedMultiJitter;
 }
 
 // ---------------------------------------------------------------- destructor			
